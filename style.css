@@ -1,0 +1,383 @@
+/* --- 1. Подключение шрифтов --- */
+
+/* Заголовки (Optima) */
+@font-face {
+  font-family: 'Optima';
+  src: url('fonts/Optima.ttc') format('truetype'); /* Если файл .ttc */
+  font-weight: normal;
+  font-style: normal;
+}
+/* Если у вас есть отдельный файл для Bold, подключите его так же, указав font-weight: 700 */
+
+/* Рукописный акцент (Ballonest) */
+@font-face {
+  font-family: 'Ballonest';
+  src: url('fonts/Ballonest.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Основной текст (Switzer - предполагаем название файла) */
+@font-face {
+  font-family: 'Switzer';
+  /* Важно: имя файла здесь должно совпадать с тем, что лежит в папке fonts */
+  src: url('fonts/Switzer-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* --- 2. Переменные и сброс --- */
+:root {
+  --font-serif: 'Optima', 'Times New Roman', serif;
+  --font-script: 'Ballonest', cursive;
+  --font-sans: 'Switzer', 'Inter', sans-serif;
+
+  --color-dark: #141213;
+  --color-light: #ffffff;
+  --color-text-main: #0d0d0d;
+  --color-text-muted: #4a4a4a;
+
+  --container-width: 1200px;
+  --section-padding: 120px 0; /* Увеличил отступы как на макете */
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  background-color: var(--color-light);
+  line-height: 1.6;
+  font-weight: 300; /* Тонкий шрифт для Switzer */
+  overflow-x: hidden;
+  font-size: 18px; /* Чуть крупнее база */
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+  color: #000;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* --- Hero Section --- */
+/* --- Hero Section (Обновленная раскладка) --- */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  /* Убираем flex центрирование отсюда, теперь за это отвечает грид внутри */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  background-image: url('img/IMG_0719 3.JPG');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  overflow: hidden; /* Чтобы огромный текст не вызывал скролл */
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Новый грид-контейнер */
+.hero-layout-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  max-width: 1600px; /* Ограничиваем ширину на сверхбольших экранах */
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: grid;
+  /* Три колонки:
+     1fr (гибкое место слева)
+     minmax(300px, 35vw) (место под фигуру в центре, минимум 300px или 35% ширины)
+     1fr (гибкое место справа) */
+  grid-template-columns: 1fr minmax(300px, 35vw) 1fr;
+  align-items: center; /* Вертикальное центрирование */
+}
+
+/* Левый блок с заголовком */
+.hero-left {
+  grid-column: 1; /* Явно указываем первую колонку */
+  text-align: right; /* Прижимаем текст к центру (к фигуре) */
+  padding-right: 20px;
+}
+
+/* Правый блок с деталями */
+.hero-right {
+  grid-column: 3; /* Явно указываем третью колонку */
+  text-align: left; /* Прижимаем текст к центру (к фигуре) */
+  padding-left: 20px;
+}
+
+/* Стили текста (почти без изменений, кроме выравнивания) */
+.artist-name {
+  font-family: 'Ballonest', cursive;
+  font-weight: 400;
+  /* Clamp: мин 120px, предп. 18vw, макс 300px */
+  font-size: clamp(120px, 18vw, 300px);
+  line-height: 0.8;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  white-space: nowrap; /* Чтобы Torf не переносился */
+}
+
+.artist-details {
+  font-family: 'Switzer', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.artist-details p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Адаптив для мобильных и планшетов */
+@media (max-width: 1024px) {
+  /* На экранах меньше 1024px фигура перекроет текст, поэтому меняем раскладку на вертикальную */
+  .hero-layout-grid {
+    grid-template-columns: 1fr; /* Одна колонка */
+    grid-template-rows: auto auto; /* Два ряда */
+    justify-content: center;
+    align-content: center;
+    gap: 40px;
+    text-align: center; /* Всё по центру */
+    padding-top: 10vh; /* Чуть поднимем вверх, чтобы не закрывать лицо */
+  }
+
+  .hero-left, .hero-right {
+    grid-column: 1;
+    text-align: center; /* Сбрасываем прижатие к бокам */
+    padding: 0;
+  }
+
+  .artist-name {
+      /* На мобильном делаем шрифт чуть меньше */
+      font-size: clamp(100px, 20vw, 200px);
+  }
+}
+
+/* --- Statement Section --- */
+.statement-section {
+  position: relative;
+  background-image: url('img/IMG_0710.JPG');
+  background-size: cover;
+  background-position: center;
+  color: #e0e0e0;
+  padding: var(--section-padding);
+}
+
+.statement-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px; /* Фиксируем ширину картинки */
+  gap: 80px;
+  align-items: start;
+}
+
+.statement-text {
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.statement-image img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%); /* Чб стиль для портрета */
+}
+
+/* --- Collections --- */
+.collection {
+  padding: var(--section-padding);
+  background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
+}
+
+.collection-header {
+  margin-bottom: 100px;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 60px;
+}
+
+.collection-title {
+  font-size: 5rem; /* Крупный Optima */
+  margin-bottom: 40px;
+  position: relative;
+  display: flex;
+  align-items: center; /* Выравнивание с рукописным текстом */
+  flex-wrap: wrap;
+}
+
+.collection-title .subtitle {
+  font-family: var(--font-script);
+  font-size: 3rem; /* Крупный Ballonest */
+  color: #666;
+  margin-left: 30px;
+  font-weight: 400;
+  transform: rotate(-5deg) translateY(-10px); /* Небольшой наклон и сдвиг вверх для стиля */
+}
+
+.collection-description {
+  max-width: 900px;
+  font-size: 1.2rem;
+  color: var(--color-text-main);
+  line-height: 1.8;
+}
+
+/* Artwork Items */
+.artwork-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-bottom: 150px;
+  align-items: center;
+}
+
+.artwork-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artwork-visual img {
+  max-height: 600px;
+  width: auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.artwork-info {
+  text-align: left;
+}
+
+.artwork-title {
+  font-size: 3rem; /* Крупные названия работ */
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Декоративная линия под заголовком работы */
+.artwork-title::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  margin-top: 10px;
+}
+
+.artwork-desc {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: #222;
+  text-align: justify;
+}
+
+/* --- Footer --- */
+.main-footer {
+  padding: 100px 0;
+  background-color: #fff;
+}
+
+.footer-title {
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+}
+
+.footer-line {
+  border: none;
+  border-top: 1px solid #000;
+  margin-bottom: 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+}
+
+.contact-info address {
+  font-style: normal;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 2.2;
+}
+
+.contact-info strong {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.footer-gallery img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer-gallery img:hover {
+  opacity: 1;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .artist-name { font-size: 100px; }
+  .collection-title { font-size: 3rem; }
+  .collection-title .subtitle { font-size: 2rem; }
+
+  .statement-grid,
+  .artwork-item,
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .statement-image {
+    order: -1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .footer-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
