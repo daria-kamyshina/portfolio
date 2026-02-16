@@ -1,231 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Daria Kamyshina (Torf) - Artist Portfolio</title>
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torf | Kamyshina Daria</title>
+    
+    <link href="https://api.fontshare.com/v2/css?f[]=switzer@200,300,400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/optima" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/ballonest" rel="stylesheet">
 
-    <header class="hero">
-        <div class="hero-layout-grid">
+    <style>
+        :root {
+            --font-main: 'Switzer', sans-serif;
+            --font-title: 'Optima', sans-serif;
+            --font-sign: 'Ballonest', cursive;
+            --color-bg: #0a0a0a; 
+            --color-deep-black: #020102; 
+            --color-text: #e0e0e0;
+            --color-muted: #888;
+            --color-border: rgba(255,255,255,0.1);
+            --padding-left-content: clamp(2rem, 8vw, 15rem); 
+        }
 
-            <div class="hero-left">
-                <h1 class="artist-name">Torf</h1>
-            </div>
+        /* --- LANG SWITCHER --- */
+        .lang-switcher {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+            display: flex;
+            gap: 1rem;
+        }
 
-            <div class="hero-right">
-                <div class="artist-details">
-                    <p>Daria Kamyshina</p>
-                    <p>Portfolio 2024</p>
-                    <p>Tbilisi (Georgia) / Leinfelden (Germany)</p>
-                </div>
-            </div>
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--color-muted);
+            font-family: var(--font-main);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding-bottom: 2px;
+            border-bottom: 1px solid transparent;
+        }
 
-        </div>
-        <div class="hero-bg-overlay"></div>
-    </header>
+        .lang-btn.active {
+            color: #fff;
+            border-bottom: 1px solid #fff;
+        }
 
-    <section class="statement-section">
-        <div class="container">
-            <div class="statement-grid">
-                <div class="statement-text">
-                    <p>My artistic practice is an investigation into the fragility of systems, be they political regimes, psychological defenses, or ecological balances. I work primarily with glass and mixed media because these materials embody a fundamental paradox: they are rigid enough to build structures, yet brittle enough to shatter under sudden impact.</p>
-                    <p>My work oscillates between the personal and the geopolitical. In projects like <em>Not Your War</em>, I explore how individual lives are crushed by the machinery of history. In <em>Form of Existence</em>, I examine the internal architecture of trauma.</p>
-                    <p>My goal is to engage the viewer in a dialogue about the limits of our perception and the resilience of the human spirit in the face of collapse.</p>
-                </div>
-            </div>
+        .lang-btn:hover { color: #fff; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            overflow-x: hidden; 
+            width: 100vw;
+            font-family: var(--font-main);
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .axis-padding { padding-left: var(--padding-left-content); padding-right: 2rem; }
+
+        .section-header-small {
+            font-family: var(--font-main); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+            margin-bottom: 2rem; opacity: 0.4; font-weight: 400; border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5rem; display: inline-block;
+        }
+
+        .paragraph { font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem; color: #bbb; font-weight: 300; }
+        .paragraph strong { font-weight: 500; color: #f0f0f0; }
+
+        .hero { position: relative; width: 100%; height: 100vh; background-image: url('Torf_hero.jpg'); background-size: cover; background-position: center; }
+        .hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.4) 70%, var(--color-bg) 100%); pointer-events: none; }
+        
+        .brand-signature { position: absolute; top: 62%; left: 28%; transform: translate(-50%, -50%) rotate(-5deg); z-index: 10; font-family: var(--font-sign); font-size: clamp(8rem, 22vw, 18rem); color: #f0f0f0; line-height: 1; text-shadow: 2px 2px 30px rgba(0,0,0,0.6); opacity: 0.95; pointer-events: none; }
+        
+        .hero-content { position: absolute; bottom: 12%; right: 12%; z-index: 10; text-align: left; max-width: 450px; }
+        .artist-name { font-family: var(--font-title); text-transform: uppercase; font-weight: 400; font-size: 1.5rem; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: #fff; }
+        .portfolio-year { font-family: var(--font-main); font-size: 10px; text-transform: uppercase; letter-spacing: 0.4em; color: #666; margin-bottom: 1.5rem; }
+        .tags { font-weight: 300; font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 0.15em; }
+
+        .container { max-width: 1440px; margin: 0 auto; padding-top: 10rem; padding-left: var(--padding-left-content); padding-right: 2rem; padding-bottom: 6rem; }
+        .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .cv-item { margin-bottom: 3rem; }
+        .cv-item h3 { font-family: var(--font-title); font-size: 1.1rem; font-weight: 400; color: #fff; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .cv-item p { font-size: 0.9rem; color: var(--color-muted); line-height: 1.6; }
+        .cv-list { list-style: none; margin-top: 1rem; }
+        .cv-list li { position: relative; padding-left: 1rem; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-muted); line-height: 1.4; }
+        .cv-list li::before { content: '—'; position: absolute; left: 0; color: #333; }
+
+        .statement-section-full { position: relative; width: 100%; min-height: 100vh; display: flex; align-items: center; background-color: #000; overflow: hidden; }
+        .statement-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('Torf_statement.jpg'); background-size: cover; background-position: center; z-index: 0; }
+        .statement-top-fade { position: absolute; top: -1px; left: 0; width: 100%; height: 25vh; background: linear-gradient(to bottom, var(--color-bg) 0%, transparent 100%); z-index: 2; pointer-events: none; }
+        .statement-overlay { position: absolute; top: 0; left: 0; width: 65%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, transparent 100%); z-index: 1; }
+        .statement-text-wrapper { position: relative; z-index: 5; padding-left: var(--padding-left-content); padding-right: 4rem; max-width: 800px; }
+
+        .narrative-wrapper { position: relative; width: 100%; background-color: var(--color-deep-black); overflow: hidden; }
+        .section-echoes { min-height: 100vh; position: relative; background-image: url('Torf_vase.jpg'); background-size: cover; background-position: left center; display: grid; grid-template-columns: 40% 60%; align-items: center; z-index: 1; }
+        .section-echoes::before { content: ''; position: absolute; top: 0; right: 0; width: 70%; height: 100%; background: linear-gradient(to right, transparent 0%, rgba(2,1,2,0.8) 30%, rgba(2,1,2,1) 100%); pointer-events: none; }
+        .echoes-content { position: relative; z-index: 5; padding-right: var(--padding-left-content); padding-left: 4rem; }
+
+        /* --- FISH SECTION --- */
+        .section-boundaries-fish { 
+            position: relative; 
+            width: 100%; 
+            background-color: var(--color-deep-black); 
+            background-image: url('Torf_fish.jpg'); 
+            background-size: 100% auto; 
+            background-position: center bottom; 
+            background-repeat: no-repeat; 
+            mask-image: linear-gradient(to bottom, transparent 0%, black 10%); 
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%); 
+            padding-bottom: 2rem; 
+        }
+
+        .boundaries-content-wrapper { display: grid; grid-template-columns: 55% 45%; padding-top: 15vh; padding-left: var(--padding-left-content); position: relative; z-index: 15; }
+        .boundaries-text-col { padding-right: 2rem; padding-bottom: 10vh; }
+
+        /* --- LINK STYLES --- */
+        .collection-link { 
+            text-decoration: none; 
+            display: flex; 
+            width: fit-content; 
+            cursor: pointer; 
+            margin-bottom: 2rem; 
+            align-items: center;
+        }
+        
+        .title-main { 
+            font-family: var(--font-title); 
+            font-size: 3.5rem; 
+            color: #fff; 
+            line-height: 0.9; 
+            text-transform: uppercase; 
+            letter-spacing: -0.04em; 
+            transition: color 0.4s ease; 
+        }
+        
+        .title-sub { 
+            font-family: var(--font-sign); 
+            font-size: 2.7rem; 
+            color: #666; 
+            line-height: 1; 
+            margin-left: 1rem; 
+            transition: color 0.4s ease; 
+        }
+
+        .arrow-line { display: inline-block; position: relative; height: 10px; transition: width 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); }
+        .arrow-line::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: #444; }
+        .arrow-line::after { content: ''; position: absolute; top: 50%; right: 0; width: 6px; height: 6px; border-top: 1px solid #444; border-right: 1px solid #444; transform: translateY(-50%) rotate(45deg); }
+        
+        .link-echoes .arrow-line { width: 50px; margin-left: 15px; }
+        .link-echoes:hover .arrow-line { width: 90px; }
+        
+        .link-boundaries { flex-direction: column; align-items: flex-start; }
+        .link-boundaries .arrow-line { width: 60px; margin-top: 15px; margin-left: 2px; }
+        .link-boundaries:hover .arrow-line { width: 120px; }
+
+        .works-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 3rem; row-gap: 1.5rem; margin-top: 3rem; }
+        .work-item { font-family: var(--font-title); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666; cursor: pointer; transition: 0.3s; }
+        .work-item:hover { color: #fff; }
+        .desc-text { font-size: 1.05rem; line-height: 1.6; color: #888; margin-bottom: 1.2rem; font-weight: 300; max-width: 600px; }
+
+        /* --- FOOTER STYLES --- */
+        footer { 
+            background-color: transparent;
+            border-top: none; 
+            padding: 4rem 0 6rem;
+            color: var(--color-text); 
+            position: relative;
+            z-index: 20;
+        }
+        
+        .footer-grid { 
+            max-width: 1440px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 1.5fr 0.4fr 0.8fr 1.2fr 2.5fr; 
+            gap: 2rem; 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.2em; 
+        }
+
+        .footer-col span { display: block; margin-bottom: 1rem; font-weight: 600; color: #fff; }
+        
+        .footer-header-link {
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-header-link:hover {
+            color: var(--color-muted);
+            opacity: 0.8;
+        }
+
+        .footer-col a.contact-link { display: block; text-decoration: none; color: inherit; opacity: 0.5; margin-bottom: 0.5rem; }
+        .footer-col a.contact-link:hover { opacity: 1; }
+        
+        .footer-list { list-style: none; opacity: 0.4; text-transform: lowercase; letter-spacing: 0; font-size: 12px; }
+
+        @media (max-width: 900px) {
+            :root { --padding-left-content: 2rem; }
+            .cv-grid { grid-template-columns: 1fr; }
+            .section-echoes { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('de')">DE</button>
+    </nav>
+
+    <section class="hero">
+        <div class="brand-signature">Torf</div>
+        <div class="hero-content">
+            <div class="artist-name">Kamyshina Daria</div>
+            <div class="portfolio-year" data-key="portfolio_year">Portfolio 2026</div>
+            <div class="tags" data-key="hero_tags">Glass Sculpture / Installation / Textile Art</div>
         </div>
     </section>
 
-    <section class="collection" id="echoes">
-        <div class="container">
-            <header class="collection-header">
-                <h2 class="collection-title">Echoes <span class="subtitle">collection</span></h2>
-                <div class="collection-description">
-                    <p>This collection marks the moment my art ceased to be a private practice and became a necessity. Before the war, concepts lived in the drawer of my mind, but as reality fractured, the urge to materialize these thoughts became overwhelming.</p>
-                    <p>Echoes gathers the works that were forced into existence by global tragedy—not your war, mordor, puscha, darling—acting as a language when words are powerless.</p>
+    <div class="container">
+        <div class="cv-grid">
+            <div class="cv-column">
+                <div class="section-header-small" data-key="cv_header_1">Collections & Commissions</div>
+                <div class="cv-item">
+                    <h3 data-key="cv_loc_1">Art Palace Museum, Tbilisi, Georgia</h3>
+                    <p data-key="cv_period_1">Permanent Collection (2025–Present)</p>
+                    <ul class="cv-list">
+                        <li data-key="cv_work_1">Works: Not Your War; The Boundary of Perception</li>
+                        <li data-key="cv_comm_1">Commission: stained glass work for the museum (ongoing)</li>
+                    </ul>
                 </div>
-            </header>
-
-            <div class="artworks-list">
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                        <img src="img/Иллюстрация_без_названия 20.png" alt="Not your war visualization">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">Not your war</h3>
-                        <p class="artwork-desc">A durational performance responding to the war in Ukraine through a ritual of breaking and repairing using kintsugi. The work focuses on the irreversible changes and permanent scars left on the collective self.</p>
-                    </div>
-                </article>
-
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                        <img src="img/Иллюстрация_без_названия 26.png" alt="Crime or Punishment">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">Crime or Punishment</h3>
-                        <p class="artwork-desc">Installation forces a physical shift in perspective to reveal conflicting realities, juxtaposing Russian state repression with the western luxury of its elites. The work centers on a passport image to expose the hypocrisy of global complicity.</p>
-                    </div>
-                </article>
-
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                        <img src="img/B091B402-1466-482D-BC35-EA19631BB130 (1).jpeg" alt="Mordor Installation">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">Mordor</h3>
-                        <p class="artwork-desc">An immersive installation transforming a room into a living archive of Russian collective memory. By physically peeling back layers of grey sheets to reveal hidden histories, visitors enact the tension between state censorship and the necessity of disclosure.</p>
-                    </div>
-                </article>
-
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                        <img src="img/Иллюстрация_без_названия 22.png" alt="Puscha">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">Puscha</h3>
-                        <p class="artwork-desc">A mixed media landscape where the stitched word RUSSIA visually morphs into PUSCHA. This linguistic distortion critiques how the global gaze conflates the country with its regime, mistaking the people for the authoritarian state.</p>
-                    </div>
-                </article>
-
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                         <img src="img/372AED98-F020-40E4-8B78-4A4FBCF1B0A9.jpeg" alt="It's just death">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">It's just death</h3>
-                        <p class="artwork-desc">A durational installation positioning the viewer between opposing walls of AI-generated portraits—Ukrainian and Russian. As faces vanish into black voids, the work reduces mass tragedy to a routine data stream.</p>
-                    </div>
-                </article>
-
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                        <img src="img/Иллюстрация_без_названия 27.png" alt="Darling">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">Darling</h3>
-                        <p class="artwork-desc">A hand-woven carpet crafted from black body bag plastic, mimicking a field of sedge grass. Through the ritualistic braiding of this synthetic soil, the installation transforms the floor into a texturized mass grave.</p>
-                    </div>
-                </article>
             </div>
-        </div>
-    </section>
-
-    <section class="collection" id="boundaries">
-        <div class="container">
-            <header class="collection-header">
-                <h2 class="collection-title">Boundaries of perception <span class="subtitle">collection</span></h2>
-                <div class="collection-description">
-                    <p>This collection gathers concepts that span different periods of my life. Some originated long before the war, while others emerged in its shadow. What unites them is a shift away from direct documentation toward a more complex, multilayered inquiry.</p>
-                </div>
-            </header>
-
-            <div class="artworks-list">
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                         <img src="img/Иллюстрация_без_названия 21.png" alt="The Divide">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">The Divide</h3>
-                        <p class="artwork-desc">A minimalist diptych confronting Islamic and European cultural perceptions through opposing canvases. By juxtaposing a black veil of observation against a beige field of blindness, the work uses texture and geometry to materialize invisible barriers.</p>
-                    </div>
-                </article>
-
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                         <img src="img/903073D9-F663-4EAD-9084-ED46A0544105.jpeg" alt="Glass Ceiling">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">Glass ceiling</h3>
-                        <p class="artwork-desc">An installation featuring a low-hanging glass ceiling that forces viewers to stoop, physically enacting the constraints of gender inequality. The breakthroughs in the glass are edged with red crystal beads.</p>
-                    </div>
-                </article>
-
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                        <img src="img/Иллюстрация_без_названия 24.png" alt="Digitalprint">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">Digitalprint</h3>
-                        <p class="artwork-desc">An installation envisioning the future fossils of our technogenic era. Inside a black industrial cube, lampwork glass creatures glowing like 3D wireframes float in cold light.</p>
-                    </div>
-                </article>
-
-                 <article class="artwork-item">
-                    <div class="artwork-visual">
-                        <img src="img/693C3AA0-6C2E-4D42-A853-A8CE82E2157D.jpeg" alt="Survival Game">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">Survival Game</h3>
-                        <p class="artwork-desc">A chess installation juxtaposing a massive transparent army of Civilization against a smaller opaque force of Nature. While visually dominant, the human side is strategically hopeless.</p>
-                    </div>
-                </article>
-
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                        <img src="img/Иллюстрация_без_названия 28.png" alt="Form of existence">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">Form of existence</h3>
-                        <p class="artwork-desc">A interactive sculpture of a heart pierced by steel rods, which serve as the armature for a new personality. Viewers (or the artist) dress these needles in seven interchangeable skins.</p>
-                    </div>
-                </article>
-
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                        <img src="img/Иллюстрация_без_названия 27.png" alt="The Garden">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">The Garden</h3>
-                        <p class="artwork-desc">An optical sanctuary composed of mirrored vases resting on colorful saucers. Through reflection, the vessels absorb the hidden patterns beneath them, manifesting them as shimmering, illusory flowers.</p>
-                    </div>
-                </article>
-
-                <article class="artwork-item">
-                    <div class="artwork-visual">
-                        <img src="img/Иллюстрация_без_названия 25.png" alt="Between the end and infinity">
-                    </div>
-                    <div class="artwork-info">
-                        <h3 class="artwork-title">Between the end and infinity</h3>
-                        <p class="artwork-desc">An infinity mirror tunnel visualizing a child's solution to an existential paradox. Confronting the terror of a boundless universe, the work populates the void with Pink Elephants.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <footer class="main-footer">
-        <div class="container">
-            <h2 class="footer-title">Contact</h2>
-            <hr class="footer-line">
-
-            <div class="footer-grid">
-                <div class="contact-info">
-                    <address>
-                        <strong>Daria Kamyshina (Torf)</strong><br>
-                        Email: <a href="mailto:dkamysina@gmail.com">dkamysina@gmail.com</a><br>
-                        Phone: +995598142635<br>
-                        Instagram: <a href="https://instagram.com/torf_art" target="_blank">@torf_art</a>
-                    </address>
-                    <p class="locations">
-                        Location: Tbilisi, Georgia<br>
-                        Planning: Leinfelden-Echterdingen (Stuttgart), Germany
-                    </p>
-                </div>
-
-                <div class="footer-gallery">
-                    <img src="img/IMG_2674.HEIC.png" alt="Gallery 1">
-                    <img src="img/IMG_9324.JPG.jpg" alt="Gallery 2">
-                    <img src="img/IMG_2849.JPG.png" alt="Gallery 3">
-                    <img src="img/IMG_7527.JPG (1).jpg" alt="Gallery 4">
-                    <img src="img/IMG_5712 (1).jpg" alt="Gallery 5">
+            <div class="cv-column">
+                <div class="section-header-small" data-key="cv_header_2">Exhibitions & Public Presentations</div>
+                <div class="cv-item">
+                    <h3 data-key="ex_title_1">Not Your War</h3>
+                    <p data-key="ex_desc_1">Durational public intervention (ceramic vessel repeatedly broken and repaired), 2024</p>
+                    <ul class="cv-list">
+                        <li>Frame Cultural Space, Tbilisi, Georgia</li>
+                        <li>Kofevar, Tbilisi, Georgia</li>
+                        <li>Kovcheg, Yerevan, Armenia — March 17, 2024</li>
+                        <li data-key="ex_loc_4">Additional independent realizations, Tbilisi, 2024</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
 
-  </body>
+    <div class="statement-section-full">
+        <div class="statement-top-fade"></div>
+        <div class="statement-bg"></div>
+        <div class="statement-overlay"></div>
+        <div class="statement-text-wrapper">
+            <div class="section-header-small" data-key="statement_header">Artist Statement</div>
+            <p class="paragraph" data-key="statement_p1">
+                My artistic practice is an investigation into the fragility of systems, whether they are political regimes, psychological defenses, or ecological balances. I dissect how structure turns into ruin, and how that ruin is ritualized into a new, distorted reality.
+            </p>
+            <p class="paragraph" data-key="statement_p2">
+                As global tragedy dismantled the logic of everyday life, my art ceased to be a private conceptual exercise and became a necessity. Through the ritualistic repair of broken forms or the weaving of synthetic materials associated with death, I explore how individual lives are crushed by the machinery of history.
+            </p>
+            <p class="paragraph" data-key="statement_p3">
+                Ultimately, my work oscillates between the geopolitical and the deeply personal, revealing that the boundaries we accept are <strong>as transparent and fragile as the glass I shape.</strong>
+            </p>
+        </div>
+    </div>
+
+    <div class="narrative-wrapper">
+        <section class="section-echoes">
+            <div></div> 
+            <div class="echoes-content">
+                <a href="/echo" class="collection-link link-echoes">
+                    <span class="title-main" data-key="echoes_title">Echo</span>
+                    <span class="title-sub" data-key="collection_label">collection</span>
+                    <span class="arrow-line"></span>
+                </a>
+                <p class="desc-text" data-key="echoes_desc1">This collection marks the moment my art ceased to be a private practice and became a necessity. Before the war, concepts lived in the drawer of my mind. But as reality fractured, the urge to materialize these thoughts became overwhelming.</p>
+                <p class="desc-text" data-key="echoes_desc2">Echoes gathers the works that were forced into existence by global tragedy, acting as a language when words are powerless. These pieces document the external collapse of logic and humanity, serving as tangible evidence of a world that has lost its structure.</p>
+                <div class="works-grid">
+                    <div class="work-item">Not your war</div>
+                    <div class="work-item">Crime or Punishment</div>
+                    <div class="work-item">Mordor</div>
+                    <div class="work-item">Puscha</div>
+                    <div class="work-item">It's just death</div>
+                    <div class="work-item">Darling</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-boundaries-fish">
+            <div class="boundaries-content-wrapper">
+                <div class="boundaries-text-col">
+                    <a href="/boundaries" class="collection-link link-boundaries">
+                        <div>
+                            <span class="title-main" data-key="bp_title">Boundaries of perception</span>
+                            <span class="title-sub" data-key="collection_label">collection</span>
+                        </div>
+                        <span class="arrow-line"></span>
+                    </a>
+                    <p class="desc-text" data-key="bp_desc1">This collection gathers concepts that span different periods of my life. Some originated long before the war, while others emerged in its shadow. What unites them is a shift away from direct documentation toward a more complex, multilayered inquiry.</p>
+                    <p class="desc-text" data-key="bp_desc2">In Boundaries of Perception, the narrative evolves from the immediate to the existential. I move beyond the social surface to explore the deep, invisible architecture of the human condition. Here, individual trauma intersects with collective blindness (Survival Game), and personal myths (Pink Elephants) become the only way to navigate a fractured reality. These works invite the viewer into a space where the boundary between the external world and the internal self dissolves.</p>
+                    <div class="works-grid">
+                        <div class="work-item">The Divide</div>
+                        <div class="work-item">Glass ceiling</div>
+                        <div class="work-item">Digitalprint</div>
+                        <div class="work-item">Survival Game</div>
+                        <div class="work-item">Form of existence</div>
+                        <div class="work-item">The Garden</div>
+                        <div class="work-item">Between the end and infinity</div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="footer-grid axis-padding">
+                    <div class="footer-col">
+                        <span>Daria Kamyshina</span>
+                        <a href="mailto:dkamysina@gmail.com" class="contact-link">dkamysina@gmail.com</a>
+                        <span style="opacity: 0.5; display: block; margin-bottom: 0.5rem;">+995 598 142 635</span>
+                        <a href="#" class="contact-link">@torf_art</a>
+                        <div style="opacity: 0.4; margin-top: 1.5rem; text-transform: none; letter-spacing: 0;" data-key="footer_loc">Tbilisi, Georgia / Planning: Stuttgart, Germany</div>
+                    </div>
+        
+                    <div class="footer-col">
+                        <a href="index.html" class="footer-header-link" data-key="nav_main">Torf</a>
+                    </div>
+        
+                    <div class="footer-col">
+                        <a href="/echo" class="footer-header-link" data-key="nav_echo">Echo</a>
+                        <ul class="footer-list">
+                            <li>Not your war</li>
+                            <li>Crime or Punishment</li>
+                            <li>Mordor</li>
+                            <li>Puscha</li>
+                            <li>It's just death</li>
+                            <li>Darling</li>
+                        </ul>
+                    </div>
+        
+                    <div class="footer-col">
+                        <a href="/boundaries" class="footer-header-link" data-key="nav_bp">Boundaries of Perception</a>
+                        <ul class="footer-list">
+                            <li>The Divide</li>
+                            <li>Glass ceiling</li>
+                            <li>Digitalprint</li>
+                            <li>Survival Game</li>
+                            <li>Form of existence</li>
+                            <li>The Garden</li>
+                            <li>Between the end and infinity</li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                portfolio_year: "Portfolio 2026",
+                hero_tags: "Glass Sculpture / Installation / Textile Art",
+                cv_header_1: "Collections & Commissions",
+                cv_loc_1: "Art Palace Museum, Tbilisi, Georgia",
+                cv_period_1: "Permanent Collection (2025–Present)",
+                cv_work_1: "Works: Not Your War; The Boundary of Perception",
+                cv_comm_1: "Commission: stained glass work for the museum (ongoing)",
+                cv_header_2: "Exhibitions & Public Presentations",
+                ex_title_1: "Not Your War",
+                ex_desc_1: "Durational public intervention (ceramic vessel repeatedly broken and repaired), 2024",
+                ex_loc_4: "Additional independent realizations, Tbilisi, 2024",
+                statement_header: "Artist Statement",
+                statement_p1: "My artistic practice is an investigation into the fragility of systems, whether they are political regimes, psychological defenses, or ecological balances. I dissect how structure turns into ruin, and how that ruin is ritualized into a new, distorted reality.",
+                statement_p2: "As global tragedy dismantled the logic of everyday life, my art ceased to be a private conceptual exercise and became a necessity. Through the ritualistic repair of broken forms or the weaving of synthetic materials associated with death, I explore how individual lives are crushed by the machinery of history.",
+                statement_p3: "Ultimately, my work oscillates between the geopolitical and the deeply personal, revealing that the boundaries we accept are <strong>as transparent and fragile as the glass I shape.</strong>",
+                echoes_title: "Echo",
+                collection_label: "collection",
+                echoes_desc1: "This collection marks the moment my art ceased to be a private practice and became a necessity. Before the war, concepts lived in the drawer of my mind. But as reality fractured, the urge to materialize these thoughts became overwhelming.",
+                echoes_desc2: "Echoes gathers the works that were forced into existence by global tragedy, acting as a language when words are powerless. These pieces document the external collapse of logic and humanity, serving as tangible evidence of a world that has lost its structure.",
+                bp_title: "Boundaries of perception",
+                bp_desc1: "This collection gathers concepts that span different periods of my life. Some originated long before the war, while others emerged in its shadow. What unites them is a shift away from direct documentation toward a more complex, multilayered inquiry.",
+                bp_desc2: "In Boundaries of Perception, the narrative evolves from the immediate to the existential. I move beyond the social surface to explore the deep, invisible architecture of the human condition. Here, individual trauma intersects with collective blindness (Survival Game), and personal myths (Pink Elephants) become the only way to navigate a fractured reality. These works invite the viewer into a space where the boundary between the external world and the internal self dissolves.",
+                footer_loc: "Tbilisi, Georgia / Planning: Stuttgart, Germany",
+                nav_main: "Main",
+                nav_echo: "Echo",
+                nav_bp: "BOUNDARIES OF PERCEPTION"
+            },
+            de: {
+                portfolio_year: "Portfolio 2026",
+                hero_tags: "Glasmalerei / Installation / Textilkunst",
+                cv_header_1: "Sammlungen & Aufträge",
+                cv_loc_1: "Art Palace Museum, Tiflis, Georgien",
+                cv_period_1: "Ständige Sammlung (2025–heute)",
+                cv_work_1: "Werke: Not Your War; The Boundary of Perception",
+                cv_comm_1: "Auftrag: Glasmalerei für das Museum (laufend)",
+                cv_header_2: "Ausstellungen & Präsentationen",
+                ex_title_1: "Not Your War",
+                ex_desc_1: "Dauerhafte öffentliche Intervention (Keramikgefäß, das wiederholt zerbrochen und repariert wird), 2024",
+                ex_loc_4: "Weitere unabhängige Realisierungen, Tiflis, 2024",
+                statement_header: "Artist Statement",
+                statement_p1: "Meine künstlerische Praxis ist eine Untersuchung der Zerbrechlichkeit von Systemen – seien es politische Regime, psychologische Abwehrmechanismen oder ökologische Gleichgewichte. Ich analysiere, wie Struktur zu Ruine wird und wie diese Ruine zu einer neuen, verzerrten Realität ritualisiert wird.",
+                statement_p2: "Als die globale Tragödie die Logik des Alltags demontierte, hörte meine Kunst auf, eine private konzeptionelle Übung zu sein, und wurde zur Notwendigkeit. Durch die rituelle Reparatur zerbrochener Formen oder das Weben synthetischer Materialien, die mit dem Tod assoziiert werden, untersuche ich, wie individuelle Leben von der Maschinerie der Geschichte zerquetscht werden.",
+                statement_p3: "Letztendlich schwankt meine Arbeit zwischen dem Geopolitischen und dem zutiefst Persönlichen und offenbart, dass die Grenzen, die wir akzeptieren, <strong>so transparent und zerbrechlich sind wie das Glas, das ich forme.</strong>",
+                echoes_title: "Echo",
+                collection_label: "Kollektion",
+                echoes_desc1: "Diese Sammlung markiert den Moment, in dem meine Kunst aufhörte, eine private Praxis zu sein, und zur Notwendigkeit wurde. Vor dem Krieg lebten Konzepte in der Schublade meines Verstandes. Doch als die Realität zerbrach, wurde der Drang, diese Gedanken zu materialisieren, überwältigend.",
+                echoes_desc2: "Echo versammelt Werke, die durch die globale Tragödie ins Dasein gezwungen wurden und als Sprache fungieren, wenn Worte machtlos sind. Diese Arbeiten dokumentieren den äußeren Zusammenbruch von Logik und Menschlichkeit und dienen als greifbarer Beweis einer Welt, die ihre Struktur verloren hat.",
+                bp_title: "Grenzen der Wahrnehmung",
+                bp_desc1: "Diese Sammlung vereint Konzepte, die verschiedene Phasen meines Lebens umspannen. Einige entstanden lange vor dem Krieg, andere traten in seinem Schatten hervor. Was sie verbindet, ist die Abkehr von der direkten Dokumentation hin zu einer komplexeren, vielschichtigen Untersuchung.",
+                bp_desc2: "In 'Boundaries of Perception' entwickelt sich das Narrativ vom Unmittelbaren zum Existentiellen. Ich bewege mich jenseits der sozialen Oberfläche, um die tiefe, unsichtbare Architektur des menschlichen Zustands zu erforschen. Hier überschneidet sich individuelles Trauma mit kollektiver Blindheit (Survival Game), und persönliche Mythen (Pink Elephants) werden zum einzigen Weg, um durch eine zerbrochene Realität zu navigieren. Diese Arbeiten laden den Betrachter in einen Raum ein, in dem sich die Grenze zwischen der äußeren Welt und dem inneren Selbst auflöst.",
+                footer_loc: "Tiflis, Georgien / Planung: Stuttgart, Deutschland",
+                nav_main: "Startseite",
+                nav_echo: "Echo",
+                nav_bp: "GRENZEN DER WAHRNEHMUNG"
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
+            });
+
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    elem.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
 </html>
