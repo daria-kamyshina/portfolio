@@ -5,7 +5,7 @@
     <base href="/portfolio/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torf | Kamyshina Daria</title>
-    
+
     <link href="https://api.fontshare.com/v2/css?f[]=switzer@200,300,400,500&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/optima" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/ballonest" rel="stylesheet">
@@ -210,6 +210,17 @@
         
         .footer-list { list-style: none; opacity: 0.4; text-transform: lowercase; letter-spacing: 0; font-size: 12px; }
 
+        /* Добавь это, чтобы ссылки в списке наследовали серый цвет и менялись при наведении */
+.footer-list a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.footer-list a:hover {
+    color: #fff;
+}
+
         @media (max-width: 900px) {
             :root { --padding-left-content: 2rem; }
             .cv-grid { grid-template-columns: 1fr; }
@@ -223,231 +234,250 @@
 </head>
 <body>
 
-    <nav class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" onclick="setLang('de')">DE</button>
-    </nav>
+<nav class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+</nav>
 
-    <section class="hero">
-        <div class="brand-signature">Torf</div>
-        <div class="hero-content">
-            <div class="artist-name">Kamyshina Daria</div>
-            <div class="portfolio-year" data-key="portfolio_year">Portfolio 2026</div>
-            <div class="tags" data-key="hero_tags">Glass Sculpture / Installation / Textile Art</div>
+<section class="hero">
+    <div class="brand-signature">Torf</div>
+    <div class="hero-content">
+        <div class="artist-name">Kamyshina Daria</div>
+        <div class="portfolio-year" data-key="portfolio_year">Portfolio 2026</div>
+        <div class="tags" data-key="hero_tags">Glass Sculpture / Installation / Textile Art</div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="cv-grid">
+        <div class="cv-column">
+            <div class="section-header-small" data-key="cv_header_1">Collections & Commissions</div>
+            <div class="cv-item">
+                <h3 data-key="cv_loc_1">Art Palace Museum, Tbilisi, Georgia</h3>
+                <p data-key="cv_period_1">Permanent Collection (2025–Present)</p>
+                <ul class="cv-list">
+                    <li data-key="cv_work_1">Works: Not Your War; The Boundary of Perception</li>
+                    <li data-key="cv_comm_1">Commission: stained glass work for the museum (ongoing)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="cv-column">
+            <div class="section-header-small" data-key="cv_header_2">Exhibitions & Public Presentations</div>
+            <div class="cv-item">
+                <h3 data-key="ex_title_1">Not Your War</h3>
+                <p data-key="ex_desc_1">Durational public intervention (ceramic vessel repeatedly broken and repaired),
+                    2024</p>
+                <ul class="cv-list">
+                    <li>Frame Cultural Space, Tbilisi, Georgia</li>
+                    <li>Kofevar, Tbilisi, Georgia</li>
+                    <li>Kovcheg, Yerevan, Armenia — March 17, 2024</li>
+                    <li data-key="ex_loc_4">Additional independent realizations, Tbilisi, 2024</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="statement-section-full">
+    <div class="statement-top-fade"></div>
+    <div class="statement-bg"></div>
+    <div class="statement-overlay"></div>
+    <div class="statement-text-wrapper">
+        <div class="section-header-small" data-key="statement_header">Artist Statement</div>
+        <p class="paragraph" data-key="statement_p1">
+            My artistic practice is an investigation into the fragility of systems, whether they are political regimes,
+            psychological defenses, or ecological balances. I dissect how structure turns into ruin, and how that ruin
+            is ritualized into a new, distorted reality.
+        </p>
+        <p class="paragraph" data-key="statement_p2">
+            As global tragedy dismantled the logic of everyday life, my art ceased to be a private conceptual exercise
+            and became a necessity. Through the ritualistic repair of broken forms or the weaving of synthetic materials
+            associated with death, I explore how individual lives are crushed by the machinery of history.
+        </p>
+        <p class="paragraph" data-key="statement_p3">
+            Ultimately, my work oscillates between the geopolitical and the deeply personal, revealing that the
+            boundaries we accept are <strong>as transparent and fragile as the glass I shape.</strong>
+        </p>
+    </div>
+</div>
+
+<div class="narrative-wrapper">
+    <section class="section-echoes">
+        <div></div>
+        <div class="echoes-content">
+            <a href="echo" class="collection-link link-echoes">
+                <span class="title-main" data-key="echoes_title">Echo</span>
+                <span class="title-sub" data-key="collection_label">collection</span>
+                <span class="arrow-line"></span>
+            </a>
+            <p class="desc-text" data-key="echoes_desc1">This collection marks the moment my art ceased to be a private
+                practice and became a necessity. Before the war, concepts lived in the drawer of my mind. But as reality
+                fractured, the urge to materialize these thoughts became overwhelming.</p>
+            <p class="desc-text" data-key="echoes_desc2">Echoes gathers the works that were forced into existence by
+                global tragedy, acting as a language when words are powerless. These pieces document the external
+                collapse of logic and humanity, serving as tangible evidence of a world that has lost its structure.</p>
+            <div class="works-grid">
+                <div class="work-item">Not your war</div>
+                <div class="work-item">Crime or Punishment</div>
+                <div class="work-item">Mordor</div>
+                <div class="work-item">Puscha</div>
+                <div class="work-item">It's just death</div>
+                <div class="work-item">Darling</div>
+            </div>
         </div>
     </section>
 
-    <div class="container">
-        <div class="cv-grid">
-            <div class="cv-column">
-                <div class="section-header-small" data-key="cv_header_1">Collections & Commissions</div>
-                <div class="cv-item">
-                    <h3 data-key="cv_loc_1">Art Palace Museum, Tbilisi, Georgia</h3>
-                    <p data-key="cv_period_1">Permanent Collection (2025–Present)</p>
-                    <ul class="cv-list">
-                        <li data-key="cv_work_1">Works: Not Your War; The Boundary of Perception</li>
-                        <li data-key="cv_comm_1">Commission: stained glass work for the museum (ongoing)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="cv-column">
-                <div class="section-header-small" data-key="cv_header_2">Exhibitions & Public Presentations</div>
-                <div class="cv-item">
-                    <h3 data-key="ex_title_1">Not Your War</h3>
-                    <p data-key="ex_desc_1">Durational public intervention (ceramic vessel repeatedly broken and repaired), 2024</p>
-                    <ul class="cv-list">
-                        <li>Frame Cultural Space, Tbilisi, Georgia</li>
-                        <li>Kofevar, Tbilisi, Georgia</li>
-                        <li>Kovcheg, Yerevan, Armenia — March 17, 2024</li>
-                        <li data-key="ex_loc_4">Additional independent realizations, Tbilisi, 2024</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="statement-section-full">
-        <div class="statement-top-fade"></div>
-        <div class="statement-bg"></div>
-        <div class="statement-overlay"></div>
-        <div class="statement-text-wrapper">
-            <div class="section-header-small" data-key="statement_header">Artist Statement</div>
-            <p class="paragraph" data-key="statement_p1">
-                My artistic practice is an investigation into the fragility of systems, whether they are political regimes, psychological defenses, or ecological balances. I dissect how structure turns into ruin, and how that ruin is ritualized into a new, distorted reality.
-            </p>
-            <p class="paragraph" data-key="statement_p2">
-                As global tragedy dismantled the logic of everyday life, my art ceased to be a private conceptual exercise and became a necessity. Through the ritualistic repair of broken forms or the weaving of synthetic materials associated with death, I explore how individual lives are crushed by the machinery of history.
-            </p>
-            <p class="paragraph" data-key="statement_p3">
-                Ultimately, my work oscillates between the geopolitical and the deeply personal, revealing that the boundaries we accept are <strong>as transparent and fragile as the glass I shape.</strong>
-            </p>
-        </div>
-    </div>
-
-    <div class="narrative-wrapper">
-        <section class="section-echoes">
-            <div></div> 
-            <div class="echoes-content">
-                <a href="echo" class="collection-link link-echoes">
-                    <span class="title-main" data-key="echoes_title">Echo</span>
-                    <span class="title-sub" data-key="collection_label">collection</span>
+    <section class="section-boundaries-fish">
+        <div class="boundaries-content-wrapper">
+            <div class="boundaries-text-col">
+                <a href="boundaries" class="collection-link link-boundaries">
+                    <div>
+                        <span class="title-main" data-key="bp_title">Boundaries of perception</span>
+                        <span class="title-sub" data-key="collection_label">collection</span>
+                    </div>
                     <span class="arrow-line"></span>
                 </a>
-                <p class="desc-text" data-key="echoes_desc1">This collection marks the moment my art ceased to be a private practice and became a necessity. Before the war, concepts lived in the drawer of my mind. But as reality fractured, the urge to materialize these thoughts became overwhelming.</p>
-                <p class="desc-text" data-key="echoes_desc2">Echoes gathers the works that were forced into existence by global tragedy, acting as a language when words are powerless. These pieces document the external collapse of logic and humanity, serving as tangible evidence of a world that has lost its structure.</p>
+                <p class="desc-text" data-key="bp_desc1">This collection gathers concepts that span different periods of
+                    my life. Some originated long before the war, while others emerged in its shadow. What unites them
+                    is a shift away from direct documentation toward a more complex, multilayered inquiry.</p>
+                <p class="desc-text" data-key="bp_desc2">In Boundaries of Perception, the narrative evolves from the
+                    immediate to the existential. I move beyond the social surface to explore the deep, invisible
+                    architecture of the human condition. Here, individual trauma intersects with collective blindness
+                    (Survival Game), and personal myths (Pink Elephants) become the only way to navigate a fractured
+                    reality. These works invite the viewer into a space where the boundary between the external world
+                    and the internal self dissolves.</p>
                 <div class="works-grid">
-                    <div class="work-item">Not your war</div>
-                    <div class="work-item">Crime or Punishment</div>
-                    <div class="work-item">Mordor</div>
-                    <div class="work-item">Puscha</div>
-                    <div class="work-item">It's just death</div>
-                    <div class="work-item">Darling</div>
+                    <div class="work-item">The Divide</div>
+                    <div class="work-item">Glass ceiling</div>
+                    <div class="work-item">Digitalprint</div>
+                    <div class="work-item">Survival Game</div>
+                    <div class="work-item">Form of existence</div>
+                    <div class="work-item">The Garden</div>
+                    <div class="work-item">Between the end and infinity</div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="section-boundaries-fish">
-            <div class="boundaries-content-wrapper">
-                <div class="boundaries-text-col">
-                    <a href="boundaries" class="collection-link link-boundaries">
-                        <div>
-                            <span class="title-main" data-key="bp_title">Boundaries of perception</span>
-                            <span class="title-sub" data-key="collection_label">collection</span>
-                        </div>
-                        <span class="arrow-line"></span>
-                    </a>
-                    <p class="desc-text" data-key="bp_desc1">This collection gathers concepts that span different periods of my life. Some originated long before the war, while others emerged in its shadow. What unites them is a shift away from direct documentation toward a more complex, multilayered inquiry.</p>
-                    <p class="desc-text" data-key="bp_desc2">In Boundaries of Perception, the narrative evolves from the immediate to the existential. I move beyond the social surface to explore the deep, invisible architecture of the human condition. Here, individual trauma intersects with collective blindness (Survival Game), and personal myths (Pink Elephants) become the only way to navigate a fractured reality. These works invite the viewer into a space where the boundary between the external world and the internal self dissolves.</p>
-                    <div class="works-grid">
-                        <div class="work-item">The Divide</div>
-                        <div class="work-item">Glass ceiling</div>
-                        <div class="work-item">Digitalprint</div>
-                        <div class="work-item">Survival Game</div>
-                        <div class="work-item">Form of existence</div>
-                        <div class="work-item">The Garden</div>
-                        <div class="work-item">Between the end and infinity</div>
+        <footer>
+            <div class="footer-grid axis-padding">
+                <div class="footer-col">
+                    <span>Daria Kamyshina</span>
+                    <a href="mailto:dkamysina@gmail.com" class="contact-link">dkamysina@gmail.com</a>
+                    <span style="opacity: 0.5; display: block; margin-bottom: 0.5rem;">+995 598 142 635</span>
+                    <a href="https://www.instagram.com/torf_art" class="contact-link">@torf_art</a>
+                    <div style="opacity: 0.4; margin-top: 1.5rem; text-transform: none; letter-spacing: 0;"
+                         data-key="footer_loc">Tbilisi, Georgia / Planning: Stuttgart, Germany
                     </div>
+                </div>
+
+                <div class="footer-col">
+                    <a href="index.html" class="footer-header-link" data-key="nav_main">Torf</a>
+                </div>
+
+                <div class="footer-col">
+                    <a href="echo" class="footer-header-link" data-key="nav_echo">Echo</a>
+                    <ul class="footer-list">
+                        <li><a href="war">Not your war</a></li>
+                        <li><a href="crime">Crime or Punishment</a></li>
+                        <li><a href="mordor">Mordor</a></li>
+                        <li><a href="puscha">Puscha</a></li>
+                        <li><a href="death">It's just death</a></li>
+                        <li><a href="darling">Darling</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <a href="boundaries" class="footer-header-link" data-key="nav_bp">Boundaries of Perception</a>
+                    <ul class="footer-list">
+                        <li><a href="divide">The Divide</a></li>
+                        <li><a href="ceiling">Glass ceiling</a></li>
+                        <li><a href="digital">Digitalprint</a></li>
+                        <li><a href="game">Survival Game</a></li>
+                        <li><a href="heart">Form of existence</a></li>
+                        <li><a href="garden">The Garden</a></li>
+                        <li><a href="between">Between the end and infinity</a></li>
+                    </ul>
                 </div>
             </div>
+        </footer>
+    </section>
+</div>
 
-            <footer>
-                <div class="footer-grid axis-padding">
-                    <div class="footer-col">
-                        <span>Daria Kamyshina</span>
-                        <a href="mailto:dkamysina@gmail.com" class="contact-link">dkamysina@gmail.com</a>
-                        <span style="opacity: 0.5; display: block; margin-bottom: 0.5rem;">+995 598 142 635</span>
-                        <a href="https://www.instagram.com/torf_art" class="contact-link">@torf_art</a>
-                        <div style="opacity: 0.4; margin-top: 1.5rem; text-transform: none; letter-spacing: 0;" data-key="footer_loc">Tbilisi, Georgia / Planning: Stuttgart, Germany</div>
-                    </div>
-        
-                    <div class="footer-col">
-                        <a href="index.html" class="footer-header-link" data-key="nav_main">Torf</a>
-                    </div>
-        
-                    <div class="footer-col">
-                        <a href="echo" class="footer-header-link" data-key="nav_echo">Echo</a>
-                        <ul class="footer-list">
-                            <li>Not your war</li>
-                            <li>Crime or Punishment</li>
-                            <li>Mordor</li>
-                            <li>Puscha</li>
-                            <li>It's just death</li>
-                            <li>Darling</li>
-                        </ul>
-                    </div>
-        
-                    <div class="footer-col">
-                        <a href="boundaries" class="footer-header-link" data-key="nav_bp">Boundaries of Perception</a>
-                        <ul class="footer-list">
-                            <li>The Divide</li>
-                            <li>Glass ceiling</li>
-                            <li>Digitalprint</li>
-                            <li>Survival Game</li>
-                            <li>Form of existence</li>
-                            <li>The Garden</li>
-                            <li>Between the end and infinity</li>
-                        </ul>
-                    </div>
-                </div>
-            </footer>
-        </section>
-    </div>
-
-    <script>
-        const translations = {
-            en: {
-                portfolio_year: "Portfolio 2026",
-                hero_tags: "Glass Sculpture / Installation / Textile Art",
-                cv_header_1: "Collections & Commissions",
-                cv_loc_1: "Art Palace Museum, Tbilisi, Georgia",
-                cv_period_1: "Permanent Collection (2025–Present)",
-                cv_work_1: "Works: Not Your War; The Boundary of Perception",
-                cv_comm_1: "Commission: stained glass work for the museum (ongoing)",
-                cv_header_2: "Exhibitions & Public Presentations",
-                ex_title_1: "Not Your War",
-                ex_desc_1: "Durational public intervention (ceramic vessel repeatedly broken and repaired), 2024",
-                ex_loc_4: "Additional independent realizations, Tbilisi, 2024",
-                statement_header: "Artist Statement",
-                statement_p1: "My artistic practice is an investigation into the fragility of systems, whether they are political regimes, psychological defenses, or ecological balances. I dissect how structure turns into ruin, and how that ruin is ritualized into a new, distorted reality.",
-                statement_p2: "As global tragedy dismantled the logic of everyday life, my art ceased to be a private conceptual exercise and became a necessity. Through the ritualistic repair of broken forms or the weaving of synthetic materials associated with death, I explore how individual lives are crushed by the machinery of history.",
-                statement_p3: "Ultimately, my work oscillates between the geopolitical and the deeply personal, revealing that the boundaries we accept are <strong>as transparent and fragile as the glass I shape.</strong>",
-                echoes_title: "Echo",
-                collection_label: "collection",
-                echoes_desc1: "This collection marks the moment my art ceased to be a private practice and became a necessity. Before the war, concepts lived in the drawer of my mind. But as reality fractured, the urge to materialize these thoughts became overwhelming.",
-                echoes_desc2: "Echoes gathers the works that were forced into existence by global tragedy, acting as a language when words are powerless. These pieces document the external collapse of logic and humanity, serving as tangible evidence of a world that has lost its structure.",
-                bp_title: "Boundaries of perception",
-                bp_desc1: "This collection gathers concepts that span different periods of my life. Some originated long before the war, while others emerged in its shadow. What unites them is a shift away from direct documentation toward a more complex, multilayered inquiry.",
-                bp_desc2: "In Boundaries of Perception, the narrative evolves from the immediate to the existential. I move beyond the social surface to explore the deep, invisible architecture of the human condition. Here, individual trauma intersects with collective blindness (Survival Game), and personal myths (Pink Elephants) become the only way to navigate a fractured reality. These works invite the viewer into a space where the boundary between the external world and the internal self dissolves.",
-                footer_loc: "Tbilisi, Georgia / Planning: Stuttgart, Germany",
-                nav_main: "Main",
-                nav_echo: "Echo",
-                nav_bp: "BOUNDARIES OF PERCEPTION"
-            },
-            de: {
-                portfolio_year: "Portfolio 2026",
-                hero_tags: "Glasmalerei / Installation / Textilkunst",
-                cv_header_1: "Sammlungen & Aufträge",
-                cv_loc_1: "Art Palace Museum, Tiflis, Georgien",
-                cv_period_1: "Ständige Sammlung (2025–heute)",
-                cv_work_1: "Werke: Not Your War; The Boundary of Perception",
-                cv_comm_1: "Auftrag: Glasmalerei für das Museum (laufend)",
-                cv_header_2: "Ausstellungen & Präsentationen",
-                ex_title_1: "Not Your War",
-                ex_desc_1: "Dauerhafte öffentliche Intervention (Keramikgefäß, das wiederholt zerbrochen und repariert wird), 2024",
-                ex_loc_4: "Weitere unabhängige Realisierungen, Tiflis, 2024",
-                statement_header: "Artist Statement",
-                statement_p1: "Meine künstlerische Praxis ist eine Untersuchung der Zerbrechlichkeit von Systemen – seien es politische Regime, psychologische Abwehrmechanismen oder ökologische Gleichgewichte. Ich analysiere, wie Struktur zu Ruine wird und wie diese Ruine zu einer neuen, verzerrten Realität ritualisiert wird.",
-                statement_p2: "Als die globale Tragödie die Logik des Alltags demontierte, hörte meine Kunst auf, eine private konzeptionelle Übung zu sein, und wurde zur Notwendigkeit. Durch die rituelle Reparatur zerbrochener Formen oder das Weben synthetischer Materialien, die mit dem Tod assoziiert werden, untersuche ich, wie individuelle Leben von der Maschinerie der Geschichte zerquetscht werden.",
-                statement_p3: "Letztendlich schwankt meine Arbeit zwischen dem Geopolitischen und dem zutiefst Persönlichen und offenbart, dass die Grenzen, die wir akzeptieren, <strong>so transparent und zerbrechlich sind wie das Glas, das ich forme.</strong>",
-                echoes_title: "Echo",
-                collection_label: "Kollektion",
-                echoes_desc1: "Diese Sammlung markiert den Moment, in dem meine Kunst aufhörte, eine private Praxis zu sein, und zur Notwendigkeit wurde. Vor dem Krieg lebten Konzepte in der Schublade meines Verstandes. Doch als die Realität zerbrach, wurde der Drang, diese Gedanken zu materialisieren, überwältigend.",
-                echoes_desc2: "Echo versammelt Werke, die durch die globale Tragödie ins Dasein gezwungen wurden und als Sprache fungieren, wenn Worte machtlos sind. Diese Arbeiten dokumentieren den äußeren Zusammenbruch von Logik und Menschlichkeit und dienen als greifbarer Beweis einer Welt, die ihre Struktur verloren hat.",
-                bp_title: "Grenzen der Wahrnehmung",
-                bp_desc1: "Diese Sammlung vereint Konzepte, die verschiedene Phasen meines Lebens umspannen. Einige entstanden lange vor dem Krieg, andere traten in seinem Schatten hervor. Was sie verbindet, ist die Abkehr von der direkten Dokumentation hin zu einer komplexeren, vielschichtigen Untersuchung.",
-                bp_desc2: "In 'Boundaries of Perception' entwickelt sich das Narrativ vom Unmittelbaren zum Existentiellen. Ich bewege mich jenseits der sozialen Oberfläche, um die tiefe, unsichtbare Architektur des menschlichen Zustands zu erforschen. Hier überschneidet sich individuelles Trauma mit kollektiver Blindheit (Survival Game), und persönliche Mythen (Pink Elephants) werden zum einzigen Weg, um durch eine zerbrochene Realität zu navigieren. Diese Arbeiten laden den Betrachter in einen Raum ein, in dem sich die Grenze zwischen der äußeren Welt und dem inneren Selbst auflöst.",
-                footer_loc: "Tiflis, Georgien / Planung: Stuttgart, Deutschland",
-                nav_main: "Startseite",
-                nav_echo: "Echo",
-                nav_bp: "GRENZEN DER WAHRNEHMUNG"
-            }
-        };
-
-        function setLang(lang) {
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
-            });
-
-            document.querySelectorAll('[data-key]').forEach(elem => {
-                const key = elem.getAttribute('data-key');
-                if (translations[lang][key]) {
-                    elem.innerHTML = translations[lang][key];
-                }
-            });
-
-            document.documentElement.lang = lang;
+<script>
+    const translations = {
+        en: {
+            portfolio_year: "Portfolio 2026",
+            hero_tags: "Glass Sculpture / Installation / Textile Art",
+            cv_header_1: "Collections & Commissions",
+            cv_loc_1: "Art Palace Museum, Tbilisi, Georgia",
+            cv_period_1: "Permanent Collection (2025–Present)",
+            cv_work_1: "Works: Not Your War; The Boundary of Perception",
+            cv_comm_1: "Commission: stained glass work for the museum (ongoing)",
+            cv_header_2: "Exhibitions & Public Presentations",
+            ex_title_1: "Not Your War",
+            ex_desc_1: "Durational public intervention (ceramic vessel repeatedly broken and repaired), 2024",
+            ex_loc_4: "Additional independent realizations, Tbilisi, 2024",
+            statement_header: "Artist Statement",
+            statement_p1: "My artistic practice is an investigation into the fragility of systems, whether they are political regimes, psychological defenses, or ecological balances. I dissect how structure turns into ruin, and how that ruin is ritualized into a new, distorted reality.",
+            statement_p2: "As global tragedy dismantled the logic of everyday life, my art ceased to be a private conceptual exercise and became a necessity. Through the ritualistic repair of broken forms or the weaving of synthetic materials associated with death, I explore how individual lives are crushed by the machinery of history.",
+            statement_p3: "Ultimately, my work oscillates between the geopolitical and the deeply personal, revealing that the boundaries we accept are <strong>as transparent and fragile as the glass I shape.</strong>",
+            echoes_title: "Echo",
+            collection_label: "collection",
+            echoes_desc1: "This collection marks the moment my art ceased to be a private practice and became a necessity. Before the war, concepts lived in the drawer of my mind. But as reality fractured, the urge to materialize these thoughts became overwhelming.",
+            echoes_desc2: "Echoes gathers the works that were forced into existence by global tragedy, acting as a language when words are powerless. These pieces document the external collapse of logic and humanity, serving as tangible evidence of a world that has lost its structure.",
+            bp_title: "Boundaries of perception",
+            bp_desc1: "This collection gathers concepts that span different periods of my life. Some originated long before the war, while others emerged in its shadow. What unites them is a shift away from direct documentation toward a more complex, multilayered inquiry.",
+            bp_desc2: "In Boundaries of Perception, the narrative evolves from the immediate to the existential. I move beyond the social surface to explore the deep, invisible architecture of the human condition. Here, individual trauma intersects with collective blindness (Survival Game), and personal myths (Pink Elephants) become the only way to navigate a fractured reality. These works invite the viewer into a space where the boundary between the external world and the internal self dissolves.",
+            footer_loc: "Tbilisi, Georgia / Planning: Stuttgart, Germany",
+            nav_main: "Main",
+            nav_echo: "Echo",
+            nav_bp: "BOUNDARIES OF PERCEPTION"
+        },
+        de: {
+            portfolio_year: "Portfolio 2026",
+            hero_tags: "Glasmalerei / Installation / Textilkunst",
+            cv_header_1: "Sammlungen & Aufträge",
+            cv_loc_1: "Art Palace Museum, Tiflis, Georgien",
+            cv_period_1: "Ständige Sammlung (2025–heute)",
+            cv_work_1: "Werke: Not Your War; The Boundary of Perception",
+            cv_comm_1: "Auftrag: Glasmalerei für das Museum (laufend)",
+            cv_header_2: "Ausstellungen & Präsentationen",
+            ex_title_1: "Not Your War",
+            ex_desc_1: "Dauerhafte öffentliche Intervention (Keramikgefäß, das wiederholt zerbrochen und repariert wird), 2024",
+            ex_loc_4: "Weitere unabhängige Realisierungen, Tiflis, 2024",
+            statement_header: "Artist Statement",
+            statement_p1: "Meine künstlerische Praxis ist eine Untersuchung der Zerbrechlichkeit von Systemen – seien es politische Regime, psychologische Abwehrmechanismen oder ökologische Gleichgewichte. Ich analysiere, wie Struktur zu Ruine wird und wie diese Ruine zu einer neuen, verzerrten Realität ritualisiert wird.",
+            statement_p2: "Als die globale Tragödie die Logik des Alltags demontierte, hörte meine Kunst auf, eine private konzeptionelle Übung zu sein, und wurde zur Notwendigkeit. Durch die rituelle Reparatur zerbrochener Formen oder das Weben synthetischer Materialien, die mit dem Tod assoziiert werden, untersuche ich, wie individuelle Leben von der Maschinerie der Geschichte zerquetscht werden.",
+            statement_p3: "Letztendlich schwankt meine Arbeit zwischen dem Geopolitischen und dem zutiefst Persönlichen und offenbart, dass die Grenzen, die wir akzeptieren, <strong>so transparent und zerbrechlich sind wie das Glas, das ich forme.</strong>",
+            echoes_title: "Echo",
+            collection_label: "Kollektion",
+            echoes_desc1: "Diese Sammlung markiert den Moment, in dem meine Kunst aufhörte, eine private Praxis zu sein, und zur Notwendigkeit wurde. Vor dem Krieg lebten Konzepte in der Schublade meines Verstandes. Doch als die Realität zerbrach, wurde der Drang, diese Gedanken zu materialisieren, überwältigend.",
+            echoes_desc2: "Echo versammelt Werke, die durch die globale Tragödie ins Dasein gezwungen wurden und als Sprache fungieren, wenn Worte machtlos sind. Diese Arbeiten dokumentieren den äußeren Zusammenbruch von Logik und Menschlichkeit und dienen als greifbarer Beweis einer Welt, die ihre Struktur verloren hat.",
+            bp_title: "Grenzen der Wahrnehmung",
+            bp_desc1: "Diese Sammlung vereint Konzepte, die verschiedene Phasen meines Lebens umspannen. Einige entstanden lange vor dem Krieg, andere traten in seinem Schatten hervor. Was sie verbindet, ist die Abkehr von der direkten Dokumentation hin zu einer komplexeren, vielschichtigen Untersuchung.",
+            bp_desc2: "In 'Boundaries of Perception' entwickelt sich das Narrativ vom Unmittelbaren zum Existentiellen. Ich bewege mich jenseits der sozialen Oberfläche, um die tiefe, unsichtbare Architektur des menschlichen Zustands zu erforschen. Hier überschneidet sich individuelles Trauma mit kollektiver Blindheit (Survival Game), und persönliche Mythen (Pink Elephants) werden zum einzigen Weg, um durch eine zerbrochene Realität zu navigieren. Diese Arbeiten laden den Betrachter in einen Raum ein, in dem sich die Grenze zwischen der äußeren Welt und dem inneren Selbst auflöst.",
+            footer_loc: "Tiflis, Georgien / Planung: Stuttgart, Deutschland",
+            nav_main: "Startseite",
+            nav_echo: "Echo",
+            nav_bp: "GRENZEN DER WAHRNEHMUNG"
         }
-    </script>
+    };
+
+    function setLang(lang) {
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
+        });
+
+        document.querySelectorAll('[data-key]').forEach(elem => {
+            const key = elem.getAttribute('data-key');
+            if (translations[lang][key]) {
+                elem.innerHTML = translations[lang][key];
+            }
+        });
+
+        document.documentElement.lang = lang;
+    }
+</script>
 </body>
 </html>
