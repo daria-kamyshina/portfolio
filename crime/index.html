@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime or Punishment — Torf</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face { font-family: 'Switzer-Light'; src: url('fonts/Switzer-Light.otf') format('opentype'); font-weight: 300; }
+        @font-face { font-family: 'Optima'; src: url('fonts/Optima.ttc') format('truetype'); }
+        @font-face { font-family: 'Ballonest'; src: url('fonts/Ballonest.ttf') format('truetype'); }
+
+        :root {
+            --font-main: 'Switzer-Light', sans-serif;
+            --font-display: 'Optima', serif;
+            --font-sign: 'Ballonest', cursive;
+            --left-axis: clamp(1.5rem, 6vw, 10rem); 
+            --color-paper: #fcfcfb;
+        }
+
+        .bg-paper {
+            background-color: var(--color-paper);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        .axis-padding { padding-left: var(--left-axis); padding-right: var(--left-axis); }
+        .max-site-width { max-width: 1440px; margin: 0 auto; }
+        body { font-family: var(--font-main); color: #1a1a1a; font-weight: 300; }
+        .font-display { font-family: var(--font-display); }
+        .font-sign { font-family: var(--font-sign); }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body class="bg-paper antialiased text-ink">
+
+    <nav class="relative z-50 w-full pt-12 axis-padding grid grid-cols-3 items-center">
+        <div class="hidden md:block"></div>
+
+        <div class="flex items-center justify-center gap-6 md:gap-10 whitespace-nowrap">
+            <a href="/" class="font-sign text-7xl md:text-8xl leading-none hover:opacity-50 transition-opacity">Torf</a>
+            <div class="h-6 w-[1px] bg-ink/10 hidden md:block"></div>
+            <div class="text-[9px] uppercase tracking-[0.4em] opacity-40" data-key="header_tag">Echo / 2026</div>
+        </div>
+
+        <div class="flex justify-end gap-4">
+            <button class="lang-btn active text-[10px] tracking-[0.2em] uppercase" style="opacity: 1; border-bottom: 1px solid currentColor;" onclick="setLang('en')">EN</button>
+            <button class="lang-btn text-[10px] tracking-[0.2em] uppercase" style="opacity: 0.5;" onclick="setLang('de')">DE</button>
+        </div>
+    </nav>
+
+    <header class="max-site-width axis-padding pr-8 mb-12 md:mb-16 mt-16 md:mt-24">
+        <h1 class="font-display text-[8vw] md:text-[6.5rem] leading-[0.9] uppercase tracking-tighter mb-6 -ml-1 md:-ml-2" data-key="hero_title">
+            Crime or Punishment
+        </h1>
+        <div class="flex justify-between items-baseline border-t border-ink/10 pt-4">
+            <span class="font-sign text-3xl md:text-4xl opacity-60">kamysh #7</span>
+            <span class="font-display text-sm md:text-lg opacity-40 uppercase tracking-widest" data-key="label_artobject">Art object</span>
+        </div>
+    </header>
+
+    <section class="max-site-width axis-padding pr-8 mb-16 md:mb-24">
+        <div class="w-full relative">
+             <img src="crime.png" alt="Crime or Punishment Main View" class="w-full h-auto shadow-sm">
+             <p class="text-[9px] uppercase tracking-[0.2em] opacity-40 mt-3" data-key="label_main_img">Frontal View / Relief Scale</p>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-start">
+            
+            <div class="md:col-span-6 space-y-8 text-lg leading-relaxed opacity-80">
+                <p data-key="desc_p1">The work takes the Russian Federation passport and enlarges it to architectural scale, transforming an object that fits in the pocket into a surface that confronts the body.</p>
+                <p data-key="desc_p2">The relief is built from vertical prisms. Facing it directly, you see the passport cover: the emblem, the gold lettering, the red field. This is the image that functions as shorthand for citizenship, for suspicion, for the automatic sorting of people at borders.</p>
+                <p data-key="desc_p3">Moving to either side dissolves the cover into ridges. The lateral faces carry text: on one side, documented transactions between Western institutions and the Russian elite; on the other, documented cases of persecution for resistance within Russia.</p>
+                <p data-key="desc_p4">The scale refuses distance. The passport cannot be slipped away, cannot be hidden. It becomes a wall that occupies space and demands navigation.</p>
+                <p data-key="desc_p5">The title asks a question that presumes choice: crime or punishment? The structure of the work suggests the premise itself is flawed. The document is neither. It is a given, a starting point.</p>
+            </div>
+
+            <div class="md:col-span-6 sticky top-8">
+                <div class="bg-neutral-100/50 p-6 md:p-10 mb-3">
+                    <img src="crime-1.png" class="w-full h-auto mix-blend-multiply" style="max-height: 600px; object-fit: contain;">
+                </div>
+                <p class="text-[9px] uppercase tracking-widest opacity-40" data-key="grid_label1">Structural Schematic / Angles</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 pt-4 pb-16 md:pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            <div class="md:col-span-4 flex flex-col justify-between">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl mb-2 text-ink" data-key="specs_title">Object & Process</h2>
+                    <div class="text-[11px] uppercase tracking-[0.2em] opacity-50" data-key="label_specs">Specifications</div>
+                </div>
+                <div class="pt-12 mt-auto opacity-40 hidden md:block">
+                    <p class="text-[12px] leading-relaxed max-w-xs italic" data-key="specs_note">The author reserves the right to modify the specific documented transactions and persecution cases appearing on the lateral prism faces, as well as the precise dimensional proportions and material construction, provided the concept of "Architectural-Scale Passport as Unavoidable Surface" and the "Prismatic Revelation Through Viewer Movement" is preserved. The exact factual content and historical references may vary, maintaining the "Western Economic Complicity vs. Internal Resistance" dichotomy and the interrogation of the false "Crime or Punishment" premise.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-start-6 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
+                <div class="space-y-12">
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_structure">Structure & Material</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m1">High-relief wall piece constructed from vertical triangular prisms on rigid support. Rigid paper or cardboard construction. Dimensions: 88 x 125 x 12 cm.</p>
+                    </div>
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_optics">Optical Structure</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m2">Frontal view presents unified passport cover image; lateral views reveal text on prism faces. The reading requires movement, adjustment, the physical work of reconstructing a picture from fragments.</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_content">Data Content</span>
+                    <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m3">Left-facing facets carry documented cases of Western economic complicity. Right-facing facets carry documented cases of internal resistance and state repression. Each text block includes specific factual identifiers (names, dates, legal references).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-site-width axis-padding pr-8 py-16 md:py-24 flex justify-between items-center text-[10px] uppercase tracking-widest opacity-40">
+        <a href="/war" class="hover:opacity-100 transition" data-key="nav_prev">← Not Your War</a>
+        <a href="/mordor" class="hover:opacity-100 transition" data-key="nav_next">Mordor →</a>
+    </div>
+
+    <footer class="w-full bg-[#f4f4f3] border-t border-ink/10 pt-20 pb-24">
+        <div class="axis-padding">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-[11px] uppercase tracking-[0.2em]">
+                
+                <div class="md:col-span-4 space-y-6">
+                    <div class="space-y-2">
+                        <span class="block text-ink font-semibold">Torf (Daria Kamyshina)</span>
+                        <a href="mailto:dkamysina@gmail.com" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">dkamysina@gmail.com</a>
+                        <span class="block opacity-50">+995 598 142 635</span>
+                        <a href="#" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">@torf_art</a>
+                    </div>
+                    <div class="space-y-2 pt-4 opacity-50">
+                        <span class="block" data-key="f_loc1">Tbilisi, Georgia</span>
+                        <span class="block" data-key="f_loc2">Planning: Stuttgart, Germany</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <a href="/" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_main">Main</a>
+                </div>
+
+                <div class="md:col-span-3 space-y-4">
+                    <a href="/echo" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_echo">Echo</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/war" class="hover:text-ink transition">Not your war</a></li>
+                        <li><a href="/crime" class="text-ink font-semibold opacity-100 hover:text-ink transition">Crime or Punishment</a></li>
+                        <li><a href="/mordor" class="hover:text-ink transition">Mordor</a></li>
+                        <li><a href="/puscha" class="hover:text-ink transition">Puscha</a></li>
+                        <li><a href="/death" class="hover:text-ink transition">It's just death</a></li>
+                        <li><a href="/darling" class="hover:text-ink transition">Darling</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <a href="/boundaries" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_bp">Boundaries of Perception</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/divide" class="hover:text-ink transition">The Divide</a></li>
+                        <li><a href="/ceiling" class="hover:text-ink transition">Glass ceiling</a></li>
+                        <li><a href="/digital" class="hover:text-ink transition">Digitalprint</a></li>
+                        <li><a href="/game" class="hover:text-ink transition">Survival Game</a></li>
+                        <li><a href="/heart" class="hover:text-ink transition">Form of existence</a></li>
+                        <li><a href="/garden" class="hover:text-ink transition">The Garden</a></li>
+                        <li><a href="/between" class="hover:text-ink transition">Between the end and infinity</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                header_tag: "Echo / 2026", 
+                hero_title: "Crime or Punishment", 
+                label_artobject: "Art object",
+                label_main_img: "Frontal View / Relief Scale",
+                
+                desc_p1: "The work takes the Russian Federation passport and enlarges it to architectural scale, transforming an object that fits in the pocket into a surface that confronts the body.",
+                desc_p2: "The relief is built from vertical prisms. Facing it directly, you see the passport cover: the emblem, the gold lettering, the red field. This is the image that functions as shorthand for citizenship, for suspicion, for the automatic sorting of people at borders.",
+                desc_p3: "Moving to either side dissolves the cover into ridges. The lateral faces carry text: on one side, documented transactions between Western institutions and the Russian elite; on the other, documented cases of persecution for resistance within Russia.",
+                desc_p4: "The scale refuses distance. The passport cannot be slipped away, cannot be hidden. It becomes a wall that occupies space and demands navigation.",
+                desc_p5: "The title asks a question that presumes choice: crime or punishment? The structure of the work suggests the premise itself is flawed. The document is neither. It is a given, a starting point.",
+                
+                grid_label1: "Structural Schematic / Angles", 
+                
+                specs_title: "Object & Process", 
+                label_specs: "Specifications",
+                specs_note: "The author reserves the right to modify the specific documented transactions and persecution cases appearing on the lateral prism faces, as well as the precise dimensional proportions and material construction, provided the concept of \"Architectural-Scale Passport as Unavoidable Surface\" and the \"Prismatic Revelation Through Viewer Movement\" is preserved. The exact factual content and historical references may vary, maintaining the \"Western Economic Complicity vs. Internal Resistance\" dichotomy and the interrogation of the false \"Crime or Punishment\" premise.",              
+                label_structure: "Structure & Material", 
+                specs_m1: "High-relief wall piece constructed from vertical triangular prisms on rigid support. Rigid paper or cardboard construction. Dimensions: 88 x 125 x 12 cm.",
+                label_optics: "Optical Structure", 
+                specs_m2: "Frontal view presents unified passport cover image; lateral views reveal text on prism faces. The reading requires movement, adjustment, the physical work of reconstructing a picture from fragments.",
+                label_content: "Data Content", 
+                specs_m3: "Left-facing facets carry documented cases of Western economic complicity. Right-facing facets carry documented cases of internal resistance and state repression. Each text block includes specific factual identifiers (names, dates, legal references).",
+                
+                nav_prev: "← Not Your War", 
+                nav_next: "Mordor →",
+                f_loc1: "Tbilisi, Georgia", f_loc2: "Planning: Stuttgart, Germany",
+                
+                nav_main: "Main",
+                nav_echo: "Echo",
+                nav_bp: "BOUNDARIES OF PERCEPTION"
+            },
+            de: {
+                header_tag: "Echo / 2026", 
+                hero_title: "Verbrechen oder Strafe", 
+                label_artobject: "Kunstobjekt",
+                label_main_img: "Frontalansicht / Reliefmaßstab",
+                
+                desc_p1: "Die Arbeit nimmt den Pass der Russischen Föderation und vergrößert ihn auf architektonischen Maßstab, wodurch ein Objekt, das in die Tasche passt, in eine Oberfläche verwandelt wird, die den Körper konfrontiert.",
+                desc_p2: "Das Relief besteht aus vertikalen Prismen. Bei direkter Betrachtung sieht man den Passumschlag: das Wappen, den goldenen Schriftzug, das rote Feld. Dies ist das Bild, das als Kürzel für Staatsbürgerschaft, für Verdacht, für die automatische Sortierung von Menschen an Grenzen fungiert.",
+                desc_p3: "Bewegt man sich zur Seite, löst sich der Umschlag in Grate auf. Die Seitenflächen tragen Text: auf der einen Seite dokumentierte Transaktionen zwischen westlichen Institutionen und der russischen Elite; auf der anderen dokumentierte Fälle von Verfolgung wegen Widerstands innerhalb Russlands.",
+                desc_p4: "Der Maßstab verweigert Distanz. Der Pass kann nicht weggesteckt, nicht versteckt werden. Er wird zu einer Wand, die Raum einnimmt und Navigation erfordert.",
+                desc_p5: "Der Titel stellt eine Frage, die eine Wahl voraussetzt: Verbrechen oder Strafe? Die Struktur der Arbeit legt nahe, dass die Prämisse selbst fehlerhaft ist. Das Dokument ist weder noch. Es ist eine Gegebenheit, ein Ausgangspunkt.",
+                
+                grid_label1: "Strukturelles Schema / Winkel", 
+                
+                specs_title: "Objekt & Prozess", 
+                label_specs: "Spezifikationen",
+                specs_note: "Der Autor behält sich das Recht vor, die auf den Seitenflächen des Prismas dargestellten dokumentierten Transaktionen und Verfolgungsfälle sowie die genauen Proportionen und die Materialbeschaffenheit zu ändern, sofern das Konzept des „Architektonischen Passes als unvermeidliche Oberfläche“ und die „Prismatische Offenbarung durch die Bewegung des Betrachters“ erhalten bleiben. Der genaue Sachverhalt und die historischen Bezüge können variieren, wobei die Dichotomie „Westliche wirtschaftliche Mitschuld versus innerer Widerstand“ und die Infragestellung der falschen Prämisse „Verbrechen oder Strafe“ bestehen bleiben.",                             
+                label_structure: "Struktur & Material", 
+                specs_m1: "Hochrelief-Wandstück aus vertikalen dreieckigen Prismen auf starrem Träger. Konstruktion aus festem Papier oder Karton. Maße: 88 x 125 x 12 cm.",
+                label_optics: "Optische Struktur", 
+                specs_m2: "Die Frontalansicht zeigt das einheitliche Bild des Passumschlags; Seitenansichten enthüllen Text auf den Prismenflächen. Das Lesen erfordert Bewegung, Anpassung, die physische Arbeit der Rekonstruktion eines Bildes aus Fragmenten.",
+                label_content: "Dateninhalt", 
+                specs_m3: "Linksgerichtete Facetten tragen dokumentierte Fälle westlicher wirtschaftlicher Komplizenschaft. Rechtsgerichtete Facetten tragen dokumentierte Fälle von innerem Widerstand und staatlicher Repression. Jeder Textblock enthält spezifische faktische Kennungen (Namen, Daten, rechtliche Verweise).",
+                
+                nav_prev: "← Not Your War", 
+                nav_next: "Mordor →",
+                f_loc1: "Tiflis, Georgien", f_loc2: "Planung: Stuttgart, Deutschland",
+                
+                nav_main: "Startseite",
+                nav_echo: "Echo",
+                nav_bp: "GRENZEN DER WAHRNEHMUNG"
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.innerText.toLowerCase() === lang;
+                btn.style.opacity = isActive ? "1" : "0.5";
+                btn.style.borderBottom = isActive ? "1px solid currentColor" : "1px solid transparent";
+            });
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) elem.innerHTML = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>

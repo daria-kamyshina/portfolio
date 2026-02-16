@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echo | Torf</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face { font-family: 'Switzer-Light'; src: url('fonts/Switzer-Light.otf') format('opentype'); font-weight: 300; }
+        @font-face { font-family: 'Optima'; src: url('fonts/Optima.ttc') format('truetype'); }
+        @font-face { font-family: 'Ballonest'; src: url('fonts/Ballonest.ttf') format('truetype'); }
+
+        :root {
+            --font-main: 'Switzer-Light', sans-serif;
+            --font-display: 'Optima', serif;
+            --font-sign: 'Ballonest', cursive;
+            --left-axis: clamp(1.5rem, 6vw, 10rem); 
+            --color-paper: #fcfcfb;
+        }
+
+        .bg-paper {
+            background-color: var(--color-paper);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        .axis-padding { padding-left: var(--left-axis); padding-right: var(--left-axis); }
+        body { font-family: var(--font-main); color: #1a1a1a; font-weight: 300; }
+        .font-display { font-family: var(--font-display); }
+        .font-sign { font-family: var(--font-sign); }
+        
+        .hero-transition {
+            background: linear-gradient(to bottom, transparent 80%, var(--color-paper) 100%);
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        
+        body.scrolled .lang-btn { color: #000; }
+        body:not(.scrolled) .lang-btn { color: #fff; }
+    </style>
+</head>
+<body class="bg-paper antialiased">
+
+    <header class="relative w-full h-screen flex flex-col overflow-hidden bg-[#0a0a0a]">
+        <nav class="relative z-50 w-full pt-12 axis-padding grid grid-cols-3 items-center text-white">
+            <div class="hidden md:block"></div>
+            <div class="flex items-center justify-center gap-6 md:gap-10 whitespace-nowrap">
+                <a href="/" class="font-sign text-7xl md:text-8xl leading-none hover:opacity-50 transition-opacity">Torf</a>
+                <div class="h-6 w-[1px] bg-white/20 hidden md:block"></div>
+                <div class="text-[9px] uppercase tracking-[0.4em] opacity-60" data-key="header_tag">Echo / 2026</div>
+            </div>
+            <div class="flex justify-end gap-4">
+                <button class="lang-btn active text-[10px] tracking-[0.2em] uppercase" style="opacity: 1; border-bottom: 1px solid currentColor;" onclick="setLang('en')">EN</button>
+                <button class="lang-btn text-[10px] tracking-[0.2em] uppercase" style="opacity: 0.5;" onclick="setLang('de')">DE</button>
+            </div>
+        </nav>
+
+        <div class="absolute inset-0 z-0">
+            <img src="Echo_hero.JPG" alt="Hero" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 hero-transition"></div>
+        </div>
+
+        <div class="relative z-10 mt-auto axis-padding pb-32 text-white">
+            <h1 class="font-display text-[10vw] leading-none uppercase tracking-tighter -ml-1 mb-6" data-key="hero_title">Echo</h1>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <div class="hidden md:block md:col-span-6"></div> 
+                <div class="md:col-span-6 space-y-6 text-lg leading-relaxed opacity-90">
+                    <p data-key="intro_p1">This collection marks the moment my art ceased to be a private practice and became a necessity. Before the war, concepts lived in the drawer of my mind. But as reality fractured, the urge to materialize these thoughts became overwhelming.</p>
+                    <p class="text-sm opacity-50 italic" data-key="intro_p2">Echo gathers the works that were forced into existence by global tragedy, acting as a language when words are powerless. These pieces document the external collapse of logic and humanity, serving as tangible evidence of a world that has lost its structure.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="axis-padding py-24 pb-40">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-32">
+            
+            <a href="/war" class="group block cursor-pointer">
+                <div class="aspect-square mb-8 overflow-hidden flex items-center justify-center">
+                    <img src="war.png" class="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="border-t border-black/10 group-hover:border-black/30 transition-colors pt-6">
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h2 class="font-display text-2xl uppercase tracking-tight group-hover:text-black transition-colors" data-key="w1_title">Not your war</h2>
+                        <span class="text-[8px] opacity-30" data-key="label_performance">01 / Performance</span>
+                    </div>
+                    <p class="text-[13px] opacity-40 group-hover:opacity-100 transition-opacity duration-500 leading-relaxed" data-key="w1_desc">A durational performance responding to the war through a ritual of breaking and repairing. Using kintsugi, the work focuses on the irreversible and permanent scars left on the collective Self.</p>
+                </div>
+            </a>
+
+            <a href="/crime" class="group block cursor-pointer">
+                <div class="aspect-square mb-8 overflow-hidden flex items-center justify-center">
+                    <img src="crime.png" class="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="border-t border-black/10 group-hover:border-black/30 transition-colors pt-6">
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h2 class="font-display text-2xl uppercase tracking-tight group-hover:text-black transition-colors" data-key="w2_title">Crime or Punishment</h2>
+                        <span class="text-[8px] opacity-30" data-key="label_installation">02 / Installation</span>
+                    </div>
+                    <p class="text-[13px] opacity-40 group-hover:opacity-100 transition-opacity duration-500 leading-relaxed" data-key="w2_desc">Installation forces a physical shift in perspective to reveal conflicting realities. Juxtaposing state repression with the luxury of its elites, the work centers on a passport image to expose the hypocrisy of global complicity and the vulnerability of individual identity under authoritarianism.</p>
+                </div>
+            </a>
+
+            <a href="/mordor" class="group block cursor-pointer">
+                <div class="aspect-square mb-8 overflow-hidden flex items-center justify-center">
+                    <img src="mordor.PNG" class="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="border-t border-black/10 group-hover:border-black/30 transition-colors pt-6">
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h2 class="font-display text-2xl uppercase tracking-tight group-hover:text-black transition-colors" data-key="w3_title">Mordor</h2>
+                        <span class="text-[8px] opacity-30" data-key="label_immersive">03 / Immersive</span>
+                    </div>
+                    <p class="text-[13px] opacity-40 group-hover:opacity-100 transition-opacity duration-500 leading-relaxed" data-key="w3_desc">The immersive installation transforming a room into a living archive of collective memory. By physically peeling back grey sheets to reveal hidden histories, visitors enact the tension between state censorship and the necessity of disclosure.</p>
+                </div>
+            </a>
+
+            <a href="/puscha" class="group block cursor-pointer">
+                <div class="aspect-square mb-8 overflow-hidden flex items-center justify-center">
+                    <img src="puscha.png" class="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="border-t border-black/10 group-hover:border-black/30 transition-colors pt-6">
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h2 class="font-display text-2xl uppercase tracking-tight group-hover:text-black transition-colors" data-key="w4_title">Puscha</h2>
+                        <span class="text-[8px] opacity-30" data-key="label_mixed">04 / Mixed-Media</span>
+                    </div>
+                    <p class="text-[13px] opacity-40 group-hover:opacity-100 transition-opacity duration-500 leading-relaxed" data-key="w4_desc">A mixed-media landscape where the stitched name of a country visually morphs into “PUSCHA”. This linguistic distortion critiques how the global gaze conflates the country with its regime, mistaking the people for the authoritarian state.</p>
+                </div>
+            </a>
+
+            <a href="/death" class="group block cursor-pointer">
+                <div class="aspect-square mb-8 overflow-hidden flex items-center justify-center">
+                    <img src="death.PNG" class="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="border-t border-black/10 group-hover:border-black/30 transition-colors pt-6">
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h2 class="font-display text-2xl uppercase tracking-tight group-hover:text-black transition-colors" data-key="w5_title">It's just death</h2>
+                        <span class="text-[8px] opacity-30" data-key="label_duration">05 / Duration</span>
+                    </div>
+                    <p class="text-[13px] opacity-40 group-hover:opacity-100 transition-opacity duration-500 leading-relaxed" data-key="w5_desc">A durational installation positioning the viewer between opposing walls of AI-generated portraits. As faces vanish into black voids or static with a dry mechanical click, the work reduces mass tragedy to a routine data stream, exposing the dehumanizing, statistical nature of modern warfare.</p>
+                </div>
+            </a>
+
+            <a href="/darling" class="group block cursor-pointer">
+                <div class="aspect-square mb-8 overflow-hidden flex items-center justify-center">
+                    <img src="darling.png" class="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="border-t border-black/10 group-hover:border-black/30 transition-colors pt-6">
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h2 class="font-display text-2xl uppercase tracking-tight group-hover:text-black transition-colors" data-key="w6_title">Darling</h2>
+                        <span class="text-[8px] opacity-30" data-key="label_installation">06 / Installation</span>
+                    </div>
+                    <p class="text-[13px] opacity-40 group-hover:opacity-100 transition-opacity duration-500 leading-relaxed" data-key="w6_desc">A hand-woven carpet crafted from black body-bag plastic, mimicking a field of sedge grass. Through the ritualistic braiding of this synthetic soil, the installation transforms the floor into a texturized mass grave, blurring the boundary between the fallen body and the earth.</p>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+     <footer class="w-full bg-[#f4f4f3] border-t border-ink/10 pt-20 pb-24">
+        <div class="axis-padding">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-[11px] uppercase tracking-[0.2em]">
+                
+                <div class="md:col-span-4 space-y-6">
+                    <div class="space-y-2">
+                        <span class="block text-ink font-semibold">Torf (Daria Kamyshina)</span>
+                        <a href="mailto:dkamysina@gmail.com" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">dkamysina@gmail.com</a>
+                        <span class="block opacity-50">+995 598 142 635</span>
+                        <a href="#" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">@torf_art</a>
+                    </div>
+                    <div class="space-y-2 pt-4 opacity-50">
+                        <span class="block" data-key="f_loc1">Tbilisi, Georgia</span>
+                        <span class="block" data-key="f_loc2">Planning: Stuttgart, Germany</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <a href="/" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_main">Main</a>
+                </div>
+
+                <div class="md:col-span-3 space-y-4">
+                    <a href="/echo" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_echo">Echo</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li>Not your war</li>
+                        <li>Crime or Punishment</li>
+                        <li>Mordor</li>
+                        <li>Puscha</li>
+                        <li>It's just death</li>
+                        <li>Darling</li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <a href="/boundaries" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_bp">Boundaries of Perception</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/divide" class="hover:text-ink transition">The Divide</a></li>
+                        <li><a href="/ceiling" class="hover:text-ink transition">Glass ceiling</a></li>
+                        <li><a href="/digital" class="hover:text-ink transition">Digitalprint</a></li>
+                        <li><a href="/game" class="hover:text-ink transition">Survival Game</a></li>
+                        <li><a href="/heart" class="hover:text-ink transition">Form of existence</a></li>
+                        <li><a href="/garden" class="hover:text-ink transition">The Garden</a></li>
+                        <li><a href="/between" class="hover:text-ink transition">Between the end and infinity</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                header_tag: "Echo / 2026",
+                hero_title: "Echo",
+                intro_p1: "This collection marks the moment my art ceased to be a private practice and became a necessity. Before the war, concepts lived in the drawer of my mind. But as reality fractured, the urge to materialize these thoughts became overwhelming.",
+                intro_p2: "Echo gathers the works that were forced into existence by global tragedy, acting as a language when words are powerless. These pieces document the external collapse of logic and humanity, serving as tangible evidence of a world that has lost its structure.",
+                label_performance: "01 / Performance", label_installation: "02 / Installation", label_immersive: "03 / Immersive", label_mixed: "04 / Mixed-Media", label_duration: "05 / Duration",
+                w1_title: "Not your war", w1_desc: "A durational performance responding to the war through a ritual of breaking and repairing. Using kintsugi, the work focuses on the irreversible and permanent scars left on the collective Self.",
+                w2_title: "Crime or Punishment", w2_desc: "Installation forces a physical shift in perspective to reveal conflicting realities. Juxtaposing state repression with the luxury of its elites, the work centers on a passport image to expose the hypocrisy of global complicity and the vulnerability of individual identity under authoritarianism.",
+                w3_title: "Mordor", w3_desc: "The immersive installation transforming a room into a living archive of collective memory. By physically peeling back grey sheets to reveal hidden histories, visitors enact the tension between state censorship and the necessity of disclosure.",
+                w4_title: "Puscha", w4_desc: "A mixed-media landscape where the stitched name of a country visually morphs into “PUSCHA”. This linguistic distortion critiques how the global gaze conflates the country with its regime, mistaking the people for the authoritarian state.",
+                w5_title: "It's just death", w5_desc: "A durational installation positioning the viewer between opposing walls of AI-generated portraits. As faces vanish into black voids or static with a dry mechanical click, the work reduces mass tragedy to a routine data stream, exposing the dehumanizing, statistical nature of modern warfare.",
+                w6_title: "Darling", w6_desc: "A hand-woven carpet crafted from black body-bag plastic, mimicking a field of sedge grass. Through the ritualistic braiding of this synthetic soil, the installation transforms the floor into a texturized mass grave, blurring the boundary between the fallen body and the earth.",
+                f_loc1: "Tbilisi, Georgia", f_loc2: "Planning: Stuttgart, Germany",
+                
+                // Footer Navigation
+                nav_main: "Main",
+                nav_echo: "Echo",
+                nav_bp: "BOUNDARIES OF PERCEPTION"
+            },
+            de: {
+                header_tag: "Echo / 2026",
+                hero_title: "Echo",
+                intro_p1: "Diese Sammlung markiert den Moment, in dem meine Kunst aufhörte, eine private Praxis zu sein, und zur Notwendigkeit wurde. Vor dem Krieg lebten Konzepte in der Schublade meines Verstandes. Doch als die Realität zerbrach, wurde der Drang, diese Gedanken zu materialisieren, überwältigend.",
+                intro_p2: "Echo versammelt Werke, die durch die globale Tragödie ins Dasein gezwungen wurden und als Sprache fungieren, wenn Worte machtlos sind. Diese Stücke dokumentieren den äußeren Zusammenbruch von Logik und Menschlichkeit и dienen als greifbarer Beweis für eine Welt, die ihre Struktur verloren hat.",
+                label_performance: "01 / Performance", label_installation: "02 / Installation", label_immersive: "03 / Immersive", label_mixed: "04 / Mixed-Media", label_duration: "05 / Dauer",
+                w1_title: "Nicht dein Krieg", w1_desc: "Eine dauerhafte Performance, die auf den Krieg durch ein Ritual des Zerbrechens und Reparierens reagiert. Unter Verwendung von Kintsugi konzentriert sich die Arbeit auf die irreversiblen und permanenten Narben, die im kollektiven Selbst zurückbleiben.",
+                w2_title: "Verbrechen oder Strafe", w2_desc: "Die Installation erzwingt eine physische Verschiebung der Perspektive, um widersprüchliche Realitäten zu enthüllen. Durch das Nebeneinanderstellen von staatlicher Repression und dem Luxus ihrer Eliten nutzt die Arbeit ein Passbild, um die Heuchelei globaler Komplizenschaft und die Verletzlichkeit der individuellen Identität unter Autoritarismus offenzulegen.",
+                w3_title: "Mordor", w3_desc: "Die immersive Installation verwandelt einen Raum in ein lebendiges Archiv des kollektiven Gedächtnisses. Durch das physische Abziehen grauer Laken, um verborgene Geschichten freizulegen, vollziehen die Besucher das Spannungsfeld zwischen staatlicher Zensur und der Notwendigkeit der Offenlegung nach.",
+                w4_title: "Puscha", w4_desc: "Eine Mixed-Media-Landschaft, in der der gestickte Name eines Landes visuell in „PUSCHA“ morph. Diese linguistische Verzerrung kritisiert, wie der globale Blick das Land mit seinem Regime gleichsetzt и das Volk fälschlicherweise für den autoritären Staat hält.",
+                w5_title: "Es ist nur der Tod", w5_desc: "Eine dauerhafte Installation, die den Betrachter zwischen gegenüberliegenden Wänden aus KI-generierten Porträts positioniert. Während Gesichter mit einem trockenen mechanischen Klick in schwarzen Hohlräumen или Rauschen verschwinden, reduziert die Arbeit Massentragödien auf einen routinemäßigen Datenstrom и entlarvt die dehumanisierende, statistische Natur moderner Kriegsführung.",
+                w6_title: "Darling", w6_desc: "Ein handgewebter Teppich aus schwarzem Leichensack-Plastik, der Seggengras nachempfunden ist. Durch das ritueller Flechten dieses synthetischen Bodens verwandelt die Installation den Boden in ein texturiertes Massengrab и lässt die Grenze zwischen dem gefallenen Körper и der Erde verschwimmen.",
+                f_loc1: "Tiflis, Georgien", f_loc2: "Planung: Stuttgart, Deutschland",
+                
+                // Footer Navigation
+                nav_main: "Startseite",
+                nav_echo: "Echo",
+                nav_bp: "GRENZEN DER WAHRNEHMUNG"
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.innerText.toLowerCase() === lang;
+                btn.style.opacity = isActive ? "1" : "0.5";
+                btn.style.borderBottom = isActive ? "1px solid currentColor" : "1px solid transparent";
+            });
+
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    elem.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

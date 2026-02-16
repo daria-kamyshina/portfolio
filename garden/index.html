@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Garden — Torf</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face { font-family: 'Switzer-Light'; src: url('fonts/Switzer-Light.otf') format('opentype'); font-weight: 300; }
+        @font-face { font-family: 'Optima'; src: url('fonts/Optima.ttc') format('truetype'); }
+        @font-face { font-family: 'Ballonest'; src: url('fonts/Ballonest.ttf') format('truetype'); }
+
+        :root {
+            --font-main: 'Switzer-Light', sans-serif;
+            --font-display: 'Optima', serif;
+            --font-sign: 'Ballonest', cursive;
+            --left-axis: clamp(1.5rem, 6vw, 10rem); 
+            --color-paper: #fcfcfb;
+        }
+
+        .bg-paper {
+            background-color: var(--color-paper);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        .axis-padding { padding-left: var(--left-axis); padding-right: var(--left-axis); }
+        .max-site-width { max-width: 1440px; margin: 0 auto; }
+        body { font-family: var(--font-main); color: #1a1a1a; font-weight: 300; }
+        .font-display { font-family: var(--font-display); }
+        .font-sign { font-family: var(--font-sign); }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body class="bg-paper antialiased text-ink">
+
+    <nav class="relative z-50 w-full pt-12 axis-padding grid grid-cols-3 items-center">
+        <div class="hidden md:block"></div>
+
+        <div class="flex items-center justify-center gap-6 md:gap-10 whitespace-nowrap">
+            <a href="/" class="font-sign text-7xl md:text-8xl leading-none hover:opacity-50 transition-opacity">Torf</a>
+            <div class="h-6 w-[1px] bg-ink/10 hidden md:block"></div>
+            <div class="text-[9px] uppercase tracking-[0.4em] opacity-40" data-key="header_tag">Boundaries of perception / 2026</div>
+        </div>
+
+        <div class="flex justify-end gap-4">
+            <button class="lang-btn active text-[10px] tracking-[0.2em] uppercase" style="opacity: 1; border-bottom: 1px solid currentColor;" onclick="setLang('en')">EN</button>
+            <button class="lang-btn text-[10px] tracking-[0.2em] uppercase" style="opacity: 0.5;" onclick="setLang('de')">DE</button>
+        </div>
+    </nav>
+
+    <header class="max-site-width axis-padding pr-8 mb-16 md:mb-20 mt-16 md:mt-24">
+        <h1 class="font-display text-[12vw] md:text-[9.5rem] leading-[0.8] uppercase tracking-tighter mb-6 -ml-1 md:-ml-2" data-key="hero_title">
+            The Garden
+        </h1>
+        <div class="flex justify-between items-baseline border-t border-ink/10 pt-4">
+            <span class="font-sign text-3xl md:text-4xl opacity-60">kamysh #3</span>
+            <span class="font-display text-sm md:text-lg opacity-40 uppercase tracking-widest" data-key="label_artobject">Art object</span>
+        </div>
+    </header>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+            <div class="md:col-span-8 relative">
+                <div class="md:sticky md:top-24">
+                    <img src="garden.png" alt="Concept sketch" class="w-full h-auto mix-blend-multiply mb-3">
+                    <p class="text-[9px] uppercase tracking-[0.2em] opacity-40" data-key="label_sketch">Concept sketch / diagram</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 space-y-10 text-lg leading-relaxed opacity-80 pt-2">
+                <p data-key="desc_p1">The installation presents a pristine space populated by mirrored vases resting on saucers painted with vivid, abstract patterns.</p>
+                <p data-key="desc_p2">Through the laws of physics and reflection, the rigid, cold surface of the mirror absorbs the chaotic colors hidden beneath it, organizing them into the organic, shimmering form of a living flower. The viewer witnesses a transformation: the vase ceases to be an object and becomes a canvas for light.</p>
+                <p data-key="desc_p3">This work asserts the autonomy of beauty, where the act of looking becomes an act of creation, reminding us that harmony is not just found, but optically constructed by the perspective we choose to take.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5 items-start">
+            <div class="md:col-span-2 flex flex-col">
+                <div class="h-64 md:h-[30rem] bg-neutral-100/50 overflow-hidden mb-2">
+                    <img src="garden-1.png" class="w-full h-full object-cover">
+                </div>
+                <p class="text-[9px] uppercase tracking-widest opacity-40" data-key="grid_label1">Visualization / Optical effect</p>
+            </div>
+            </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 pt-4 pb-16 md:pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            <div class="md:col-span-4 flex flex-col justify-between">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl mb-2 text-ink" data-key="specs_title">Object & Process</h2>
+                    <div class="text-[11px] uppercase tracking-[0.2em] opacity-50" data-key="label_specs">Specifications</div>
+                </div>
+                <div class="pt-12 mt-auto opacity-40 hidden md:block">
+                    <p class="text-[12px] leading-relaxed max-w-xs italic" data-key="specs_note">The author reserves the right to select fabrication method based on scale, provided the specular quality and optical relationship between base and reflection remain dominant.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-start-6 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
+                <div class="space-y-12">
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_materiality">Dimensions & Composition</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m1">Dimensions variable, up to 200 cm height per unit. Multiple sculptural units ("vases") distributed across floor space, creating a garden-like environment. Each unit functions as an optical device based on anamorphic reflection.</p>
+                    </div>
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_lighting">Structure</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m2">Vertical element: Convex mirrored sculptural form. Horizontal base: Painted saucer with distorted abstract patterns. The mirror transforms chaotic floor patterns into coherent blooming images.</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_content">Fabrication</span>
+                    <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m3">Hot glass forming, large-scale additive manufacturing, or sculptural modeling over metal armature. Exterior surface treated to specular mirror quality (silver, titanium, champagne) on functional zones, transitioning to transparency/color on non-functional zones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-site-width axis-padding pr-8 py-16 md:py-24 flex justify-between items-center text-[10px] uppercase tracking-widest opacity-40">
+        <a href="/heart" class="hover:opacity-100 transition" data-key="nav_prev">← Form of existence</a>
+        <a href="/between" class="hover:opacity-100 transition" data-key="nav_next">Between the end... →</a>
+    </div>
+
+    <footer class="w-full bg-[#f4f4f3] border-t border-ink/10 pt-20 pb-24">
+        <div class="axis-padding">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-[11px] uppercase tracking-[0.2em]">
+                
+                <div class="md:col-span-4 space-y-6">
+                    <div class="space-y-2">
+                        <span class="block text-ink font-semibold">Torf (Daria Kamyshina)</span>
+                        <a href="mailto:dkamysina@gmail.com" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">dkamysina@gmail.com</a>
+                        <span class="block opacity-50">+995 598 142 635</span>
+                        <a href="#" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">@torf_art</a>
+                    </div>
+                    <div class="space-y-2 pt-4 opacity-50">
+                        <span class="block" data-key="f_loc1">Tbilisi, Georgia</span>
+                        <span class="block" data-key="f_loc2">Planning: Stuttgart, Germany</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <a href="/" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_main">Main</a>
+                </div>
+
+                <div class="md:col-span-3 space-y-4">
+                    <a href="/echo" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_echo">Echo</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/war" class="hover:text-ink transition">Not your war</a></li>
+                        <li><a href="/crime" class="hover:text-ink transition">Crime or Punishment</a></li>
+                        <li><a href="/mordor" class="hover:text-ink transition">Mordor</a></li>
+                        <li><a href="/puscha" class="hover:text-ink transition">Puscha</a></li>
+                        <li><a href="/death" class="hover:text-ink transition">It's just death</a></li>
+                        <li><a href="/darling" class="hover:text-ink transition">Darling</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <a href="/boundaries" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_bp">Boundaries of Perception</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/divide" class="hover:text-ink transition">The Divide</a></li>
+                        <li><a href="/ceiling" class="hover:text-ink transition">Glass ceiling</a></li>
+                        <li><a href="/digital" class="hover:text-ink transition">Digitalprint</a></li>
+                        <li><a href="/game" class="hover:text-ink transition">Survival Game</a></li>
+                        <li><a href="/heart" class="hover:text-ink transition">Form of existence</a></li>
+                        <li><a href="/garden" class="hover:text-ink transition text-ink font-semibold opacity-100">The Garden</a></li>
+                        <li><a href="/between" class="hover:text-ink transition">Between the end and infinity</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                header_tag: "Boundaries of perception / 2026", hero_title: "The Garden", label_artobject: "Art object",
+                label_sketch: "Concept sketch / diagram",
+                desc_p1: "The installation presents a pristine space populated by mirrored vases resting on saucers painted with vivid, abstract patterns.",
+                desc_p2: "Through the laws of physics and reflection, the rigid, cold surface of the mirror absorbs the chaotic colors hidden beneath it, organizing them into the organic, shimmering form of a living flower. The viewer witnesses a transformation: the vase ceases to be an object and becomes a canvas for light.",
+                desc_p3: "This work asserts the autonomy of beauty, where the act of looking becomes an act of creation, reminding us that harmony is not just found, but optically constructed by the perspective we choose to take.",
+                grid_label1: "Visualization / Optical effect",
+                specs_title: "Object & Process", label_specs: "Specifications", specs_note: "The author reserves the right to select fabrication method based on scale, provided the specular quality and optical relationship between base and reflection remain dominant.",
+                label_materiality: "Dimensions & Composition", specs_m1: "Dimensions variable, up to 200 cm height per unit. Multiple sculptural units distributed across floor space, creating a garden-like environment. Each unit functions as an optical device based on anamorphic reflection.",
+                label_lighting: "Structure", specs_m2: "Vertical element: Convex mirrored sculptural form. Horizontal base: Painted saucer with distorted abstract patterns. The mirror transforms chaotic floor patterns into coherent blooming images.",
+                label_content: "Fabrication", specs_m3: "Hot glass forming, large-scale additive manufacturing, or sculptural modeling over metal armature. Exterior surface treated to specular mirror quality (silver, titanium, champagne) on functional zones, transitioning to transparency/color on non-functional zones.",
+                nav_prev: "← Form of existence", nav_next: "Between the end... →",
+                f_loc1: "Tbilisi, Georgia", f_loc2: "Planning: Stuttgart, Germany",
+                
+                // Footer Navigation
+                nav_main: "Main",
+                nav_echo: "Echo",
+                nav_bp: "BOUNDARIES OF PERCEPTION"
+            },
+            de: {
+                header_tag: "Grenzen der Wahrnehmung / 2026", hero_title: "The Garden", label_artobject: "Kunstobjekt",
+                label_sketch: "Konzeptskizze / Diagramm",
+                desc_p1: "Die Installation präsentiert einen makellosen Raum, bevölkert von verspiegelten Vasen, die auf mit lebhaften, abstrakten Mustern bemalten Untertassen ruhen.",
+                desc_p2: "Durch die Gesetze der Physik und Reflexion absorbiert die starre, kalte Oberfläche des Spiegels die darunter verborgenen chaotischen Farben und ordnet sie zur organischen, schimmernden Form einer lebendigen Blume. Der Betrachter wird Zeuge einer Transformation: Die Vase hört auf, ein Objekt zu sein, und wird zur Leinwand für das Licht.",
+                desc_p3: "Dieses Werk behauptet die Autonomie der Schönheit, wobei der Akt des Betrachtens zu einem Akt der Schöpfung wird und uns daran erinnert, dass Harmonie nicht nur gefunden, sondern optisch durch die Perspektive konstruiert wird, die wir wählen.",
+                grid_label1: "Visualisierung / Optischer Effekt",
+                specs_title: "Objekt & Prozess", label_specs: "Spezifikationen", specs_note: "Der Autor behält sich das Recht vor, die Fertigungsmethode je nach Maßstab zu wählen, solange die Spiegelqualität und das optische Verhältnis erhalten bleiben.",
+                label_materiality: "Abmessungen & Komposition", specs_m1: "Variable Abmessungen, bis zu 200 cm Höhe pro Einheit. Mehrere skulpturale Einheiten, die im Raum verteilt sind und eine gartenähnliche Umgebung schaffen. Jede Einheit fungiert als optisches Gerät.",
+                label_lighting: "Struktur", specs_m2: "Vertikales Element: Konvexe verspiegelte Skulpturform. Horizontale Basis: Bemalte Untertasse mit verzerrten abstrakten Mustern. Der Spiegel verwandelt chaotische Bodenmuster in kohärente blühende Bilder.",
+                label_content: "Fertigung", specs_m3: "Heißglasformung, großformatige additive Fertigung oder Modellierung über Metallarmatur. Außenfläche mit Spiegelglanz (Silber, Titan, Champagner) in funktionalen Zonen, Übergang zu Transparenz/Farbe in nicht-funktionalen Zonen.",
+                nav_prev: "← Form of existence",  nav_next: "Between the end... →",
+                f_loc1: "Tiflis, Georgien", f_loc2: "Planung: Stuttgart, Deutschland",
+                
+                // Footer Navigation
+                nav_main: "Startseite",
+                nav_echo: "Echo",
+                nav_bp: "GRENZEN DER WAHRNEHMUNG"
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.innerText.toLowerCase() === lang;
+                btn.style.opacity = isActive ? "1" : "0.5";
+                btn.style.borderBottom = isActive ? "1px solid currentColor" : "1px solid transparent";
+            });
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) elem.innerHTML = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>

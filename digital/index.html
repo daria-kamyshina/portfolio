@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitalprint — Torf</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face { font-family: 'Switzer-Light'; src: url('fonts/Switzer-Light.otf') format('opentype'); font-weight: 300; }
+        @font-face { font-family: 'Optima'; src: url('fonts/Optima.ttc') format('truetype'); }
+        @font-face { font-family: 'Ballonest'; src: url('fonts/Ballonest.ttf') format('truetype'); }
+
+        :root {
+            --font-main: 'Switzer-Light', sans-serif;
+            --font-display: 'Optima', serif;
+            --font-sign: 'Ballonest', cursive;
+            --left-axis: clamp(1.5rem, 6vw, 10rem); 
+            --color-paper: #fcfcfb;
+        }
+
+        .bg-paper {
+            background-color: var(--color-paper);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        .axis-padding { padding-left: var(--left-axis); padding-right: var(--left-axis); }
+        .max-site-width { max-width: 1440px; margin: 0 auto; }
+        body { font-family: var(--font-main); color: #1a1a1a; font-weight: 300; }
+        .font-display { font-family: var(--font-display); }
+        .font-sign { font-family: var(--font-sign); }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body class="bg-paper antialiased text-ink">
+
+    <nav class="relative z-50 w-full pt-12 axis-padding grid grid-cols-3 items-center">
+        <div class="hidden md:block"></div>
+
+        <div class="flex items-center justify-center gap-6 md:gap-10 whitespace-nowrap">
+            <a href="/" class="font-sign text-7xl md:text-8xl leading-none hover:opacity-50 transition-opacity">Torf</a>
+            <div class="h-6 w-[1px] bg-ink/10 hidden md:block"></div>
+            <div class="text-[9px] uppercase tracking-[0.4em] opacity-40" data-key="header_tag">Boundaries of perception / 2026</div>
+        </div>
+
+        <div class="flex justify-end gap-4">
+            <button class="lang-btn active text-[10px] tracking-[0.2em] uppercase" style="opacity: 1; border-bottom: 1px solid currentColor;" onclick="setLang('en')">EN</button>
+            <button class="lang-btn text-[10px] tracking-[0.2em] uppercase" style="opacity: 0.5;" onclick="setLang('de')">DE</button>
+        </div>
+    </nav>
+
+    <header class="max-site-width axis-padding pr-8 mb-16 md:mb-20 mt-16 md:mt-24">
+        <h1 class="font-display text-[12vw] md:text-[9.5rem] leading-[0.8] uppercase tracking-tighter mb-6 -ml-1 md:-ml-2" data-key="hero_title">
+            Digitalprint
+        </h1>
+        <div class="flex justify-between items-baseline border-t border-ink/10 pt-4">
+            <span class="font-sign text-3xl md:text-4xl opacity-60">kamysh #1</span>
+            <span class="font-display text-sm md:text-lg opacity-40 uppercase tracking-widest" data-key="label_artobject">Art object</span>
+        </div>
+    </header>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+            <div class="md:col-span-8 relative">
+                <div class="md:sticky md:top-24">
+                    <img src="digital.png" alt="Concept sketch" class="w-full h-auto mix-blend-multiply mb-3">
+                    <p class="text-[9px] uppercase tracking-[0.2em] opacity-40" data-key="label_sketch">Concept sketch / hand drawing</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 space-y-10 text-lg leading-relaxed opacity-80 pt-2">
+                <p data-key="desc_p1">A black industrial cube, 120 cm³, suspended from a chain. Inside, a school of approximately 20 glass fish, handcrafted using lampwork technique. Contour forms, transparent, resembling 3D wireframes. Each frozen in its own position.</p>
+                <p data-key="desc_p2">Light cuts through the black void, refracting in the glass ribs. Delicate glass graphics against heavy metal: beautiful, technological, meaningless.</p>
+                <p data-key="desc_p3">This is what remains after millennia. Not the internet, not neural networks, not debates. Wires, pipes, glass, metal, arranged in incomprehensible connections. Only to guess: who we worshipped, what we believed, why we did it all.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 items-start">
+            <div class="flex flex-col">
+                <div class="h-60 md:h-72 bg-neutral-100/50 overflow-hidden mb-2"><img src="glass_fish.png" class="w-full h-full object-cover"></div>
+                <p class="text-[9px] uppercase tracking-widest opacity-40" data-key="grid_label1">Borosilicate test</p>
+            </div>
+            <div class="flex flex-col">
+                <div class="h-60 md:h-72 bg-neutral-100/50 overflow-hidden mb-2"><img src="digital1.jpg" class="w-full h-full object-cover"></div>
+                <p class="text-[9px] uppercase tracking-widest opacity-40" data-key="grid_label2">Macro texture</p>
+            </div>
+            <div class="flex flex-col">
+                <div class="h-60 md:h-72 bg-neutral-100/50 overflow-hidden mb-2"><img src="digital3.jpg" class="w-full h-full object-cover"></div>
+                <p class="text-[9px] uppercase tracking-widest opacity-40" data-key="grid_label3">Refraction study</p>
+            </div>
+            <div class="flex flex-col">
+                <div class="h-60 md:h-72 bg-neutral-100/50 overflow-hidden mb-2"><img src="digital2.jpg" class="w-full h-full object-cover"></div>
+                <p class="text-[9px] uppercase tracking-widest opacity-40" data-key="grid_label4">Scale reference</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 pt-4 pb-16 md:pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            <div class="md:col-span-4 flex flex-col justify-between">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl mb-2 text-ink" data-key="specs_title">Object & Process</h2>
+                    <div class="text-[11px] uppercase tracking-[0.2em] opacity-50" data-key="label_specs">Specifications</div>
+                </div>
+                <div class="pt-12 mt-auto opacity-40 hidden md:block">
+                    <p class="text-[12px] leading-relaxed max-w-xs italic" data-key="specs_note">The author reserves the right to vary the number of glass elements and specific design of each creature while maintaining the contrast between heavy industrial frame and fragile transparent content.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-start-6 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
+                <div class="space-y-12">
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_materiality">Materiality</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m1">Lampwork glass, black metal frame, steel chain. Cube 120 × 120 × 120 cm, suspended with lowest point approximately 150 cm from floor.</p>
+                    </div>
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_lighting">Lighting</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m2">Cold light source illuminates internal contents, causing refraction in glass structures.</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_content">Sculptural content</span>
+                    <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m3">Approximately 20 unique glass fish, transparent borosilicate glass, skeletal wireframe construction. Each form unique, suspended on thin chains or monofilament.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-site-width axis-padding pr-8 py-16 md:py-24 flex justify-between items-center text-[10px] uppercase tracking-widest opacity-40">
+        <a href="/ceiling" class="hover:opacity-100 transition" data-key="nav_prev">← Glass ceiling</a>
+        <a href="/game" class="hover:opacity-100 transition" data-key="nav_next">Survival Game →</a>
+    </div>
+
+    <footer class="w-full bg-[#f4f4f3] border-t border-ink/10 pt-20 pb-24">
+        <div class="axis-padding">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-[11px] uppercase tracking-[0.2em]">
+                
+                <div class="md:col-span-4 space-y-6">
+                    <div class="space-y-2">
+                        <span class="block text-ink font-semibold">Torf (Daria Kamyshina)</span>
+                        <a href="mailto:dkamysina@gmail.com" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">dkamysina@gmail.com</a>
+                        <span class="block opacity-50">+995 598 142 635</span>
+                        <a href="#" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">@torf_art</a>
+                    </div>
+                    <div class="space-y-2 pt-4 opacity-50">
+                        <span class="block" data-key="f_loc1">Tbilisi, Georgia</span>
+                        <span class="block" data-key="f_loc2">Planning: Stuttgart, Germany</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <a href="/" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_main">Main</a>
+                </div>
+
+                <div class="md:col-span-3 space-y-4">
+                    <a href="/echo" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_echo">Echo</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/war" class="hover:text-ink transition">Not your war</a></li>
+                        <li><a href="/crime" class="hover:text-ink transition">Crime or Punishment</a></li>
+                        <li><a href="/mordor" class="hover:text-ink transition">Mordor</a></li>
+                        <li><a href="/puscha" class="hover:text-ink transition">Puscha</a></li>
+                        <li><a href="/death" class="hover:text-ink transition">It's just death</a></li>
+                        <li><a href="/darling" class="hover:text-ink transition">Darling</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <a href="/boundaries" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_bp">Boundaries of Perception</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/divide" class="hover:text-ink transition">The Divide</a></li>
+                        <li><a href="/ceiling" class="hover:text-ink transition">Glass ceiling</a></li>
+                        <li><a href="/digital" class="hover:text-ink transition text-ink font-semibold opacity-100">Digitalprint</a></li>
+                        <li><a href="/game" class="hover:text-ink transition">Survival Game</a></li>
+                        <li><a href="/heart" class="hover:text-ink transition">Form of existence</a></li>
+                        <li><a href="/garden" class="hover:text-ink transition">The Garden</a></li>
+                        <li><a href="/between" class="hover:text-ink transition">Between the end and infinity</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                header_tag: "Boundaries of perception / 2026", hero_title: "Digitalprint", label_artobject: "Art object",
+                label_sketch: "Concept sketch / hand drawing",
+                desc_p1: "A black industrial cube, 120 cm³, suspended from a chain. Inside, a school of approximately 20 glass fish, handcrafted using lampwork technique. Contour forms, transparent, resembling 3D wireframes. Each frozen in its own position.",
+                desc_p2: "Light cuts through the black void, refracting in the glass ribs. Delicate glass graphics against heavy metal: beautiful, technological, meaningless.",
+                desc_p3: "This is what remains after millennia. Not the internet, not neural networks, not debates. Wires, pipes, glass, metal, arranged in incomprehensible connections. Only to guess: who we worshipped, what we believed, why we did it all.",
+                grid_label1: "Borosilicate test", grid_label2: "Macro texture", grid_label3: "Refraction study", grid_label4: "Scale reference",
+                specs_title: "Object & Process", label_specs: "Specifications", specs_note: "The author reserves the right to vary the number of glass elements...",
+                label_materiality: "Materiality", specs_m1: "Lampwork glass, black metal frame, steel chain. Cube 120 × 120 × 120 cm, suspended with lowest point approximately 150 cm from floor.",
+                label_lighting: "Lighting", specs_m2: "Cold light source illuminates internal contents, causing refraction in glass structures.",
+                label_content: "Sculptural content", specs_m3: "Approximately 20 unique glass fish, transparent borosilicate glass, skeletal wireframe construction. Each form unique, suspended on thin chains or monofilament.",
+                nav_prev: "← Previous", nav_next: "Next →",
+                f_loc1: "Tbilisi, Georgia", f_loc2: "Planning: Stuttgart, Germany",
+                
+                // Footer Navigation
+                nav_main: "Main",
+                nav_echo: "Echo",
+                nav_bp: "BOUNDARIES OF PERCEPTION"
+            },
+            de: {
+                header_tag: "Grenzen der Wahrnehmung / 2026", hero_title: "Digitalprint", label_artobject: "Kunstobjekt",
+                label_sketch: "Konzeptskizze / Handzeichnung",
+                desc_p1: "Ein schwarzer industrieller Kubus, 120 cm³, an einer Kette aufgehängt. Im Inneren ein Schwarm von etwa 20 Glasfischen, handgefertigt in Lampenarbeit. Konturformen, transparent, an 3D-Drahtgittermodelle erinnernd. Jeder in seiner eigenen Position eingefroren.",
+                desc_p2: "Licht schneidet durch die schwarze Leere und bricht sich in den Glasrippen. Filigrane Glasgrafik gegen schweres Metall: schön, technologisch, bedeutungslos.",
+                desc_p3: "Das ist es, was nach Jahrtausenden bleibt. Nicht das Internet, nicht neuronale Netze, keine Debatten. Drähte, Rohre, Glas, Metall, in unbegreiflichen Verbindungen angeordnet. Nur um zu raten: wen wir anbeteten, woran wir glaubten, warum wir das alles taten.",
+                grid_label1: "Borosilikat-Test", grid_label2: "Makrotextur", grid_label3: "Refraktionsstudie", grid_label4: "Maßstabsreferenz",
+                specs_title: "Objekt & Prozess", label_specs: "Spezifikationen", specs_note: "Der Autor behält sich das Recht vor, die Anzahl der Glaselemente zu variieren...",
+                label_materiality: "Materialität", specs_m1: "Lampwork-Glas, schwarzer Metallrahmen, Stahlkette. Würfel 120 × 120 × 120 cm, aufgehängt mit dem tiefsten Punkt etwa 150 cm über dem Boden.",
+                label_lighting: "Beleuchtung", specs_m2: "Eine Kaltlichtquelle beleuchtet den Inhalt und erzeugt Lichtbrechung in den Glasstrukturen.",
+                label_content: "Skulpturaler Inhalt", specs_m3: "Etwa 20 einzigartige Glasfische, transparentes Borosilikatglas, skelettartige Drahtgitterkonstruktion. Jede Form ist ein Unikat, aufgehängt an dünnen Ketten oder Monofilament.",
+                nav_prev: "← Glass ceiling",  nav_next: "Survival Game →",
+                f_loc1: "Tiflis, Georgien", f_loc2: "Planung: Stuttgart, Deutschland",
+                
+                // Footer Navigation
+                nav_main: "Startseite",
+                nav_echo: "Echo",
+                nav_bp: "GRENZEN DER WAHRNEHMUNG"
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.innerText.toLowerCase() === lang;
+                btn.style.opacity = isActive ? "1" : "0.5";
+                btn.style.borderBottom = isActive ? "1px solid currentColor" : "1px solid transparent";
+            });
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) elem.innerHTML = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>

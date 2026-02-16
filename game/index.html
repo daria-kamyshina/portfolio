@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survival Game — Torf</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face { font-family: 'Switzer-Light'; src: url('fonts/Switzer-Light.otf') format('opentype'); font-weight: 300; }
+        @font-face { font-family: 'Optima'; src: url('fonts/Optima.ttc') format('truetype'); }
+        @font-face { font-family: 'Ballonest'; src: url('fonts/Ballonest.ttf') format('truetype'); }
+
+        :root {
+            --font-main: 'Switzer-Light', sans-serif;
+            --font-display: 'Optima', serif;
+            --font-sign: 'Ballonest', cursive;
+            --left-axis: clamp(1.5rem, 6vw, 10rem); 
+            --color-paper: #fcfcfb;
+        }
+
+        .bg-paper {
+            background-color: var(--color-paper);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        .axis-padding { padding-left: var(--left-axis); padding-right: var(--left-axis); }
+        .max-site-width { max-width: 1440px; margin: 0 auto; }
+        body { font-family: var(--font-main); color: #1a1a1a; font-weight: 300; }
+        .font-display { font-family: var(--font-display); }
+        .font-sign { font-family: var(--font-sign); }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body class="bg-paper antialiased text-ink">
+
+    <nav class="relative z-50 w-full pt-12 axis-padding grid grid-cols-3 items-center">
+        <div class="hidden md:block"></div>
+
+        <div class="flex items-center justify-center gap-6 md:gap-10 whitespace-nowrap">
+            <a href="/" class="font-sign text-7xl md:text-8xl leading-none hover:opacity-50 transition-opacity">Torf</a>
+            <div class="h-6 w-[1px] bg-ink/10 hidden md:block"></div>
+            <div class="text-[9px] uppercase tracking-[0.4em] opacity-40" data-key="header_tag">Boundaries of perception / 2026</div>
+        </div>
+
+        <div class="flex justify-end gap-4">
+            <button class="lang-btn active text-[10px] tracking-[0.2em] uppercase" style="opacity: 1; border-bottom: 1px solid currentColor;" onclick="setLang('en')">EN</button>
+            <button class="lang-btn text-[10px] tracking-[0.2em] uppercase" style="opacity: 0.5;" onclick="setLang('de')">DE</button>
+        </div>
+    </nav>
+
+    <header class="max-site-width axis-padding pr-8 mb-16 md:mb-20 mt-16 md:mt-24">
+        <h1 class="font-display text-[12vw] md:text-[9.5rem] leading-[0.8] uppercase tracking-tighter mb-6 -ml-1 md:-ml-2" data-key="hero_title">
+            Survival Game
+        </h1>
+        <div class="flex justify-between items-baseline border-t border-ink/10 pt-4">
+            <span class="font-sign text-3xl md:text-4xl opacity-60">kamysh #2</span>
+            <span class="font-display text-sm md:text-lg opacity-40 uppercase tracking-widest" data-key="label_artobject">Art object</span>
+        </div>
+    </header>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+            <div class="md:col-span-8 relative">
+                <div class="md:sticky md:top-24">
+                    <img src="game.png" alt="Survival Game Sketch" class="w-full h-auto mix-blend-multiply mb-3">
+                    <p class="text-[9px] uppercase tracking-[0.2em] opacity-40" data-key="label_sketch">Concept sketch / hand drawing</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 space-y-10 text-lg leading-relaxed opacity-80 pt-2">
+                <p data-key="desc_p1">Survival Game exposes the arrogance of human pity towards nature. On the glass board, the massive transparent army of Civilization appears to aggressively crowd the smaller, opaque figures of Nature.</p>
+                <p data-key="desc_p2">To an uninitiated viewer, this looks like environmental dominance: humanity crushing the ecosystem. But to a chess player, the board reveals the opposite reality. The transparent skyscrapers are in a hopeless position; their dominance is actually a trap.</p>
+                <p data-key="desc_p3">The work mocks our anthropocentric guilt: we worry about saving the planet, forgetting that the planet is the Grandmaster, and we are the ones in Zugzwang.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <div class="flex flex-col">
+                <div class="h-64 md:h-[30rem] bg-neutral-100/50 overflow-hidden mb-2">
+                    <img src="game-1.PNG" class="w-full h-full object-cover">
+                </div>
+                <p class="text-[9px] uppercase tracking-widest opacity-40" data-key="grid_label1">Optical glass cast</p>
+            </div>
+            <div class="flex flex-col">
+                <div class="h-64 md:h-[30rem] bg-neutral-100/50 overflow-hidden mb-2">
+                    <img src="game-2.PNG" class="w-full h-full object-contain p-8 bg-white">
+                </div>
+                <p class="text-[9px] uppercase tracking-widest opacity-40" data-key="grid_label2">Zugzwang position</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 pt-4 pb-16 md:pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            <div class="md:col-span-4 flex flex-col justify-between">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl mb-2 text-ink" data-key="specs_title">Object & Process</h2>
+                    <div class="text-[11px] uppercase tracking-[0.2em] opacity-50" data-key="label_specs">Specifications</div>
+                </div>
+                <div class="pt-12 mt-auto opacity-40 hidden md:block">
+                    <p class="text-[12px] leading-relaxed max-w-xs italic" data-key="specs_note">The author reserves the right to modify the specific chess notation of the position provided the concept of "Double Zugzwang favoring the minority side" is preserved.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-start-6 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
+                <div class="space-y-12">
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_board">Board & Dimensions</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m1">Glass, sandblasted grid. Board approximately 100 × 100 × 38 cm, total installation height approximately 50 cm.</p>
+                    </div>
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_nature">Nature (White)</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m2">Matte/frosted glass, organic sculptures referencing flora and fauna. Lost wax casting. Height approximately 5–12 cm per piece.</p>
+                    </div>
+                </div>
+                <div class="space-y-12">
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_civ">Civilization (Black)</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m3">Transparent optical glass, solid rectangular blocks containing hollow internal cavities — negative impressions of skyscrapers. Kiln casting, coldworking. H: 8–15 cm.</p>
+                    </div>
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_pos">Position</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m4">Fixed double zugzwang favoring the minority side (Nature). The dominance of the tall transparent pieces is structurally useless in this position.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-site-width axis-padding pr-8 py-16 md:py-24 flex justify-between items-center text-[10px] uppercase tracking-widest opacity-40">
+        <a href="/digital" class="hover:opacity-100 transition" data-key="nav_prev">← Digitalprint</a>
+        <a href="/heart" class="hover:opacity-100 transition" data-key="nav_next">Form of existence →</a>
+    </div>
+
+    <footer class="w-full bg-[#f4f4f3] border-t border-ink/10 pt-20 pb-24">
+        <div class="axis-padding">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-[11px] uppercase tracking-[0.2em]">
+                
+                <div class="md:col-span-4 space-y-6">
+                    <div class="space-y-2">
+                        <span class="block text-ink font-semibold">Torf (Daria Kamyshina)</span>
+                        <a href="mailto:dkamysina@gmail.com" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">dkamysina@gmail.com</a>
+                        <span class="block opacity-50">+995 598 142 635</span>
+                        <a href="#" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">@torf_art</a>
+                    </div>
+                    <div class="space-y-2 pt-4 opacity-50">
+                        <span class="block" data-key="f_loc1">Tbilisi, Georgia</span>
+                        <span class="block" data-key="f_loc2">Planning: Stuttgart, Germany</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <a href="/" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_main">Main</a>
+                </div>
+
+                <div class="md:col-span-3 space-y-4">
+                    <a href="/echo" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_echo">Echo</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/war" class="hover:text-ink transition">Not your war</a></li>
+                        <li><a href="/crime" class="hover:text-ink transition">Crime or Punishment</a></li>
+                        <li><a href="/mordor" class="hover:text-ink transition">Mordor</a></li>
+                        <li><a href="/puscha" class="hover:text-ink transition">Puscha</a></li>
+                        <li><a href="/death" class="hover:text-ink transition">It's just death</a></li>
+                        <li><a href="/darling" class="hover:text-ink transition">Darling</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <a href="/boundaries" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_bp">Boundaries of Perception</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/divide" class="hover:text-ink transition">The Divide</a></li>
+                        <li><a href="/ceiling" class="hover:text-ink transition">Glass ceiling</a></li>
+                        <li><a href="/digital" class="hover:text-ink transition">Digitalprint</a></li>
+                        <li><a href="/game" class="hover:text-ink transition text-ink font-semibold opacity-100">Survival Game</a></li>
+                        <li><a href="/heart" class="hover:text-ink transition">Form of existence</a></li>
+                        <li><a href="/garden" class="hover:text-ink transition">The Garden</a></li>
+                        <li><a href="/between" class="hover:text-ink transition">Between the end and infinity</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                header_tag: "Boundaries of perception / 2026", hero_title: "Survival Game", label_artobject: "Art object",
+                label_sketch: "Concept sketch / hand drawing",
+                
+                desc_p1: "Survival Game exposes the arrogance of human pity towards nature. On the glass board, the massive transparent army of Civilization appears to aggressively crowd the smaller, opaque figures of Nature.",
+                desc_p2: "To an uninitiated viewer, this looks like environmental dominance: humanity crushing the ecosystem. But to a chess player, the board reveals the opposite reality. The transparent skyscrapers are in a hopeless position; their dominance is actually a trap.",
+                desc_p3: "The work mocks our anthropocentric guilt: we worry about saving the planet, forgetting that the planet is the Grandmaster, and we are the ones in Zugzwang.",
+                
+                grid_label1: "Optical glass cast", grid_label2: "Zugzwang position",
+                
+                specs_title: "Object & Process", label_specs: "Specifications", 
+                specs_note: "The author reserves the right to modify the specific chess notation of the position provided the concept of 'Double Zugzwang favoring the minority side' is preserved.",
+                
+                label_board: "Board & Dimensions", 
+                specs_m1: "Glass, sandblasted grid. Board approximately 100 × 100 × 38 cm, total installation height approximately 50 cm.",
+                
+                label_nature: "Nature (White)", 
+                specs_m2: "Matte/frosted glass, organic sculptures referencing flora and fauna. Lost wax casting. Height approximately 5–12 cm per piece.",
+                
+                label_civ: "Civilization (Black)", 
+                specs_m3: "Transparent optical glass, solid rectangular blocks containing hollow internal cavities — negative impressions of skyscrapers. Kiln casting, coldworking. H: 8–15 cm.",
+
+                label_pos: "Position",
+                specs_m4: "Fixed double zugzwang favoring the minority side (Nature). The dominance of the tall transparent pieces is structurally useless in this position.",
+
+                nav_prev: "← Digitalprint", nav_next: "Form of existence →",
+                f_loc1: "Tbilisi, Georgia", f_loc2: "Planning: Stuttgart, Germany",
+                
+                // Footer Navigation
+                nav_main: "Main",
+                nav_echo: "Echo",
+                nav_bp: "BOUNDARIES OF PERCEPTION"
+            },
+            de: {
+                header_tag: "Grenzen der Wahrnehmung / 2026", hero_title: "Survival Game", label_artobject: "Kunstobjekt",
+                label_sketch: "Konzeptskizze / Handzeichnung",
+                
+                desc_p1: "Survival Game enthüllt die Arroganz des menschlichen Mitleids gegenüber der Natur. Auf dem Glasbrett scheint die massive transparente Armee der Zivilisation die kleineren, undurchsichtigen Figuren der Natur aggressiv zu bedrängen.",
+                desc_p2: "Für einen uneingeweihten Betrachter sieht dies nach ökologischer Dominanz aus: Die Menschheit zermalmt das Ökosystem. Doch für einen Schachspieler enthüllt das Brett das Gegenteil. Die transparenten Wolkenkratzer befinden sich in einer ausweglosen Position; ihre Dominanz ist eine Falle.",
+                desc_p3: "Das Werk verspottet unsere anthropozentrische Schuld: Wir sorgen uns um die Rettung des Planeten und vergessen dabei, dass der Planet der Großmeister ist und wir diejenigen sind, die im Zugzwang stehen.",
+                
+                grid_label1: "Optischer Glasguss", grid_label2: "Zugzwang-Position",
+                
+                specs_title: "Objekt & Prozess", label_specs: "Spezifikationen", 
+                specs_note: "Der Autor behält sich das Recht vor, die spezifische Schachnotation zu ändern, sofern das Konzept des 'Doppelten Zugzwangs zugunsten der Minderheit' gewahrt bleibt.",
+                
+                label_board: "Brett & Maße", 
+                specs_m1: "Glas, sandgestrahltes Raster. Brett ca. 100 × 100 × 38 cm, Gesamthöhe der Installation ca. 50 cm.",
+                
+                label_nature: "Natur (Weiß)", 
+                specs_m2: "Mattes/gefrostetes Glas, organische Skulpturen, die Flora und Fauna referenzieren. Wachsausschmelzverfahren. Höhe ca. 5–12 cm pro Stück.",
+                
+                label_civ: "Zivilisation (Schwarz)", 
+                specs_m3: "Transparentes optisches Glas, solide rechteckige Blöcke mit hohlen Innenräumen — negative Abdrücke von Wolkenkratzern. Ofenguss, Kaltbearbeitung. H: 8–15 cm.",
+
+                label_pos: "Position",
+                specs_m4: "Fixierter doppelter Zugzwang zugunsten der Minderheitenseite (Natur). Die Dominanz der hohen transparenten Figuren ist in dieser Position strukturell nutzlos.",
+
+                nav_prev: "← Digitalprint",  nav_next: "Form of existence →",
+                f_loc1: "Tiflis, Georgien", f_loc2: "Planung: Stuttgart, Deutschland",
+                
+                // Footer Navigation
+                nav_main: "Startseite",
+                nav_echo: "Echo",
+                nav_bp: "GRENZEN DER WAHRNEHMUNG"
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.innerText.toLowerCase() === lang;
+                btn.style.opacity = isActive ? "1" : "0.5";
+                btn.style.borderBottom = isActive ? "1px solid currentColor" : "1px solid transparent";
+            });
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) elem.innerHTML = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>

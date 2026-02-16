@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mordor — Torf</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face { font-family: 'Switzer-Light'; src: url('fonts/Switzer-Light.otf') format('opentype'); font-weight: 300; }
+        @font-face { font-family: 'Optima'; src: url('fonts/Optima.ttc') format('truetype'); }
+        @font-face { font-family: 'Ballonest'; src: url('fonts/Ballonest.ttf') format('truetype'); }
+
+        :root {
+            --font-main: 'Switzer-Light', sans-serif;
+            --font-display: 'Optima', serif;
+            --font-sign: 'Ballonest', cursive;
+            --left-axis: clamp(1.5rem, 6vw, 10rem); 
+            --color-paper: #fcfcfb;
+        }
+
+        .bg-paper {
+            background-color: var(--color-paper);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        .axis-padding { padding-left: var(--left-axis); padding-right: var(--left-axis); }
+        .max-site-width { max-width: 1440px; margin: 0 auto; }
+        body { font-family: var(--font-main); color: #1a1a1a; font-weight: 300; }
+        .font-display { font-family: var(--font-display); }
+        .font-sign { font-family: var(--font-sign); }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body class="bg-paper antialiased text-ink">
+
+    <nav class="relative z-50 w-full pt-12 axis-padding grid grid-cols-3 items-center">
+        <div class="hidden md:block"></div>
+
+        <div class="flex items-center justify-center gap-6 md:gap-10 whitespace-nowrap">
+            <a href="/" class="font-sign text-7xl md:text-8xl leading-none hover:opacity-50 transition-opacity">Torf</a>
+            <div class="h-6 w-[1px] bg-ink/10 hidden md:block"></div>
+            <div class="text-[9px] uppercase tracking-[0.4em] opacity-40" data-key="header_tag">Echo / 2026</div>
+        </div>
+
+        <div class="flex justify-end gap-4">
+            <button class="lang-btn active text-[10px] tracking-[0.2em] uppercase" style="opacity: 1; border-bottom: 1px solid currentColor;" onclick="setLang('en')">EN</button>
+            <button class="lang-btn text-[10px] tracking-[0.2em] uppercase" style="opacity: 0.5;" onclick="setLang('de')">DE</button>
+        </div>
+    </nav>
+
+    <header class="max-site-width axis-padding pr-8 mb-16 md:mb-20 mt-16 md:mt-24">
+        <h1 class="font-display text-[12vw] md:text-[9.5rem] leading-[0.8] uppercase tracking-tighter mb-6 -ml-1 md:-ml-2" data-key="hero_title">
+            Mordor
+        </h1>
+        <div class="flex justify-between items-baseline border-t border-ink/10 pt-4">
+            <span class="font-sign text-3xl md:text-4xl opacity-60">kamysh #8</span>
+            <span class="font-display text-sm md:text-lg opacity-40 uppercase tracking-widest" data-key="label_artobject">Art object</span>
+        </div>
+    </header>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+            
+            <div class="md:col-span-6 relative">
+                <div class="md:sticky md:top-24">
+                    <img src="mordor.png" alt="Mordor Concept" class="w-full h-auto mix-blend-multiply mb-3">
+                    <p class="text-[9px] uppercase tracking-[0.2em] opacity-40" data-key="label_sketch">Concept sketch / atmosphere</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-6 space-y-10 text-lg leading-relaxed opacity-80 pt-2">
+                <p data-key="desc_p1">A landscape flattened into a myth of absolute evil. Seen from the outside, it is a territory defined only by aggression and obscurity.</p>
+                <p data-key="desc_p2">A room, floor to ceiling, is covered with grey paper. The space appears grim, closed, withdrawn. Under each sheet: a day, a fact, a name, an event from recent history the country. As visitors lift the grey layers, the concealed content emerges: images, text, the full tonal range of documentary color. The room shifts from monochrome severity to the specific hues of lived experience: dawn light, natural landscape, the varied palette of ordinary life.</p>
+                <p data-key="desc_p3">To enter, you walk on it. The floor sheets tear and crumple underfoot, some events are lost to passage to time. On the walls, you choose: lift a sheet or leave it. Read or don't. Take it with you or drop it. The ceiling remains out of reach.</p>
+                <p data-key="desc_p4">The space itself transforms from a dark, withdrawn mass into a breathing environment of pastel tones. The rejection and unease felt by early visitors gradually shift through the traces of all who passed: crumpled sheets on the floor, exposed layers on the walls, scattered remnants of others' choices.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div class="md:col-span-12 flex flex-col">
+                <div class="bg-neutral-100/50 overflow-hidden mb-2">
+                    <img src="mordor-1.png" class="w-full h-auto object-cover grayscale mix-blend-multiply">
+                </div>
+                <p class="text-[9px] uppercase tracking-widest opacity-40" data-key="grid_label1">Storyboard / Sequence</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 pt-4 pb-16 md:pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            <div class="md:col-span-4 flex flex-col justify-between">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl mb-2 text-ink" data-key="specs_title">Object & Process</h2>
+                    <div class="text-[11px] uppercase tracking-[0.2em] opacity-50" data-key="label_specs">Specifications</div>
+                </div>
+                <div class="pt-12 mt-auto opacity-40 hidden md:block">
+                    <p class="text-[12px] leading-relaxed max-w-xs italic" data-key="specs_note">The installation implies a variable scale depending on the exhibition space.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-start-6 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-20 gap-y-16">
+                
+                <div>
+                    <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_format">Format</span>
+                    <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m1">Walk-through room installation. All interior surfaces — floor, walls, ceiling — covered with double-layer paper units: grey top sheet concealing printed content sheet below.</p>
+                </div>
+
+                <div>
+                    <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_content">Content</span>
+                    <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m2">Chronological documentation of recent history, drawn from daily news reports and documentary sources. Text in English. Visual materials include color photography.</p>
+                </div>
+
+                <div>
+                    <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_interaction">Interaction</span>
+                    <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m3">Floor sheets degrade through visitor traffic. Wall sheets can be manually lifted, removed, retained or discarded by visitors. Ceiling sheets remain physically inaccessible. Progressive revelation of concealed content transforms the chromatic and atmospheric quality of the space over the duration of the performance.</p>
+                </div>
+
+                <div>
+                    <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_materials">Materials</span>
+                    <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m4">Grey paper, printed office paper, adhesive. Dimensions variable to venue.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="max-site-width axis-padding pr-8 py-16 md:py-24 flex justify-between items-center text-[10px] uppercase tracking-widest opacity-40">
+        <a href="/crime" class="hover:opacity-100 transition" data-key="nav_prev">← Crime or Punishment</a>
+        <a href="/puscha" class="hover:opacity-100 transition" data-key="nav_next">Puscha →</a>
+    </div>
+
+    <footer class="w-full bg-[#f4f4f3] border-t border-ink/10 pt-20 pb-24">
+        <div class="axis-padding">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-[11px] uppercase tracking-[0.2em]">
+                
+                <div class="md:col-span-4 space-y-6">
+                    <div class="space-y-2">
+                        <span class="block text-ink font-semibold">Torf (Daria Kamyshina)</span>
+                        <a href="mailto:dkamysina@gmail.com" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">dkamysina@gmail.com</a>
+                        <span class="block opacity-50">+995 598 142 635</span>
+                        <a href="#" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">@torf_art</a>
+                    </div>
+                    <div class="space-y-2 pt-4 opacity-50">
+                        <span class="block" data-key="f_loc1">Tbilisi, Georgia</span>
+                        <span class="block" data-key="f_loc2">Planning: Stuttgart, Germany</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <a href="/" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_main">Main</a>
+                </div>
+
+                <div class="md:col-span-3 space-y-4">
+                    <a href="/echo" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_echo">Echo</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/war" class="hover:text-ink transition">Not your war</a></li>
+                        <li><a href="/crime" class="hover:text-ink transition">Crime or Punishment</a></li>
+                        <li><a href="/mordor" class="hover:text-ink transition text-ink font-semibold opacity-100">Mordor</a></li>
+                        <li><a href="/puscha" class="hover:text-ink transition">Puscha</a></li>
+                        <li><a href="/death" class="hover:text-ink transition">It's just death</a></li>
+                        <li><a href="/darling" class="hover:text-ink transition">Darling</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <a href="/boundaries" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_bp">Boundaries of Perception</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/divide" class="hover:text-ink transition">The Divide</a></li>
+                        <li><a href="/ceiling" class="hover:text-ink transition">Glass ceiling</a></li>
+                        <li><a href="/digital" class="hover:text-ink transition">Digitalprint</a></li>
+                        <li><a href="/game" class="hover:text-ink transition">Survival Game</a></li>
+                        <li><a href="/heart" class="hover:text-ink transition">Form of existence</a></li>
+                        <li><a href="/garden" class="hover:text-ink transition">The Garden</a></li>
+                        <li><a href="/between" class="hover:text-ink transition">Between the end and infinity</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                header_tag: "Echo / 2026", hero_title: "Mordor", label_artobject: "Art object",
+                label_sketch: "Concept sketch / atmosphere",
+                desc_p1: "A landscape flattened into a myth of absolute evil. Seen from the outside, it is a territory defined only by aggression and obscurity.",
+                desc_p2: "A room, floor to ceiling, is covered with grey paper. The space appears grim, closed, withdrawn. Under each sheet: a day, a fact, a name, an event from recent history the country. As visitors lift the grey layers, the concealed content emerges: images, text, the full tonal range of documentary color. The room shifts from monochrome severity to the specific hues of lived experience: dawn light, natural landscape, the varied palette of ordinary life.",
+                desc_p3: "To enter, you walk on it. The floor sheets tear and crumple underfoot, some events are lost to passage to time. On the walls, you choose: lift a sheet or leave it. Read or don't. Take it with you or drop it. The ceiling remains out of reach.",
+                desc_p4: "The space itself transforms from a dark, withdrawn mass into a breathing environment of pastel tones. The rejection and unease felt by early visitors gradually shift through the traces of all who passed: crumpled sheets on the floor, exposed layers on the walls, scattered remnants of others' choices.",
+                grid_label1: "Storyboard / Sequence",
+                specs_title: "Object & Process", label_specs: "Specifications", specs_note: "The installation implies a variable scale depending on the exhibition space.",
+                
+                label_format: "Format",
+                specs_m1: "Walk-through room installation. All interior surfaces — floor, walls, ceiling — covered with double-layer paper units: grey top sheet concealing printed content sheet below.",
+                
+                label_content: "Content",
+                specs_m2: "Chronological documentation of recent history, drawn from daily news reports and documentary sources. Text in English. Visual materials include color photography.",
+                
+                label_interaction: "Interaction",
+                specs_m3: "Floor sheets degrade through visitor traffic. Wall sheets can be manually lifted, removed, retained or discarded by visitors. Ceiling sheets remain physically inaccessible. Progressive revelation of concealed content transforms the chromatic and atmospheric quality of the space over the duration of the performance.",
+                
+                label_materials: "Materials",
+                specs_m4: "Grey paper, printed office paper, adhesive. Dimensions variable to venue.",
+
+                nav_prev: "← Crime or Punishment", nav_next: "Puscha →",
+                f_loc1: "Tbilisi, Georgia", f_loc2: "Planning: Stuttgart, Germany",
+                
+                nav_main: "Main",
+                nav_echo: "Echo",
+                nav_bp: "BOUNDARIES OF PERCEPTION"
+            },
+            de: {
+                header_tag: "Echo / 2026", hero_title: "Mordor", label_artobject: "Kunstobjekt",
+                label_sketch: "Konzeptskizze / Atmosphäre",
+                // Немецкий текст пока повторяет английский (или старый плейсхолдер), так как перевода не было
+                desc_p1: "A landscape flattened into a myth of absolute evil. Seen from the outside, it is a territory defined only by aggression and obscurity.",
+                desc_p2: "Ein Raum, vom Boden bis zur Decke mit grauem Papier bedeckt. Der Raum wirkt düster, verschlossen, zurückgezogen...",
+                desc_p3: "Um einzutreten, muss man darauf gehen...",
+                desc_p4: "Der Raum selbst verwandelt sich...",
+                grid_label1: "Storyboard / Sequenz",
+                specs_title: "Objekt & Prozess", label_specs: "Spezifikationen", specs_note: "Die Installation impliziert einen variablen Maßstab je nach Ausstellungsraum.",
+                label_format: "Format",
+                specs_m1: "Begehbare Rauminstallation...",
+                label_content: "Inhalt",
+                specs_m2: "Chronologische Dokumentation...",
+                label_interaction: "Interaktion",
+                specs_m3: "Bodenblätter zersetzen sich durch den Besucherverkehr...",
+                label_materials: "Materialien",
+                specs_m4: "Graues Papier, bedrucktes Büropapier...",
+                nav_prev: "← Crime or Punishment",  nav_next: "Puscha →",
+                f_loc1: "Tiflis, Georgien", f_loc2: "Planung: Stuttgart, Deutschland",
+                nav_main: "Startseite",
+                nav_echo: "Echo",
+                nav_bp: "GRENZEN DER WAHRNEHMUNG"
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.innerText.toLowerCase() === lang;
+                btn.style.opacity = isActive ? "1" : "0.5";
+                btn.style.borderBottom = isActive ? "1px solid currentColor" : "1px solid transparent";
+            });
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    elem.innerHTML = translations[lang][key];
+                }
+            });
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>

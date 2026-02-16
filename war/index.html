@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not your war — Torf</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Fonts */
+        @font-face { font-family: 'Switzer-Light'; src: url('fonts/Switzer-Light.otf') format('opentype'); font-weight: 300; }
+        @font-face { font-family: 'Optima'; src: url('fonts/Optima.ttc') format('truetype'); }
+        @font-face { font-family: 'Ballonest'; src: url('fonts/Ballonest.ttf') format('truetype'); }
+
+        :root {
+            --font-main: 'Switzer-Light', sans-serif;
+            --font-display: 'Optima', serif;
+            --font-sign: 'Ballonest', cursive;
+            --left-axis: clamp(1.5rem, 6vw, 10rem); 
+            --color-paper: #fcfcfb;
+        }
+
+        .bg-paper {
+            background-color: var(--color-paper);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        .axis-padding { padding-left: var(--left-axis); padding-right: var(--left-axis); }
+        .max-site-width { max-width: 1440px; margin: 0 auto; }
+        body { font-family: var(--font-main); color: #1a1a1a; font-weight: 300; }
+        .font-display { font-family: var(--font-display); }
+        .font-sign { font-family: var(--font-sign); }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            color: #1a1a1a;
+            opacity: 0.5;
+        }
+        
+        .lang-btn.active {
+            opacity: 1;
+            border-bottom: 1px solid currentColor;
+        }
+
+        /* MASONRY LAYOUT */
+        .masonry-cols {
+            column-count: 1;
+            column-gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .masonry-cols {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-cols {
+                column-count: 3;
+            }
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .masonry-item img {
+            transition: opacity 0.3s ease;
+        }
+        .masonry-item:hover img {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body class="bg-paper antialiased text-ink">
+
+    <nav class="relative z-50 w-full pt-12 axis-padding grid grid-cols-3 items-center">
+        <div class="hidden md:block"></div>
+        <div class="flex items-center justify-center gap-6 md:gap-10 whitespace-nowrap">
+            <a href="/" class="font-sign text-7xl md:text-8xl leading-none hover:opacity-50 transition-opacity">Torf</a>
+            <div class="h-6 w-[1px] bg-ink/10 hidden md:block"></div>
+            <div class="text-[9px] uppercase tracking-[0.4em] opacity-40">Echo / 2026</div>
+        </div>
+        <div class="flex justify-end gap-4">
+            <button onclick="setLanguage('en')" id="btn-en" class="lang-btn active text-[10px] tracking-[0.2em] uppercase">EN</button>
+            <button onclick="setLanguage('de')" id="btn-de" class="lang-btn text-[10px] tracking-[0.2em] uppercase">DE</button>
+        </div>
+    </nav>
+
+    <header class="max-site-width axis-padding pr-8 mb-16 md:mb-20 mt-16 md:mt-24">
+        <h1 data-i18n="title" class="font-display text-[8vw] md:text-[7rem] leading-[0.8] uppercase tracking-tighter mb-6 -ml-1 md:-ml-2 whitespace-nowrap">
+            Not your war
+        </h1>
+        <div class="flex justify-between items-baseline border-t border-ink/10 pt-4">
+            <span class="font-sign text-3xl md:text-4xl opacity-60">kamysh #4</span>
+            <span data-i18n="subtitle_type" class="font-display text-sm md:text-lg opacity-40 uppercase tracking-widest">Performative Object</span>
+        </div>
+    </header>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="relative w-full flex justify-center">
+            <img src="war.png" alt="Methodology cycle" class="w-full md:w-[80%] h-auto object-contain mix-blend-multiply">
+            <div data-i18n="img_caption" class="hidden md:block absolute bottom-0 left-0 text-[9px] uppercase tracking-[0.2em] opacity-40">
+                Methodology / The cycle of maintenance
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 mb-32 md:mb-40">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div class="md:col-span-4">
+                <h2 data-i18n="main_heading" class="font-display text-4xl leading-tight mb-8">The labor of gathering what has scattered.</h2>
+                <div class="h-[1px] w-12 bg-black/20 mb-8"></div>
+                <p data-i18n="meta_info" class="text-[11px] uppercase tracking-[0.2em] opacity-40 leading-relaxed">
+                    Identity inside a catastrophe<br>
+                    Durational performance<br>
+                    2026
+                </p>
+            </div>
+
+            <div class="md:col-span-8 space-y-8 text-lg leading-relaxed opacity-80 text-justify">
+                <p data-i18n="p1">I trace what happens to identity inside a catastrophe that does not end. I was drawn to kintsugi as a method: the labor of gathering what has scattered, the impossibility of perfect fit, the visible evidence that something held together under pressure.</p>
+                
+                <p data-i18n="p2">The action proceeded in cycles. A porcelain vase with blue underglaze painting was broken and reassembled weekly. Each cycle demanded a week of work: locating fragments, negotiating spaces, maintaining the conditions for repair. The fear of the first breaks gradually dulled into familiarity. A strange recognition that this, too, was now part of the routine.</p>
+                
+                <p data-i18n="p3">Over time, the vase lost nearly a third of its original body. Shards flew with force into distant corners, under furniture, into unreachable places. The form remained, but only through continuous effort, through the accumulation of adhesive mass that distorted and expanded the original silhouette. The golden seams recorded the tension between the desire to keep the shape recognizable and the physical reality of irreversible change.</p>
+                
+                <p data-i18n="p4">The final reconstruction required breaking a second object: a small plate with the same blue rim where, in Russian folklore, dreams arrive effortlessly. I buried those dreams in the vase's body, using its fragments to fill the gaps where original pieces were missing. This was the recognition that maintaining any coherence now demanded sacrificing what had once seemed given.</p>
+                
+                <p data-i18n="p5">Others participated in the breaking and the mending. The action became a shared rhythm of maintenance, a collective holding-together that consumed time, labor, attention. It was the proof that certain forms of existence persist only through continuous, exhausting effort, and that survival looks less like triumph than like stubborn, altered continuity.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="flex items-baseline justify-between mb-12 border-b border-ink/10 pb-4">
+            <h3 data-i18n="doc_title" class="font-display text-2xl">Documentation</h3>
+            <span data-i18n="doc_subtitle" class="text-[10px] uppercase tracking-widest opacity-40">Process cycles</span>
+        </div>
+
+        <div class="masonry-cols">
+            <div class="masonry-item">
+                <img src="Frame-7.png" class="w-full h-auto block" alt="Digital Concept">
+                <p data-i18n="gallery_1" class="mt-2 text-[9px] uppercase tracking-widest opacity-40">Digital Concept</p>
+            </div>
+
+            <div class="masonry-item">
+                <img src="Frame-9.png" class="w-full h-auto block" alt="The Act">
+                <p data-i18n="gallery_2" class="mt-2 text-[9px] uppercase tracking-widest opacity-40">Breaking point</p>
+            </div>
+
+            <div class="masonry-item">
+                <img src="Frame-5.png" class="w-full h-auto block" alt="Final Result">
+                <p data-i18n="gallery_3" class="mt-2 text-[9px] uppercase tracking-widest opacity-40">Result</p>
+            </div>
+
+            <div class="masonry-item">
+                <img src="Frame-2.png" class="w-full h-auto block" alt="Shards">
+                <p data-i18n="gallery_4" class="mt-2 text-[9px] uppercase tracking-widest opacity-40">Inventory of loss</p>
+            </div>
+
+            <div class="masonry-item">
+                <img src="Frame-6.png" class="w-full h-auto block" alt="Repair">
+                <p data-i18n="gallery_5" class="mt-2 text-[9px] uppercase tracking-widest opacity-40">Collective repair</p>
+            </div>
+
+             <div class="masonry-item">
+                <img src="Frame-3.png" class="w-full h-auto block" alt="Hands">
+                <p data-i18n="gallery_6" class="mt-2 text-[9px] uppercase tracking-widest opacity-40">Holding together</p>
+            </div>
+
+            <div class="masonry-item">
+                <img src="Frame-4.png" class="w-full h-auto block" alt="Gold">
+                <p data-i18n="gallery_7" class="mt-2 text-[9px] uppercase tracking-widest opacity-40">Gold application</p>
+            </div>
+
+            <div class="masonry-item">
+                <img src="Frame-1.png" class="w-full h-auto block" alt="Searching">
+                <p data-i18n="gallery_8" class="mt-2 text-[9px] uppercase tracking-widest opacity-40">Searching</p>
+            </div>
+
+            <div class="masonry-item">
+                <img src="Frame-8.png" class="w-full h-auto block" alt="Floor">
+                <p data-i18n="gallery_9" class="mt-2 text-[9px] uppercase tracking-widest opacity-40">Shared rhythm</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 pt-4 pb-16 md:pb-24 border-t border-ink/10 mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 pt-12">
+            <div class="md:col-span-4 flex flex-col">              
+                    <h2 data-i18n="spec_title" class="font-display text-4xl md:text-5xl mb-2 text-ink">Object & Process</h2>
+                    <div data-i18n="spec_subtitle" class="text-[11px] uppercase tracking-[0.2em] opacity-50">Specifications</div>             
+                <div class="pt-12 mt-auto opacity-40 hidden md:block">
+                    <p class="text-[12px] leading-relaxed max-w-xs italic" data-key="specs_note"> The specific vessel may vary provided it maintains the blue-and-white ceramic aesthetic; crack patterns are unique to each iteration, with the density of accumulated gold seams serving as the primary visual marker of the object's history.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-start-6 md:col-span-7 space-y-12">
+                
+                <div>
+                    <span data-i18n="protocol_title" class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4">Process Protocol</span>
+                    <div class="text-[1.1rem] leading-relaxed text-ink opacity-90 space-y-6">
+                        <p data-i18n="protocol_p1">The work exists as a durational performative action repeated over an extended period. Its physical trace is a porcelain vessel with traditional blue-and-white underglaze painting, approximately 40 × 20 cm.</p>
+                        <p data-i18n="protocol_p2">Each cycle follows the same protocol. After breaking, fragments are collected. Some are inevitably lost, scattered beyond recovery. The remaining pieces are bonded using two-component epoxy resin mixed with metallic gold pigment. The reference to kintsugi here is functional rather than decorative: the visible seams record where the object has held together under pressure.</p>
+                        <p data-i18n="protocol_p3">With each iteration, perfect reconstruction becomes physically impossible. Adhesive mass builds up, distorting the original silhouette. Volume expands, symmetry drifts, the surface accumulates irregularities. The object drifts into a new configuration shaped by loss and the labor of maintenance.</p>
+                        <p data-i18n="protocol_p4">The process concluded when original material proved insufficient to maintain the vessel's form. A second object, a small plate with matching blue rim, was broken and incorporated. This final substitution marks the point where maintaining any coherence required sacrificing what had been taken for granted.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <span data-i18n="materials_title" class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4">Materials</span>
+                    <div class="text-[1.1rem] leading-relaxed text-ink opacity-90">
+                        <p data-i18n="materials_p1">Porcelain vessel with traditional blue-and-white underglaze painting, two-component epoxy resin, metallic gold pigment.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="max-site-width axis-padding pr-8 py-16 md:py-24 flex justify-end items-center text-[10px] uppercase tracking-widest opacity-40">
+        <a href="/crime" class="hover:opacity-100 transition">Crime or Punishment →</a>
+    </div>
+
+    <footer class="w-full bg-[#f4f4f3] border-t border-ink/10 pt-20 pb-24">
+        <div class="axis-padding">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-[11px] uppercase tracking-[0.2em]">
+                
+                <div class="md:col-span-4 space-y-6">
+                    <div class="space-y-2">
+                        <span class="block text-ink font-semibold">Torf (Daria Kamyshina)</span>
+                        <a href="mailto:dkamysina@gmail.com" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">dkamysina@gmail.com</a>
+                        <span class="block opacity-50">+995 598 142 635</span>
+                        <a href="#" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">@torf_art</a>
+                    </div>
+                    <div class="space-y-2 pt-4 opacity-50">
+                        <span class="block">Tbilisi, Georgia</span>
+                        <span class="block">Planning: Stuttgart, Germany</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <a href="/" class="block text-ink font-semibold hover:opacity-50 transition">Main</a>
+                </div>
+
+                <div class="md:col-span-3 space-y-4">
+                    <a href="/echo" class="block text-ink font-semibold hover:opacity-50 transition">Echo</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/war" class="hover:text-ink transition text-ink font-semibold opacity-100">Not your war</a></li>
+                        <li><a href="/crime" class="hover:text-ink transition">Crime or Punishment</a></li>
+                        <li><a href="/mordor" class="hover:text-ink transition">Mordor</a></li>
+                        <li><a href="/puscha" class="hover:text-ink transition">Puscha</a></li>
+                        <li><a href="/death" class="hover:text-ink transition">It's just death</a></li>
+                        <li><a href="/darling" class="hover:text-ink transition">Darling</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <a href="/boundaries" class="block text-ink font-semibold hover:opacity-50 transition">Boundaries of Perception</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/divide" class="hover:text-ink transition">The Divide</a></li>
+                        <li><a href="/ceiling" class="hover:text-ink transition">Glass ceiling</a></li>
+                        <li><a href="/digital" class="hover:text-ink transition">Digitalprint</a></li>
+                        <li><a href="/game" class="hover:text-ink transition">Survival Game</a></li>
+                        <li><a href="/heart" class="hover:text-ink transition">Form of existence</a></li>
+                        <li><a href="/garden" class="hover:text-ink transition">The Garden</a></li>
+                        <li><a href="/between" class="hover:text-ink transition">Between the end and infinity</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            'en': {
+                'title': 'Not your war',
+                'subtitle_type': 'Performative Object',
+                'img_caption': 'Methodology / The cycle of maintenance',
+                'main_heading': 'The labor of gathering what has scattered.',
+                'meta_info': 'Identity inside a catastrophe<br>Durational performance<br>2026',
+                'p1': 'I trace what happens to identity inside a catastrophe that does not end. I was drawn to kintsugi as a method: the labor of gathering what has scattered, the impossibility of perfect fit, the visible evidence that something held together under pressure.',
+                'p2': 'The action proceeded in cycles. A porcelain vase with blue underglaze painting was broken and reassembled weekly. Each cycle demanded a week of work: locating fragments, negotiating spaces, maintaining the conditions for repair. The fear of the first breaks gradually dulled into familiarity. A strange recognition that this, too, was now part of the routine.',
+                'p3': 'Over time, the vase lost nearly a third of its original body. Shards flew with force into distant corners, under furniture, into unreachable places. The form remained, but only through continuous effort, through the accumulation of adhesive mass that distorted and expanded the original silhouette. The golden seams recorded the tension between the desire to keep the shape recognizable and the physical reality of irreversible change.',
+                'p4': 'The final reconstruction required breaking a second object: a small plate with the same blue rim where, in Russian folklore, dreams arrive effortlessly. I buried those dreams in the vase\'s body, using its fragments to fill the gaps where original pieces were missing. This was the recognition that maintaining any coherence now demanded sacrificing what had once seemed given.',
+                'p5': 'Others participated in the breaking and the mending. The action became a shared rhythm of maintenance, a collective holding-together that consumed time, labor, attention. It was the proof that certain forms of existence persist only through continuous, exhausting effort, and that survival looks less like triumph than like stubborn, altered continuity.',
+                'doc_title': 'Documentation',
+                'doc_subtitle': 'Process cycles',
+                'gallery_1': 'Digital Concept',
+                'gallery_2': 'Breaking point',
+                'gallery_3': 'Result',
+                'gallery_4': 'Inventory of loss',
+                'gallery_5': 'Collective repair',
+                'gallery_6': 'Holding together',
+                'gallery_7': 'Gold application',
+                'gallery_8': 'Searching',
+                'gallery_9': 'Shared rhythm',
+                'spec_title': 'Object & Process',
+                'spec_subtitle': 'Specifications',
+                'specs_note': ' The specific vessel may vary provided it maintains the blue-and-white ceramic aesthetic; crack patterns are unique to each iteration, with the density of accumulated gold seams serving as the primary visual marker of the object\'s history.',
+                'protocol_title': 'Process Protocol',
+                'protocol_p1': 'The work exists as a durational performative action repeated over an extended period. Its physical trace is a porcelain vessel with traditional blue-and-white underglaze painting, approximately 40 × 20 cm.',
+                'protocol_p2': 'Each cycle follows the same protocol. After breaking, fragments are collected. Some are inevitably lost, scattered beyond recovery. The remaining pieces are bonded using two-component epoxy resin mixed with metallic gold pigment. The reference to kintsugi here is functional rather than decorative: the visible seams record where the object has held together under pressure.',
+                'protocol_p3': 'With each iteration, perfect reconstruction becomes physically impossible. Adhesive mass builds up, distorting the original silhouette. Volume expands, symmetry drifts, the surface accumulates irregularities. The object drifts into a new configuration shaped by loss and the labor of maintenance.',
+                'protocol_p4': 'The process concluded when original material proved insufficient to maintain the vessel\'s form. A second object, a small plate with matching blue rim, was broken and incorporated. This final substitution marks the point where maintaining any coherence required sacrificing what had been taken for granted.',
+                'materials_title': 'Materials',
+                'materials_p1': 'Porcelain vessel with traditional blue-and-white underglaze painting, two-component epoxy resin, metallic gold pigment.'
+            },
+            'de': {
+                'title': 'Nicht dein Krieg',
+                'subtitle_type': 'Performatives Objekt',
+                'img_caption': 'Methodik / Der Zyklus der Erhaltung',
+                'main_heading': 'Die Mühe, das Zerstreute zu sammeln.',
+                'meta_info': 'Identität in der Katastrophe<br>Dauerperformance<br>2026',
+                'p1': 'Ich verfolge, was mit der Identität innerhalb einer Katastrophe geschieht, die nicht endet. Kintsugi zog mich als Methode an: die Arbeit, das Zerstreute zu sammeln, die Unmöglichkeit der perfekten Passung, der sichtbare Beweis, dass etwas unter Druck zusammengehalten hat.',
+                'p2': 'Die Aktion verlief in Zyklen. Eine Porzellanvase mit blauer Unterglasurmalerei wurde wöchentlich zerbrochen und wieder zusammengesetzt. Jeder Zyklus erforderte eine Woche Arbeit: Fragmente lokalisieren, Räume aushandeln, die Bedingungen für die Reparatur aufrechterhalten. Die Angst vor den ersten Brüchen wich allmählich einer Vertrautheit. Eine seltsame Erkenntnis, dass auch dies nun Teil der Routine war.',
+                'p3': 'Im Laufe der Zeit verlor die Vase fast ein Drittel ihres ursprünglichen Körpers. Scherben flogen mit Wucht in entfernte Ecken, unter Möbel, an unerreichbare Orte. Die Form blieb erhalten, aber nur durch ständige Anstrengung, durch die Ansammlung von Klebemasse, die die ursprüngliche Silhouette verzerrte und erweiterte. Die goldenen Nähte dokumentierten die Spannung zwischen dem Wunsch, die Form erkennbar zu halten, und der physischen Realität irreversibler Veränderung.',
+                'p4': 'Die letzte Rekonstruktion erforderte das Zerbrechen eines zweiten Objekts: eines kleinen Tellers mit dem gleichen blauen Rand, wo – der russischen Folklore nach – Träume mühelos ankommen ("auf dem blauen Tellerrand"). Ich begrub diese Träume im Körper der Vase und füllte mit ihren Fragmenten die Lücken, wo ursprüngliche Teile fehlten. Dies war die Erkenntnis, dass die Aufrechterhaltung jeglicher Kohärenz nun das Opfer dessen verlangte, was einst als gegeben erschien.',
+                'p5': 'Andere beteiligten sich am Zerbrechen und am Reparieren. Die Aktion wurde zu einem gemeinsamen Rhythmus der Erhaltung, einem kollektiven Zusammenhalten, das Zeit, Arbeit und Aufmerksamkeit verzehrte. Es war der Beweis, dass bestimmte Existenzformen nur durch ständige, erschöpfende Anstrengung fortbestehen und dass Überleben weniger wie ein Triumph aussieht als wie eine sture, veränderte Kontinuität.',
+                'doc_title': 'Dokumentation',
+                'doc_subtitle': 'Prozesszyklen',
+                'gallery_1': 'Digitales Konzept',
+                'gallery_2': 'Bruchpunkt',
+                'gallery_3': 'Ergebnis',
+                'gallery_4': 'Inventar des Verlusts',
+                'gallery_5': 'Kollektive Reparatur',
+                'gallery_6': 'Zusammenhalten',
+                'gallery_7': 'Goldauftrag',
+                'gallery_8': 'Suchen',
+                'gallery_9': 'Gemeinsamer Rhythmus',
+                'spec_title': 'Objekt & Prozess',
+                'spec_subtitle': 'Spezifikationen',
+                'specs_note': ' Das konkrete Gefäß kann variieren, solange die blau-weiße Keramikästhetik erhalten bleibt; die Rissmuster sind für jede Ausführung einzigartig, wobei die Dichte der angesammelten Goldnähte als primäres visuelles Merkmal der Geschichte des Objekts dient.',
+                'protocol_title': 'Prozessprotokoll',
+                'protocol_p1': 'Die Arbeit existiert als eine über einen längeren Zeitraum wiederholte performative Handlung. Ihre physische Spur ist ein Porzellangefäß mit traditioneller blauer Unterglasurmalerei, ca. 40 × 20 cm.',
+                'protocol_p2': 'Jeder Zyklus folgt demselben Protokoll. Nach dem Zerbrechen werden Fragmente gesammelt. Einige gehen unweigerlich verloren, unwiederbringlich verstreut. Die verbleibenden Teile werden mit Zweikomponenten-Epoxidharz, gemischt mit metallischem Goldpigment, verbunden. Der Bezug zu Kintsugi ist hier eher funktional als dekorativ: Die sichtbaren Nähte dokumentieren, wo das Objekt unter Druck zusammengehalten hat.',
+                'protocol_p3': 'Mit jeder Iteration wird eine perfekte Rekonstruktion physikalisch unmöglicher. Klebemasse baut sich auf und verzerrt die ursprüngliche Silhouette. Das Volumen dehnt sich aus, die Symmetrie driftet ab, die Oberfläche akkumuliert Unregelmäßigkeiten. Das Objekt driftet in eine neue Konfiguration, geformt durch Verlust und die Arbeit der Instandhaltung.',
+                'protocol_p4': 'Der Prozess endete, als das ursprüngliche Material nicht mehr ausreichte, um die Form des Gefäßes zu erhalten. Ein zweites Objekt, ein kleiner Teller mit passendem blauen Rand, wurde zerbrochen und eingearbeitet. Diese letzte Substitution markiert den Punkt, an dem die Aufrechterhaltung jeglicher Kohärenz das Opfer dessen erforderte, was als selbstverständlich angesehen wurde.',
+                'materials_title': 'Materialien',
+                'materials_p1': 'Porzellangefäß mit traditioneller blauer Unterglasurmalerei, Zweikomponenten-Epoxidharz, metallisches Goldpigment.'
+            }
+        };
+
+        function setLanguage(lang) {
+            // Update Text
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update Buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`btn-${lang}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>

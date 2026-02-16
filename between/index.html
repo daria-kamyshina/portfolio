@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Between the end and infinity — Torf</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face { font-family: 'Switzer-Light'; src: url('fonts/Switzer-Light.otf') format('opentype'); font-weight: 300; }
+        @font-face { font-family: 'Optima'; src: url('fonts/Optima.ttc') format('truetype'); }
+        @font-face { font-family: 'Ballonest'; src: url('fonts/Ballonest.ttf') format('truetype'); }
+
+        :root {
+            --font-main: 'Switzer-Light', sans-serif;
+            --font-display: 'Optima', serif;
+            --font-sign: 'Ballonest', cursive;
+            --left-axis: clamp(1.5rem, 6vw, 10rem); 
+            --color-paper: #fcfcfb;
+        }
+
+        .bg-paper {
+            background-color: var(--color-paper);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        .axis-padding { padding-left: var(--left-axis); padding-right: var(--left-axis); }
+        .max-site-width { max-width: 1440px; margin: 0 auto; }
+        body { font-family: var(--font-main); color: #1a1a1a; font-weight: 300; }
+        .font-display { font-family: var(--font-display); }
+        .font-sign { font-family: var(--font-sign); }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body class="bg-paper antialiased text-ink">
+
+    <nav class="relative z-50 w-full pt-12 axis-padding grid grid-cols-3 items-center">
+        <div class="hidden md:block"></div>
+
+        <div class="flex items-center justify-center gap-6 md:gap-10 whitespace-nowrap">
+            <a href="/" class="font-sign text-7xl md:text-8xl leading-none hover:opacity-50 transition-opacity">Torf</a>
+            <div class="h-6 w-[1px] bg-ink/10 hidden md:block"></div>
+            <div class="text-[9px] uppercase tracking-[0.4em] opacity-40" data-key="header_tag">Boundaries of perception / 2026</div>
+        </div>
+
+        <div class="flex justify-end gap-4">
+            <button class="lang-btn active text-[10px] tracking-[0.2em] uppercase" style="opacity: 1; border-bottom: 1px solid currentColor;" onclick="setLang('en')">EN</button>
+            <button class="lang-btn text-[10px] tracking-[0.2em] uppercase" style="opacity: 0.5;" onclick="setLang('de')">DE</button>
+        </div>
+    </nav>
+
+    <header class="max-site-width axis-padding pr-8 mb-16 md:mb-20 mt-16 md:mt-24">
+        <h1 class="font-display text-[12vw] md:text-[8.5rem] leading-[0.8] uppercase tracking-tighter mb-6 -ml-1 md:-ml-2" data-key="hero_title">
+            Between the end<br>and infinity
+        </h1>
+        <div class="flex justify-between items-baseline border-t border-ink/10 pt-4">
+            <span class="font-sign text-3xl md:text-4xl opacity-60">kamysh #0</span>
+            <span class="font-display text-sm md:text-lg opacity-40 uppercase tracking-widest" data-key="label_artobject">Art object</span>
+        </div>
+    </header>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        
+        <div class="mb-16 md:mb-24">
+            <img src="between.png" alt="Concept sketch" class="w-full h-auto mix-blend-multiply mb-3">
+            <p class="text-[9px] uppercase tracking-[0.2em] opacity-40" data-key="label_sketch">Concept sketch / hand drawing</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-start">
+            
+            <div class="md:col-span-5">
+                 <div class="bg-black overflow-hidden mb-2 relative">
+                    <img src="between-1.png" class="w-full h-auto object-contain opacity-90">
+                 </div>
+                 <p class="text-[9px] uppercase tracking-widest opacity-40" data-key="grid_label1">Infinity Mirror / Portal effect</p>
+            </div>
+    
+            <div class="md:col-span-7 space-y-10 text-lg leading-relaxed opacity-80 pt-2">
+                <p data-key="desc_p1">My 8-year-old brother, obsessed with physics encyclopedias, tried to explain to me that the universe is infinite. My five-year-old mind collapsed: I couldn't imagine infinity, but I couldn't imagine an end either because something must exist beyond the wall.</p>
+                <p data-key="desc_p2">Tormented by this logical trap all day, I invented a solution to stop the anxiety: I decided that Pink Elephants live in the gap between the End and Infinity.</p>
+                <p data-key="desc_p3">This installation is a portal back to that solution. Using an infinity mirror tunnel, I materialized that protective fantasy. It explores how we use absurdity and imagination to reconcile with the terrifying concepts that pure logic cannot resolve.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 pt-4 pb-16 md:pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            <div class="md:col-span-4 flex flex-col justify-between">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl mb-2 text-ink" data-key="specs_title">Object & Process</h2>
+                    <div class="text-[11px] uppercase tracking-[0.2em] opacity-50" data-key="label_specs">Specifications</div>
+                </div>
+                <div class="pt-12 mt-auto opacity-40 hidden md:block">
+                    <p class="text-[12px] leading-relaxed max-w-xs italic" data-key="specs_note">The author reserves the right to vary the number of units and specific pose/drawing of the Pink Elephant, provided the "naive pink character in infinite tunnel" conceptual combination remains central.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-start-6 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
+                <div class="space-y-12">
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_materiality">Structure & Materiality</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m1">Infinity mirror, LED, acrylic markers. Multiple wall-mounted units, each ~50×50×10 cm. Rigid black housing, front semi-transparent mirror, rear fully reflective mirror.</p>
+                    </div>
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_lighting">Lighting</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m2">UV/LED spectrum energizes fluorescent pigment. The Pink Elephant appears self-luminous, multiplied by mirrors against deep black void.</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_content">Content</span>
+                    <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m3">Hand-drawn Pink Elephant, naive sketch aesthetic, applied directly onto glass with acrylic markers/paint. Each unit unique. The drawing interacts with reflections, endlessly replicating the elephant into the depth of the tunnel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-site-width axis-padding pr-8 py-16 md:py-24 flex justify-between items-center text-[10px] uppercase tracking-widest opacity-40">
+        <a href="/garden" class="hover:opacity-100 transition" data-key="nav_prev">← The Garden</a>
+    </div>
+
+    <footer class="w-full bg-[#f4f4f3] border-t border-ink/10 pt-20 pb-24">
+        <div class="axis-padding">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-[11px] uppercase tracking-[0.2em]">
+                
+                <div class="md:col-span-4 space-y-6">
+                    <div class="space-y-2">
+                        <span class="block text-ink font-semibold">Torf (Daria Kamyshina)</span>
+                        <a href="mailto:dkamysina@gmail.com" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">dkamysina@gmail.com</a>
+                        <span class="block opacity-50">+995 598 142 635</span>
+                        <a href="/" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">@torf_art</a>
+                    </div>
+                    <div class="space-y-2 pt-4 opacity-50">
+                        <span class="block" data-key="f_loc1">Tbilisi, Georgia</span>
+                        <span class="block" data-key="f_loc2">Planning: Stuttgart, Germany</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <a href="/" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_main">Main</a>
+                </div>
+
+                <div class="md:col-span-3 space-y-4">
+                    <a href="/echo" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_echo">Echo</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/war" class="hover:text-ink transition">Not your war</a></li>
+                        <li><a href="/crime" class="hover:text-ink transition">Crime or Punishment</a></li>
+                        <li><a href="/mordor" class="hover:text-ink transition">Mordor</a></li>
+                        <li><a href="/puscha" class="hover:text-ink transition">Puscha</a></li>
+                        <li><a href="/death" class="hover:text-ink transition">It's just death</a></li>
+                        <li><a href="/darling" class="hover:text-ink transition">Darling</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <a href="/boundaries" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_bp">Boundaries of Perception</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/divide" class="hover:text-ink transition">The Divide</a></li>
+                        <li><a href="/ceiling" class="hover:text-ink transition">Glass ceiling</a></li>
+                        <li><a href="/digital" class="hover:text-ink transition">Digitalprint</a></li>
+                        <li><a href="/game" class="hover:text-ink transition">Survival Game</a></li>
+                        <li><a href="/heart" class="hover:text-ink transition">Form of existence</a></li>
+                        <li><a href="/garden" class="hover:text-ink transition">The Garden</a></li>
+                        <li><a href="/between" class="hover:text-ink transition text-ink font-semibold opacity-100">Between the end and infinity</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                header_tag: "Boundaries of perception / 2026", 
+                hero_title: "Between the end<br>and infinity", 
+                label_artobject: "Art object",
+                label_sketch: "Concept sketch / hand drawing",
+                desc_p1: "My 8-year-old brother, obsessed with physics encyclopedias, tried to explain to me that the universe is infinite. My five-year-old mind collapsed: I couldn't imagine infinity, but I couldn't imagine an end either because something must exist beyond the wall.",
+                desc_p2: "Tormented by this logical trap all day, I invented a solution to stop the anxiety: I decided that Pink Elephants live in the gap between the End and Infinity.",
+                desc_p3: "This installation is a portal back to that solution. Using an infinity mirror tunnel, I materialized that protective fantasy. It explores how we use absurdity and imagination to reconcile with the terrifying concepts that pure logic cannot resolve.",
+                grid_label1: "Infinity Mirror / Portal effect",
+                specs_title: "Object & Process", 
+                label_specs: "Specifications", 
+                specs_note: "The author reserves the right to vary the number of units and specific pose/drawing of the Pink Elephant, provided the \"naive pink character in infinite tunnel\" conceptual combination remains central.",
+                label_materiality: "Structure & Materiality", 
+                specs_m1: "Infinity mirror, LED, acrylic markers. Multiple wall-mounted units, each ~50×50×10 cm. Rigid black housing, front semi-transparent mirror, rear fully reflective mirror.",
+                label_lighting: "Lighting", 
+                specs_m2: "UV/LED spectrum energizes fluorescent pigment. The Pink Elephant appears self-luminous, multiplied by mirrors against deep black void.",
+                label_content: "Content", 
+                specs_m3: "Hand-drawn Pink Elephant, naive sketch aesthetic, applied directly onto glass with acrylic markers/paint. Each unit unique. The drawing interacts with reflections, endlessly replicating the elephant into the depth of the tunnel.",
+                nav_prev: "← Digitalprint", 
+                nav_next: "Survival Game →",
+                f_loc1: "Tbilisi, Georgia", 
+                f_loc2: "Planning: Stuttgart, Germany",
+                
+                // Footer Navigation
+                nav_main: "Main",
+                nav_echo: "Echo",
+                nav_bp: "BOUNDARIES OF PERCEPTION"
+            },
+            de: {
+                header_tag: "Grenzen der Wahrnehmung / 2026", 
+                hero_title: "Zwischen Ende<br>und Unendlichkeit", 
+                label_artobject: "Kunstobjekt",
+                label_sketch: "Konzeptskizze / Handzeichnung",
+                desc_p1: "Mein 8-jähriger Bruder, besessen von Physik-Enzyklopädien, versuchte mir zu erklären, dass das Universum unendlich ist. Mein fünfjähriger Verstand brach zusammen: Ich konnte mir die Unendlichkeit nicht vorstellen, aber auch kein Ende, denn irgendetwas muss jenseits der Mauer existieren.",
+                desc_p2: "Den ganzen Tag von dieser logischen Falle gequält, erfand ich eine Lösung, um die Angst zu stoppen: Ich beschloss, dass Rosa Elefanten in der Lücke zwischen dem Ende und der Unendlichkeit leben.",
+                desc_p3: "Diese Installation ist ein Portal zurück zu dieser Lösung. Mit einem Unendlichkeitsspiegeltunnel habe ich diese schützende Fantasie materialisiert. Sie untersucht, wie wir Absurdität und Fantasie nutzen, um uns mit den erschreckenden Konzepten zu versöhnen, die die reine Logik nicht auflösen kann.",
+                grid_label1: "Unendlichkeitsspiegel / Portal-Effekt",
+                specs_title: "Objekt & Prozess", 
+                label_specs: "Spezifikationen", 
+                specs_note: "Der Autor behält sich das Recht vor, die Anzahl der Einheiten und die spezifische Pose/Zeichnung des Rosa Elefanten zu variieren, solange die konzeptionelle Kombination „naiver rosa Charakter im unendlichen Tunnel“ zentral bleibt.",
+                label_materiality: "Struktur & Materialität", 
+                specs_m1: "Unendlichkeitsspiegel, LED, Acrylmarker. Mehrere wandmontierte Einheiten, je ca. 50×50×10 cm. Starres schwarzes Gehäuse, vorderer halbdurchlässiger Spiegel, hinterer vollreflektierender Spiegel.",
+                label_lighting: "Beleuchtung", 
+                specs_m2: "UV/LED-Spektrum energetisiert fluoreszierende Pigmente. Der Rosa Elefant erscheint selbstleuchtend, vervielfacht durch Spiegel gegen eine tiefe schwarze Leere.",
+                label_content: "Inhalt", 
+                specs_m3: "Handgezeichneter Rosa Elefant, naive Skizzenästhetik, direkt mit Acrylmarkern/Farbe auf Glas aufgetragen. Jede Einheit ein Unikat. Die Zeichnung interagiert mit Reflexionen und repliziert den Elefanten endlos in die Tiefe des Tunnels.",
+                nav_prev: "← Digitalprint",  
+                nav_next: "Survival Game →",
+                f_loc1: "Tiflis, Georgien", 
+                f_loc2: "Planung: Stuttgart, Deutschland",
+                
+                // Footer Navigation
+                nav_main: "Startseite",
+                nav_echo: "Echo",
+                nav_bp: "GRENZEN DER WAHRNEHMUNG"
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.innerText.toLowerCase() === lang;
+                btn.style.opacity = isActive ? "1" : "0.5";
+                btn.style.borderBottom = isActive ? "1px solid currentColor" : "1px solid transparent";
+            });
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) elem.innerHTML = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>

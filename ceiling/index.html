@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass ceiling — Torf</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face { font-family: 'Switzer-Light'; src: url('fonts/Switzer-Light.otf') format('opentype'); font-weight: 300; }
+        @font-face { font-family: 'Optima'; src: url('fonts/Optima.ttc') format('truetype'); }
+        @font-face { font-family: 'Ballonest'; src: url('fonts/Ballonest.ttf') format('truetype'); }
+
+        :root {
+            --font-main: 'Switzer-Light', sans-serif;
+            --font-display: 'Optima', serif;
+            --font-sign: 'Ballonest', cursive;
+            --left-axis: clamp(1.5rem, 6vw, 10rem); 
+            --color-paper: #fcfcfb;
+        }
+
+        .bg-paper {
+            background-color: var(--color-paper);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        .axis-padding { padding-left: var(--left-axis); padding-right: var(--left-axis); }
+        .max-site-width { max-width: 1440px; margin: 0 auto; }
+        body { font-family: var(--font-main); color: #1a1a1a; font-weight: 300; }
+        .font-display { font-family: var(--font-display); }
+        .font-sign { font-family: var(--font-sign); }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body class="bg-paper antialiased text-ink">
+
+    <nav class="relative z-50 w-full pt-12 axis-padding grid grid-cols-3 items-center">
+        <div class="hidden md:block"></div>
+
+        <div class="flex items-center justify-center gap-6 md:gap-10 whitespace-nowrap">
+            <a href="/" class="font-sign text-7xl md:text-8xl leading-none hover:opacity-50 transition-opacity">Torf</a>
+            <div class="h-6 w-[1px] bg-ink/10 hidden md:block"></div>
+            <div class="text-[9px] uppercase tracking-[0.4em] opacity-40" data-key="header_tag">Boundaries of perception / 2026</div>
+        </div>
+
+        <div class="flex justify-end gap-4">
+            <button class="lang-btn active text-[10px] tracking-[0.2em] uppercase" style="opacity: 1; border-bottom: 1px solid currentColor;" onclick="setLang('en')">EN</button>
+            <button class="lang-btn text-[10px] tracking-[0.2em] uppercase" style="opacity: 0.5;" onclick="setLang('de')">DE</button>
+        </div>
+    </nav>
+
+    <header class="max-site-width axis-padding pr-8 mb-16 md:mb-20 mt-16 md:mt-24">
+        <h1 class="font-display text-[12vw] md:text-[9.5rem] leading-[0.8] uppercase tracking-tighter mb-6 -ml-1 md:-ml-2" data-key="hero_title">
+            Glass ceiling
+        </h1>
+        <div class="flex justify-between items-baseline border-t border-ink/10 pt-4">
+            <span class="font-sign text-3xl md:text-4xl opacity-60">kamysh #6</span>
+            <span class="font-display text-sm md:text-lg opacity-40 uppercase tracking-widest" data-key="label_artobject">Art object</span>
+        </div>
+    </header>
+
+    <section class="max-site-width axis-padding pr-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+            <div class="md:col-span-8 relative">
+                <div class="md:sticky md:top-24">
+                    <img src="ceiling.PNG" alt="Concept sketch" class="w-full h-auto mix-blend-multiply mb-3">
+                    <p class="text-[9px] uppercase tracking-[0.2em] opacity-40" data-key="label_sketch">Concept sketch / digital drawing</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 space-y-10 text-lg leading-relaxed opacity-80 pt-2">
+                <p data-key="desc_p1">A transparent plane bisects the room at 180–185 cm. The surface is punctured by irregular openings. These are the breakthroughs, the success stories cited as proof that the ceiling no longer exists. Yet the structure remains intact. The edges of each opening are jagged, sharp, encrusted with red crystals that catch the light. They glitter like achievement. They look like blood.</p>
+                <p data-key="desc_p2">For most adults, passage requires stooping, bending, a posture of submission that registers in the body before it reaches language. Through the openings, one can straighten, but the space itself offers no relief. The wound is glamorized.</p>
+                <p data-key="desc_p3">The work addresses inequality sustained by survivorship bias: individual ascents held up as evidence of open access.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-site-width axis-padding pr-8 pt-4 pb-16 md:pb-24 border-t border-ink/10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mt-12">
+            <div class="md:col-span-4 flex flex-col justify-between">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl mb-2 text-ink" data-key="specs_title">Object & Process</h2>
+                    <div class="text-[11px] uppercase tracking-[0.2em] opacity-50" data-key="label_specs">Specifications</div>
+                </div>
+                <div class="pt-12 mt-auto opacity-40 hidden md:block">
+                    <p class="text-[12px] leading-relaxed max-w-xs italic" data-key="specs_note">Alternative transparent materials or red crystalline media are permitted provided the visual effect of bleeding wounds and the interactive concept of restrictive height versus passage remain intact.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-start-6 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
+                <div class="space-y-12">
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_materiality">Materiality</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m1">Tempered glass, red crystal beads, steel suspension system. Height: 180–185 cm. Variable room dimensions.</p>
+                    </div>
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_installation">Installation</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m4">The total area of glass coverage and placement of openings may be adapted to venue architecture.</p>
+                    </div>
+                </div>
+                <div class="space-y-12">
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_structure">Structure</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m2">Horizontal transparent plane suspended across the exhibition space. The height is fixed and protected; it enforces physical restriction as a core component of the work.</p>
+                    </div>
+                    <div>
+                        <span class="block text-[11px] uppercase tracking-widest text-ink/30 mb-4" data-key="label_breaches">Breaches</span>
+                        <p class="text-[1.1rem] leading-relaxed text-ink opacity-90" data-key="specs_m3">Large irregular openings in the glass, minimum diameter approximately 50 cm. The perimeters are non-geometric, sharp, densely encrusted with red crystals. Vertical threads suspend additional crystals, extending the form downward.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-site-width axis-padding pr-8 py-16 md:py-24 flex justify-between items-center text-[10px] uppercase tracking-widest opacity-40">
+        <a href="/divide" class="hover:opacity-100 transition" data-key="nav_prev">← The Divide</a>
+        <a href="/digital" class="hover:opacity-100 transition" data-key="nav_next">Digitalprint →</a>
+    </div>
+
+    <footer class="w-full bg-[#f4f4f3] border-t border-ink/10 pt-20 pb-24">
+        <div class="axis-padding">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-[11px] uppercase tracking-[0.2em]">
+                
+                <div class="md:col-span-4 space-y-6">
+                    <div class="space-y-2">
+                        <span class="block text-ink font-semibold">Torf (Daria Kamyshina)</span>
+                        <a href="mailto:dkamysina@gmail.com" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">dkamysina@gmail.com</a>
+                        <span class="block opacity-50">+995 598 142 635</span>
+                        <a href="#" class="block opacity-50 hover:opacity-100 transition normal-case tracking-normal">@torf_art</a>
+                    </div>
+                    <div class="space-y-2 pt-4 opacity-50">
+                        <span class="block" data-key="f_loc1">Tbilisi, Georgia</span>
+                        <span class="block" data-key="f_loc2">Planning: Stuttgart, Germany</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <a href="/" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_main">Main</a>
+                </div>
+
+                <div class="md:col-span-3 space-y-4">
+                    <a href="/echo" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_echo">Echo</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/war" class="hover:text-ink transition">Not your war</a></li>
+                        <li><a href="/crime" class="hover:text-ink transition">Crime or Punishment</a></li>
+                        <li><a href="/mordor" class="hover:text-ink transition">Mordor</a></li>
+                        <li><a href="/puscha" class="hover:text-ink transition">Puscha</a></li>
+                        <li><a href="/death" class="hover:text-ink transition">It's just death</a></li>
+                        <li><a href="/darling" class="hover:text-ink transition">Darling</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <a href="/boundaries" class="block text-ink font-semibold hover:opacity-50 transition" data-key="nav_bp">Boundaries of Perception</a>
+                    <ul class="space-y-2 opacity-40 lowercase tracking-normal text-xs">
+                        <li><a href="/divide" class="hover:text-ink transition">The Divide</a></li>
+                        <li><a href="/ceiling" class="hover:text-ink transition text-ink font-semibold opacity-100">Glass ceiling</a></li>
+                        <li><a href="/digital" class="hover:text-ink transition">Digitalprint</a></li>
+                        <li><a href="/game" class="hover:text-ink transition">Survival Game</a></li>
+                        <li><a href="/heart" class="hover:text-ink transition">Form of existence</a></li>
+                        <li><a href="/garden" class="hover:text-ink transition">The Garden</a></li>
+                        <li><a href="/between" class="hover:text-ink transition">Between the end and infinity</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                header_tag: "Boundaries of perception / 2026", hero_title: "Glass ceiling", label_artobject: "Art object",
+                label_sketch: "Concept sketch / digital drawing",
+                desc_p1: "A transparent plane bisects the room at 180–185 cm. The surface is punctured by irregular openings. These are the breakthroughs, the success stories cited as proof that the ceiling no longer exists. Yet the structure remains intact. The edges of each opening are jagged, sharp, encrusted with red crystals that catch the light. They glitter like achievement. They look like blood.",
+                desc_p2: "For most adults, passage requires stooping, bending, a posture of submission that registers in the body before it reaches language. Through the openings, one can straighten, but the space itself offers no relief. The wound is glamorized.",
+                desc_p3: "The work addresses inequality sustained by survivorship bias: individual ascents held up as evidence of open access.",
+                
+                specs_title: "Object & Process", label_specs: "Specifications", 
+                specs_note: "Alternative transparent materials or red crystalline media are permitted provided the visual effect of bleeding wounds and the interactive concept of restrictive height versus passage remain intact.",
+                
+                label_materiality: "Materiality", 
+                specs_m1: "Tempered glass, red crystal beads, steel suspension system. Height: 180–185 cm. Variable room dimensions.",
+                
+                label_structure: "Structure", 
+                specs_m2: "Horizontal transparent plane suspended across the exhibition space. The height is fixed and protected; it enforces physical restriction as a core component of the work.",
+                
+                label_breaches: "Breaches", 
+                specs_m3: "Large irregular openings in the glass, minimum diameter approximately 50 cm. The perimeters are non-geometric, sharp, densely encrusted with red crystals. Vertical threads suspend additional crystals, extending the form downward.",
+
+                label_installation: "Installation",
+                specs_m4: "The total area of glass coverage and placement of openings may be adapted to venue architecture.",
+                
+                nav_prev: "← The Divide", nav_next: "Digitalprint →",
+                f_loc1: "Tbilisi, Georgia", f_loc2: "Planning: Stuttgart, Germany",
+                
+                // Footer Navigation
+                nav_main: "Main",
+                nav_echo: "Echo",
+                nav_bp: "BOUNDARIES OF PERCEPTION"
+            },
+            de: {
+                header_tag: "Grenzen der Wahrnehmung / 2026", hero_title: "Gläserne Decke", label_artobject: "Kunstobjekt",
+                label_sketch: "Konzeptskizze / digitale Zeichnung",
+                desc_p1: "Eine transparente Ebene teilt den Raum in 180–185 cm Höhe. Die Oberfläche ist durch unregelmäßige Öffnungen durchbrochen. Das sind die Durchbrüche, die Erfolgsgeschichten, die als Beweis dafür angeführt werden, dass die Decke nicht mehr existiert. Doch die Struktur bleibt intakt. Die Ränder jeder Öffnung sind gezackt, scharf und mit roten Kristallen verkrustet, die das Licht einfangen. Sie glitzern wie Errungenschaften. Sie sehen aus wie Blut.",
+                desc_p2: "Für die meisten Erwachsenen erfordert der Durchgang Bücken, Beugen, eine Haltung der Unterwerfung, die sich im Körper registriert, bevor sie die Sprache erreicht. Durch die Öffnungen kann man sich aufrichten, aber der Raum selbst bietet keine Erleichterung. Die Wunde wird glamourisiert.",
+                desc_p3: "Das Werk thematisiert Ungleichheit, die durch den Überlebensirrtum (Survivorship Bias) aufrechterhalten wird: Individuelle Aufstiege werden als Beweis für offenen Zugang hochgehalten.",
+                
+                specs_title: "Objekt & Prozess", label_specs: "Spezifikationen", 
+                specs_note: "Alternative transparente Materialien oder rote kristalline Medien sind zulässig, sofern der visuelle Effekt blutender Wunden und das interaktive Konzept der restriktiven Höhe gegenüber dem Durchgang intakt bleiben.",
+                
+                label_materiality: "Materialität", 
+                specs_m1: "Gehärtetes Glas, rote Kristallperlen, Stahlaufhängungssystem. Höhe: 180–185 cm. Variable Raummaße.",
+                
+                label_structure: "Struktur", 
+                specs_m2: "Horizontale transparente Ebene, die quer durch den Ausstellungsraum aufgehängt ist. Die Höhe ist fixiert und geschützt; sie erzwingt körperliche Einschränkung als Kernkomponente des Werkes.",
+                
+                label_breaches: "Durchbrüche", 
+                specs_m3: "Große unregelmäßige Öffnungen im Glas, Mindestdurchmesser ca. 50 cm. Die Ränder sind nicht geometrisch, scharfkantig und dicht mit roten Kristallen verkrustet. Vertikale Fäden halten zusätzliche Kristalle und verlängern die Form nach unten.",
+
+                label_installation: "Installation",
+                specs_m4: "Die Gesamtfläche der Glasabdeckung und die Platzierung der Öffnungen können an die Architektur des Veranstaltungsortes angepasst werden.",
+                
+                nav_prev: "← The Divide",  nav_next: "Digitalprint →",
+                f_loc1: "Tiflis, Georgien", f_loc2: "Planung: Stuttgart, Deutschland",
+                
+                // Footer Navigation
+                nav_main: "Startseite",
+                nav_echo: "Echo",
+                nav_bp: "GRENZEN DER WAHRNEHMUNG"
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.innerText.toLowerCase() === lang;
+                btn.style.opacity = isActive ? "1" : "0.5";
+                btn.style.borderBottom = isActive ? "1px solid currentColor" : "1px solid transparent";
+            });
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) elem.innerHTML = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>
