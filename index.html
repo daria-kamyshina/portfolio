@@ -164,8 +164,18 @@
         .link-boundaries .arrow-line { width: 60px; margin-top: 15px; margin-left: 2px; }
         .link-boundaries:hover .arrow-line { width: 120px; }
 
-        .works-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 3rem; row-gap: 1.5rem; margin-top: 3rem; }
-        .work-item { font-family: var(--font-title); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666; cursor: pointer; transition: 0.3s; }
+.works-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 3rem; row-gap: 1.5rem; margin-top: 3rem; }
+.work-item {
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none; /* Убирает подчеркивание у ссылок */
+    display: block; /* Делает всю область ссылки блочной */
+}
         .work-item:hover { color: #fff; }
         .desc-text { font-size: 1.05rem; line-height: 1.6; color: #888; margin-bottom: 1.2rem; font-weight: 300; max-width: 600px; }
 
@@ -317,12 +327,12 @@
                 global tragedy, acting as a language when words are powerless. These pieces document the external
                 collapse of logic and humanity, serving as tangible evidence of a world that has lost its structure.</p>
             <div class="works-grid">
-                <div class="work-item">Not your war</div>
-                <div class="work-item">Crime or Punishment</div>
-                <div class="work-item">Mordor</div>
-                <div class="work-item">Puscha</div>
-                <div class="work-item">It's just death</div>
-                <div class="work-item">Darling</div>
+                <a href="war" class="work-item">Not your war</a>
+                <a href="crime" class="work-item">Crime or Punishment</a>
+                <a href="mordor" class="work-item">Mordor</a>
+                <a href="puscha" class="work-item">Puscha</a>
+                <a href="death" class="work-item">It's just death</a>
+                <a href="darling" class="work-item">Darling</a>
             </div>
         </div>
     </section>
@@ -347,13 +357,13 @@
                     reality. These works invite the viewer into a space where the boundary between the external world
                     and the internal self dissolves.</p>
                 <div class="works-grid">
-                    <div class="work-item">The Divide</div>
-                    <div class="work-item">Glass ceiling</div>
-                    <div class="work-item">Digitalprint</div>
-                    <div class="work-item">Survival Game</div>
-                    <div class="work-item">Form of existence</div>
-                    <div class="work-item">The Garden</div>
-                    <div class="work-item">Between the end and infinity</div>
+                    <a href="divide" class="work-item">The Divide</a>
+                    <a href="ceiling" class="work-item">Glass ceiling</a>
+                    <a href="digital" class="work-item">Digitalprint</a>
+                    <a href="game" class="work-item">Survival Game</a>
+                    <a href="heart" class="work-item">Form of existence</a>
+                    <a href="garden" class="work-item">The Garden</a>
+                    <a href="between" class="work-item">Between the end and infinity</a>
                 </div>
             </div>
         </div>
